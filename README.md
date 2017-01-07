@@ -1,12 +1,36 @@
 # zakk-admin
 
-Website and admin interface for zakk (Cultural centre in Bremen, GER)
+Website and admin interface for zakk (a cultural center in Bremen, GER)
 
-Based on Ruby on Rails 5, jQuery and Foundation 5
+Based on Ruby on Rails 5, Postgres, jQuery and Foundation 5
 
-## Credit
+## Dependencies
+
+Rails 5 & Ruby 2.3
+
+## Installation
+
+...
+
+Database Setup
+
+...
+
+Tests
+
+
+## Run
+
+`$ bundle exec bin/rails s`
+
+
+## Credits
 
 Designed and developed by Ulf Treger, <ulf.treger@googlemail.com>
+
+## Contributions
+
+Please file bugs to our Github Repository at https://github.com/ut/zakk-admin
 
 ## Licence
 

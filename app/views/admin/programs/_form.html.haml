@@ -1,0 +1,47 @@
+.row
+  .large-12.columns
+    = simple_form_for([:admin,@program]) do |f|
+      = f.error_notification
+
+      .row.form-inputs
+        .large-4.columns
+          = f.input :title
+          = f.input :description
+          .row
+            .large-6.columns
+              = f.input :current
+            .large-6.columns
+              = f.input :published
+          %p
+            &nbsp;
+          = f.input :image, as: :file
+          - if @program.image.present?
+            = image_tag @program.image.medium_thumb.url
+            %br
+            = f.check_box :remove_image
+            Bild löschen
+
+        .large-4.columns
+          = f.input :backgroundcolor
+          = f.input :textcolor1
+          = f.input :textcolor2
+
+          = f.input :backgroundimage, as: :file
+          - if @program.backgroundimage.present?
+            = image_tag @program.backgroundimage.medium_thumb.url
+            %br
+            = f.check_box :remove_backgroundimage
+            Bild löschen
+        .large-4.columns#preview
+          %h3 Preview:
+          .panel
+            %h1
+              %strong zakk
+              klubraum
+          .panel
+            %p 06.01.2017, 22:00
+            %h3 Ungesundes Mittelmaß
+            %p punks'n'pandas, queers'n'beers, nerds'n'birds.
+
+      .form-actions
+        = f.button :submit, {:class=>"button large"}

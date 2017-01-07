@@ -1,0 +1,17 @@
+defaults: &defaults
+  app_name:          zakk klubraum
+  app_fullname:      zakk.klubraum.org
+  app_version:       0.1
+  pdf_log_level:     <%= "#{Logger::DEBUG}" %>
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+staging:
+  <<: *defaults
+
+production:
+  <<: *defaults

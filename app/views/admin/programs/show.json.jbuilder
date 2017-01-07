@@ -1,0 +1,1 @@
+json.partial! "admin_programs/admin_program", admin_program: @admin_program

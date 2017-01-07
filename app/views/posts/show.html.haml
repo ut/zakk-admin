@@ -1,0 +1,94 @@
+.row
+  .large-9.columns{:role => "content"}
+    %h1 Post
+  .large-3.columns.right
+    = link_to posts_path, :class => 'button tiny' do
+      %i.fi-list-thumbnails
+      Index
+    = link_to new_post_path, :class => 'button tiny' do
+      %i.fi-plus
+      Post anlegen
+    = link_to edit_post_path(@post), :class => 'button tiny' do
+      %i.fi-pencil
+      Bearbeiten
+.row.panel
+  .large-6.text-left.columns{:role => "content"}
+    %p
+      - if @post.image.url
+        %img{:src=>"#{@post.image.url}"}
+      - else
+        = image_tag('zakk_pattern3.png')
+
+  .large-6.columns
+    %p
+      - if @post.startdate
+        %i.fi-calendar
+        = smart_date_display(@post.startdate,@post.enddate)
+        - if @post.location
+          &nbsp;|&nbsp;
+          = link_to @post do
+            %i.fi-home
+            =@post.location.title
+    %h2
+      %strong
+        = @post.title
+      \|
+      = @post.shortext
+    %p= @post.longtext.html_safe
+
+    %p
+      - if !@post.link.blank?
+        - if @post.link =~ /http[s]?:\/\//
+          - linktext = @post.link.gsub(/https?:\/\//,"")
+          = link_to "#{linktext}",@post.link
+        - else
+          = link_to "http://"+@post.link, "#{@post.link}"
+    %hr
+    %p
+      - if !@post.label.blank?
+        %dt Label:
+        %dd= @post.label
+      - if !@post.organizer.blank?
+        %dt Organizer:
+        %dd
+          = @post.organizer
+          = @post.organizerlink
+    %hr
+    .row
+      .large-12.columns
+        %span.label
+          = @post.status
+        \/
+        %span.label
+          = @post.ptype
+        \/
+        %small
+          - if @post.program
+            = link_to "#{@post.program.title}", admin_program_url(@post.program)
+    - if @post.location
+      %hr
+      %p.location
+        %h4=@post.location.title
+        %p
+          #{@post.location.address}, #{@post.location.zipcode}, #{@post.location.city}
+          %br
+          - if @post.location.web
+            %i.fi-web.fi-21
+            = link_to @post.location.web do
+              = @post.location.web
+
+          - if @post.location.email
+            &nbsp;&nbsp;|&nbsp;
+            %i.fi-mail.fi-21
+            = link_to @post.location.email do
+              = @post.location.email  
+          - if @post.location.twitter.present?
+            &nbsp;&nbsp;|&nbsp;
+            %i.fi-social-twitter.fi-21
+            = link_to @post.location.twitter_link do
+              = @post.location.twitter
+          %br
+          %p
+            %i.fi-info.fi-21
+            = @post.location.shortext
+

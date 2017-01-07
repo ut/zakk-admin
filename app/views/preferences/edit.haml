@@ -1,0 +1,32 @@
+%h2 Voreinstellungen
+%p
+  %strong Benutzer: #{@user.login}
+%p
+  %strong Letztes Login:
+  =h fuzzy @user.last_sign_in_at
+
+%div.row
+  .column.large-4.text-left
+    %h3 Profil bearbeiten
+
+    = form_for @user, :url => preferences_path do |f|
+
+      = render 'layouts/error_messages', target: @user
+
+      = labeled_textfield( f, :login, 'Benutzername')
+      = labeled_textfield( f, :firstname, 'Vorname')
+      = labeled_textfield( f, :lastname, 'Nachname')
+
+      %p
+        = f.label :password, "Passwort ändern"
+        = f.password_field :password
+      %p
+        = f.label(:password_confirmation,"Passwortbestätigung")
+        = f.password_field :password_confirmation
+
+      = f.submit "Aktualisieren", :class => "button"
+
+  .column.large-8
+    &nbsp;
+
+

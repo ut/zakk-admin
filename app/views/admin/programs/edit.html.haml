@@ -1,0 +1,18 @@
+- content_for :head do
+  = render partial: '/partials/custom_styles', locals: {program: @program}
+
+.row
+  .large-8.columns
+    %h1 program
+  .large-4.columns.right
+    = link_to admin_programs_path, :class => 'button tiny' do
+      %i.fi-list-thumbnails
+      Index
+    = link_to [:admin, @program], :class => 'button tiny' do
+      %i.eye
+      Anzeigen
+.row
+  .large-8.columns
+    = render 'form'
+  .large-4.columns
+    &nbsp;

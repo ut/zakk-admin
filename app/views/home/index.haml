@@ -1,0 +1,87 @@
+- content_for :head do
+  = render partial: '/partials/custom_styles', locals: {program: @current_program}
+
+- if ( can? :create, Post ) && ( can? :create, Location )
+  .row.hide
+    .columns.large-2
+      %p
+        = link_to "Programs", admin_programs_url, :class=>"button"
+        %br
+        #{Program.all.count} Programs
+    .columns.large-2
+      %p
+        = link_to "Posts", posts_url, :class=>"button"
+        %br
+        #{Post.all.count} Posts
+    .columns.large-2
+      %p
+        = link_to "Locations", locations_url, :class=>"button"
+        %br
+        #{Location.all.count} Locations
+    .columns.large-6
+      &nbsp;
+.row
+  .columns.large-12
+    &nbsp;
+.row
+  .columns.large-7
+    .panel
+      %h1
+        %strong zakk
+        klubraum
+  .columns.large-1
+    &nbsp;
+  .columns.large-5
+    %p.text-right
+      TODO:
+      %span.ptext
+        = link_to "Info"
+      %span.ptext
+        = link_to "Kontakt"
+.row
+  .columns.large-4
+    .panel
+      %h3
+        Monats
+        %strong Programm
+    - @posts_programm.each do  |p|
+      - if ( p.status == 'Published' ) || ( can? :manage, Post )
+        = render partial: "post", locals: { p: p }
+    %p.panel
+      TODO: sorty by date, only future events
+  .columns.large-4
+    .panel
+      %h3
+        Neues im
+        %strong zakk
+    - @posts_neues.each do  |p|
+      - if ( p.status == 'Published' ) || ( can? :manage, Post )
+        = render partial: "post", locals: { p: p }
+
+  .columns.large-4
+    .panel
+      %h3
+        Und
+        %strong sonst
+        ?
+    - @posts_undsonst.each do  |p|
+      - if ( p.status == 'Published' ) || ( can? :manage, Post )
+        = render partial: "post", locals: { p: p }
+.row
+  .columns.large-4
+    %p.text-right
+      %strong.ptext zakk
+      %span.ptext klubraum
+  .columns.large-4
+    &nbsp;
+  .columns.large-4
+    %p.text-right
+      TODO:
+      %span.ptext
+        = link_to "Info"
+      %span.ptext
+        = link_to "Kontakt"
+
+.row
+  .columns.large-12
+    &nbsp;

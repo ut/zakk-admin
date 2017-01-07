@@ -1,0 +1,39 @@
+.row
+  .large-9.columns{:role => "content"}
+    %h1 Location
+  .large-3.columns.right
+    = link_to locations_path, :class => 'button tiny' do
+      %i.fi-list-thumbnails
+      Index
+    = link_to new_location_path, :class => 'button tiny' do
+      %i.fi-plus
+      Location anlegen
+    = link_to edit_location_path(@location), :class => 'button tiny' do
+      %i.fi-pencil
+      Bearbeiten
+.row
+  .large-6.columns{:role => "content"}
+    .panel
+      %h2
+        %strong=@location.title
+      %p
+        #{@location.address}, #{@location.zipcode}, #{@location.city}
+        %br
+        - if @location.web
+          %i.fi-web
+          = link_to @location.web do
+            = @location.web
+
+        - if @location.email
+          \|
+          %i.fi-mail
+          = link_to @location.email do
+            = @location.email  
+        - if @location.twitter.present?
+          \|
+          %i.fi-social-twitter
+          = link_to @location.twitter_link do
+            = @location.twitter
+        %br
+          %i.fi-info.fi-21
+          = @location.shortext

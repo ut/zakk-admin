@@ -1,0 +1,24 @@
+.row
+  .large-2.columns
+    &nbsp;
+  .large-8.columns
+    = simple_form_for(@location) do |f|
+      = f.error_notification
+
+      .form-inputs
+        = f.input :title
+        = f.input :address
+        = f.input :zipcode
+        = f.input :city
+        = f.input :email
+        = f.input :web
+        = f.input :twitter
+        = f.input :lat
+        = f.input :lon
+        = f.input :shortext
+        = f.input :longtext
+
+      .form-actions
+        = f.button :submit, {:class=>"button large"}
+  .large-2.columns
+    &nbsp;

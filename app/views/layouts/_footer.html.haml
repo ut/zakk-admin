@@ -1,0 +1,10 @@
+.large-12.columns
+  .row
+    .large-6.columns
+      %p
+        = Settings.app_name
+        (#{Rails.env})
+        VERSION from DATE
+    .large-6.columns
+      %p
+        = link_to "Login",user_session_path

@@ -1,0 +1,55 @@
+= simple_form_for(@post) do |f|
+  .row
+    .large-12.columns
+      = f.error_notification
+  .row
+    .large-6.columns
+
+      .form-inputs
+        .row
+          .column.small-6
+            = f.input :status, :collection => status_for_select, :label => "Status", :input_html => { :class => '' }
+          .column.small-6
+            &nbsp;
+        = f.input :program_id, :collection => program_for_select, :label => "Program", :include_blank => "Select one....", :input_html => { :class => '' }
+        = f.input :ptype, :collection => ptype_for_select, :label => "Type", :include_blank => "Select one....", :input_html => { :class => '' }
+    .large-6.columns
+      %p
+        &nbsp;
+        = f.input :image, as: :file
+        - if @post.image.present?
+          = image_tag @post.image.thumb.url
+          %br
+          = f.check_box :remove_image
+          Bild löschen        
+  .row
+    .large-6.columns
+      = f.input :title, :input_html => { :class => 'input-large'}
+      .row
+        .column.small-6
+          = f.input :startdate, as: :fdatetimepicker
+        .column.small-6
+          = f.input :enddate, as: :fdatetimepicker
+      = f.input :shortext, :input_html => { :class => '', :rows => 1}
+      = f.input :longtext, :input_html => { :class => 'redactor' }
+
+
+    .large-6.columns
+
+      = f.input :location_id, :collection => location_for_select, :label => "", :include_blank => "Select one....", :input_html => { :class => '' }
+      ODER
+      = f.input :locationtext
+      %hr
+      = f.input :link, :placeholder => "http://"
+      %hr
+      = f.input :organizer
+      = f.input :organizerlink, :placeholder => "http://"
+      %hr
+      = f.input :label
+  .row
+    .large-12.columns
+
+      .form-actions
+        = f.button :submit, :class=>"button large"
+        - if current_page?(:action => 'new')
+          = f.button :submit, :class=>"button large", :value=>"Post erstellen und weiter"

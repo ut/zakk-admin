@@ -1,0 +1,62 @@
+.row
+  .large-9.columns{:role => "content"}
+    %h1 Locations
+  .large-3.columns.right
+    = link_to new_location_path, :class => 'button tiny' do
+      %i.fi-plus
+      Location anlegen
+.row
+  .large-12.columns{:role => "content"}
+    .table-responsive
+      %table.table.table-striped.table-bordered.table-hover
+        %thead
+          %tr
+            %th Title
+            %th Shortext
+            %th Address/Zipcode/City
+            %th Email/Web/Twitter
+            %th Lat/Lon
+    
+            %th
+            %th
+            %th
+
+        %tbody
+          - @locations.each do |location|
+            %tr
+              %td
+                %h3= location.title
+              %td= location.shortext
+              %td
+                = location.address
+                %br
+                = location.zipcode
+                = location.city
+              %td
+                %i.fi-mail
+                = link_to location.email do
+                  = location.email
+                %br
+                %i.fi-web
+                = link_to location.web do
+                  = location.web
+                %br
+                - if location.twitter.present?
+                  %i.fi-social-twitter
+                  = link_to location.twitter_link do
+                    = location.twitter
+              %td
+                = location.lat
+                = location.lon
+      
+              %td
+                = link_to location, :class=>"button tiny" do
+                  Details
+              %td
+                = link_to edit_location_path(location), :class=>"button tiny" do
+                  %i.fi-plus
+                  Bearbeiten
+              %td
+                = link_to location, :data => { confirm: 'Wirklich löschen?' }, :method => :delete, :class=>"button tiny alert" do
+                  %i.fi-x
+                  Löschen

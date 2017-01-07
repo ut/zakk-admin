@@ -1,0 +1,18 @@
+admin:
+  id: 1
+  login: admin
+  email: admin@domain.org
+  firstname: admin
+  lastname: admin
+  # password: admin
+  encrypted_password: "$2a$10$jMavkCHiz2tXA2hTgfkKiebozRh5/wvz.e7p8whd/0TICn4Q6v6G6"
+
+
+user:
+  id: 2
+  login: user
+  email: user@domain.org
+  firstname: user
+  lastname: user
+  # password: user
+  encrypted_password: "$2a$10$JfZiBaSqV216sDkvXlzbRuMHiFMw8iw7wKome.121LTqSEI99YijW"

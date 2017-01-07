@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  reconnect: true
+  min_messages: notice
+  username: username
+  password: password
+  host: localhost
+  pool: 5
+
+development:
+  <<: *default
+  database: zakk_admin_development
+
+test:
+  <<: *default
+  database: zakk_admin_test
+
+staging:
+  <<: *default
+  database: zakk_admin_staging
+
+production:
+  <<: *default
+  database: zakk_admin_production

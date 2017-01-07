@@ -1,0 +1,250 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require datagrid
+ *= require_tree .
+ *= require_self
+ *= require redactor-rails
+ */
+@import 'foundation-icons';
+@import 'font-awesome';
+
+
+
+/* basic page styling */
+body {
+  background: none repeat scroll 0 0 #888;
+}
+main {
+  min-height: 600px;
+  background-color: #f5b2cb;
+}
+.row, section {
+    margin: 0 auto;
+    max-width: none;
+    width: 100%;
+}
+.column {
+  text-align: left !important;
+  padding: 0  ;
+ }
+
+/* ---------------------- */
+
+.panel {
+  border: 1px dotted #000000;
+  background-color: white;
+  padding: 0.6em;
+}
+
+strong.ptext,
+span.ptext {
+  border: 1px dotted #000000;
+  background-color: white;
+  padding: 0.2em 0.6em;
+  margin-right: 0.2em;
+}
+
+
+
+/* ---------------------- */
+/* ---------------------- */
+
+footer {
+  padding: 10px 0 0 0;
+  position: static;
+  bottom:0;
+  right: 0;
+  left: 0;
+  color: #555;
+  height: 50px;
+  background-color: #333;
+}
+footer div.columns {
+  padding: 0
+}
+footer div .row {
+  background-color: #333;
+  max-width: none;
+  margin: 0;
+}
+footer .columns .row .columns {
+  padding: 10px 0 0 20px;
+}
+
+footer a {
+    color: #999;
+}
+footer:hover, footer:hover a {
+  color: #ccc;
+}
+
+/* ---------------------- */
+h1,h2,h3,h4,h5 {
+  font-weight: bold;
+  text-transform: lowercase;
+}
+h1 a,h2 a,h3 a,h4 a,h5 a{
+  text-decoration: none
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-size: 2.75rem;
+}
+h3 { font-size: 1.775rem;
+}
+h4 {   font-size: 1.275rem;
+  }
+.panel h4 {
+  margin: 0rem 0 0.5rem 0;
+}
+
+
+ol {
+  list-style-type: none;
+  margin-left: 0;
+}
+p {
+  line-height: 1.3rem;
+  margin-bottom: 0.65rem;
+}
+
+strong {
+  color: #E50066;
+}
+/* ---------------------- */
+
+
+.alert-box.round, .authform #error_explanation.round:not(:empty) {
+    border-radius: 0;
+    margin-top: 20px;
+}
+
+small {
+    font-size: 80%;
+    line-height: inherit;
+}
+a {
+    color: black;
+    line-height: inherit;
+    text-decoration: underline;
+}
+a:hover {
+  color: #555;
+}
+
+
+header a {
+    color: white;
+    line-height: inherit;
+    text-decoration: none;
+}
+
+
+/*--------------------*/
+a.post {
+  display: block;
+}
+
+/*--------------------*/
+.post.post_draft {
+  background-image: url(<%= asset_path 'stripe.png' %>);
+}
+.post.post_published {
+}
+
+
+.post .metas {
+  position: absolute;
+  right: 0;
+  margin-right: -45px;
+  div.metas_label {
+  }
+
+  span.label {
+    text-align: left;
+    margin-bottom: 0.5em;
+    float: left;
+    display: block;
+  }
+
+}
+span.label_status,
+span.label_status_draft
+ {
+  background-color: grey
+}
+span.label_status_ready
+ {
+  background-color: #B779C6
+}
+span.label_status_published
+ {
+  background-color: #C9A35C
+}
+/*--------------------*/
+button.disabled, button[disabled], .button.disabled, .disabled.submit, .disabled.button-xs, .button[disabled], .submit[disabled], .button-xs[disabled]
+{ background-color: #aaa !important; }
+
+button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .disabled.submit:hover, .disabled.button-xs:hover, .button.disabled:focus, .disabled.submit:focus, .disabled.button-xs:focus, .button[disabled]:hover, .submit[disabled]:hover, .button-xs[disabled]:hover, .button[disabled]:focus, .submit[disabled]:focus, .button-xs[disabled]:focus
+
+{ background-color: #aaa !important; }
+
+/*--------------------*/
+input[type="file"], input[type="checkbox"], input[type="radio"], select {
+    margin: 0 1rem 1rem 1rem;
+}
+
+/*--------------------*/
+table tr td:first-child {
+  border-left: 10px solid white;
+}
+table tr.published td:first-child {
+  border-left: 10px solid #cccccc;
+}
+table tr.current td:first-child {
+  border-left: 10px solid #008CBA;
+}
+
+/*--------------------*/
+img.small_thumb {
+  width: 50px;
+  height: 50px;
+}
+img.medium_thumb {
+  width: 150px;
+  height: 150px;
+}
+/*--------------------*/
+input.input-large {
+    font-size: 2rem;
+    height: 3.2rem;
+}
+input, textarea {
+  border: 1px dotted black !important;
+}
+
+/*--------------------*/
+.datetimepicker.dropdown-menu td.disabled {
+  color: grey;
+}
+.datetimepicker.dropdown-menu td.active {
+
+  font-weight: bold;
+}
+/*--------------------*/
+/* foundation icon sizes */
+.fi-21 { font-size: 21px;}
+.fi-24 { font-size: 24px;}
+.fi-32 { font-size: 32px;}
+.fi-64 { font-size: 64px;}

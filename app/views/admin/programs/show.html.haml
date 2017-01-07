@@ -1,0 +1,54 @@
+- content_for :head do
+  = render partial: '/partials/custom_styles', locals: {program: @program}
+
+
+.row
+  .large-9.columns{:role => "content"}
+    %h1
+      = @program.title
+      - if @program.current
+        %span.label
+          CURRENT
+    %h3= @program.description
+  .large-3.columns.right
+    = link_to admin_programs_path, :class => 'button tiny' do
+      %i.fi-list-thumbnails
+      Index
+    = link_to new_admin_program_path, :class => 'button tiny' do
+      %i.fi-plus
+      Program anlegen
+    = link_to edit_admin_program_path(@program), :class => 'button tiny' do
+      %i.fi-pencil
+      Bearbeiten
+.row
+  .large-2.columns
+    &nbsp;
+  .large-6.columns{:role => "content"}
+    %h3.panel
+      das zakk
+      %strong Programm
+    %ol
+      - @program.posts.with_ptype('Programm').each do |post|
+        %li
+          = render partial: '/posts/show_mini', locals: {post: post}
+
+    %h3.panel
+      Und
+      %strong sonst
+      ?
+    %ol
+      - @program.posts.with_ptype('Und sonst?').each do |post|
+        %li
+          = render partial: '/posts/show_mini', locals: {post: post}
+    %hr
+      .row
+        .large-6.columns
+          - if !@program.current
+            %button{:class=>"button"} Make this the current program
+          - else
+            %button{:class=>"button disabled", :disabled => "disabled"} (This is the current program)
+        .large-6.columns
+          %button{:class=>"button"} Export to XML (InDesign)
+
+  .large-4.columns
+    &nbsp;

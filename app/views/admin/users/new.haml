@@ -1,0 +1,7 @@
+- @page_title = "Benutzerverwaltung > Profil"
+%h2 Profil anlegen
+
+= form_for [:admin, @user] do |f|
+  = render "layouts/error_messages", :target => @user
+  = render :partial => "form", :object => f
+  = f.submit "Benutzer anlegen", :class => "button"

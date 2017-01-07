@@ -1,0 +1,16 @@
+- @page_title = "Benutzerverwaltung > Profil"
+
+%h2 Profil bearbeiten
+%p
+  %strong Benutzer:
+  #{@user.login}
+%p
+  %strong Letztes Login:
+  =h fuzzy @user.last_sign_in_at
+
+= form_for @user, :url => admin_user_path do |f|
+  = hidden_field_tag :id, @user.id
+  = render "layouts/error_messages", :target => @user
+  = render :partial => "form", :object => f
+  = f.submit "Aktualisieren!", :class => "button"
+

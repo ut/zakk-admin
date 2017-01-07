@@ -1,0 +1,78 @@
+.datagrid-form {
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+}
+
+.datagrid-form .filter {
+  float: left;
+}
+
+
+.datagrid-form .filter {
+  float: left;
+}
+
+.datagrid-filter label {
+    float: left;
+    width: auto;
+    margin-right: 10px;
+}
+
+.datagrid-actions,
+.datagrid-actionsX
+
+ {
+    padding-left: 160px;
+    padding-top: 9px;
+}
+
+.datagrid-filter input[class*="filter"] {
+    border: 1px solid #cccccc;
+    border-radius: 0px;
+    float: left;
+    padding: 5px 12px;
+    width: 207px;
+}
+
+.datagrid-filter input[class*="integer_filter"] {
+    border: 1px solid #cccccc;
+    border-radius: 0px;
+    float: left;
+    padding: 5px 12px;
+    width: 57px;
+}
+
+
+
+
+/* ----- table ------- */
+table.datagrid {
+    background-color: white;
+    border-collapse: inherit;
+    max-width: 100%;
+    border-spacing: 3px;
+}
+table.datagrid td, table.datagrid th {
+    border: 0px solid #d6d6d6;
+    padding: 5px 10px;
+}
+
+table.datagrid th {
+    background-color: transparent;
+    text-align: left;
+    white-space: nowrap;
+
+    div.order {
+        display: inline;
+        color: #888;
+    }
+}
+
+
+table thead tr  {
+    background: none repeat scroll 0 0 #ccc;
+}
+table tbody tr  {
+    background: none repeat scroll 0 0 #eee;
+}
