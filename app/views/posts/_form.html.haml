@@ -8,11 +8,11 @@
       .form-inputs
         .row
           .column.small-6
-            = f.input :status, :collection => status_for_select, :label => "Status", :input_html => { :class => '' }
+            = f.input :status, :collection => status_for_select, :label => "Status", :selected => @selected_status, :input_html => { :class => '' }
           .column.small-6
             &nbsp;
-        = f.input :program_id, :collection => program_for_select, :label => "Program", :include_blank => "Select one....", :input_html => { :class => '' }
-        = f.input :ptype, :collection => ptype_for_select, :label => "Type", :include_blank => "Select one....", :input_html => { :class => '' }
+        = f.input :program_id, :collection => program_for_select, :label => "Program", :selected => @selected_program, :input_html => { :class => '' }
+        = f.input :ptype, :collection => ptype_for_select, :label => "Type", :selected => @selected_pytpe, :input_html => { :class => '' }
     .large-6.columns
       %p
         &nbsp;
@@ -21,7 +21,7 @@
           = image_tag @post.image.thumb.url
           %br
           = f.check_box :remove_image
-          Bild löschen        
+          Bild löschen
   .row
     .large-6.columns
       = f.input :title, :input_html => { :class => 'input-large'}
@@ -36,7 +36,7 @@
 
     .large-6.columns
 
-      = f.input :location_id, :collection => location_for_select, :label => "", :include_blank => "Select one....", :input_html => { :class => '' }
+      = f.input :location_id, :collection => location_for_select, :label => "", :include_blank => "--", :selected => @selected_location, :input_html => { :class => '' }
       ODER
       = f.input :locationtext
       %hr

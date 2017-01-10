@@ -19,10 +19,27 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+
+    @selected_location = helpers.default_location_id
+    @selected_program = helpers.current_program_id
+    @selected_status = helpers.default_status
+    @selected_ptype = helpers.default_ptype
+
+
     respond_with(@post)
   end
 
   def edit
+
+    if @post.location.present?
+      @selected_location = @post.location_id
+    else
+      @selected_location = ''
+    end
+    @selected_program = @post.program_id
+    @selected_status = @post.status
+    @selected_ptype = @post.ptype
+
   end
 
   def create

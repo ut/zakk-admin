@@ -5,9 +5,28 @@ module PostsHelper
       [p.title, p.id]
     end
   end
+
+  def default_location_id
+    d = Location.where("title LIKE ?","%zakk%").first
+    if d
+      d.id
+    else
+      nil
+    end
+  end
+
   def program_for_select
     Program.all.order(:title).map do |p|
       [p.title, p.id]
+    end
+  end
+
+  def current_program_id
+    d = Program.where('current = ?', true).first
+    if d.present?
+      d.id
+    else
+      nil
     end
   end
 
@@ -16,9 +35,17 @@ module PostsHelper
       ["Programm","Neues im zakk","Und sonst?"]
   end
 
+  def default_ptype
+    ptype_for_select[0]
+  end
+
   def status_for_select
-      # TODO: if we need a three-step workflow: ["Draft","Ready","Published"]
-      ["Draft","Published"]
+    # TODO: if we need a three-step workflow: ["Draft","Ready","Published"]
+    ["Draft","Published"]
+  end
+
+  def default_status
+    status_for_select[0]
   end
 
   def smart_date_display(startdate,enddate)
