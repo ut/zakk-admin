@@ -13,6 +13,7 @@
  *= require datagrid
  *= require_tree .
  *= require_self
+ *= require jquery.minicolors
  *= require redactor-rails
  */
 @import 'foundation-icons';
@@ -245,6 +246,15 @@ input, textarea {
 
   font-weight: bold;
 }
+/*--------------------*/
+
+.minicolors-theme-default .minicolors-input {
+    height: 30px !important;
+    width: auto;
+    display: inline-block;
+    padding: 5px 0 0px 35px !important;
+}
+
 /*--------------------*/
 /* foundation icon sizes */
 .fi-21 { font-size: 21px;}

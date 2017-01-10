@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'turbolinks'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'jquery-minicolors-rails'
 gem 'foundation-rails', '~> 5.5.1.0'
 gem 'foundation-icons-sass-rails'
 gem 'foundation-datetimepicker-rails'

@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.minicolors
+//= require jquery.minicolors.simple_form
 //= require redactor-rails
 //= require turbolinks
 //= require foundation
