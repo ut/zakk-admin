@@ -27,4 +27,4 @@ window.init_redactor = function(){
 // $(document).on( 'ready page:load', window.init_redactor );
 // make it work with turbolinks:
 // https://github.com/SammyLin/redactor-rails/issues/160
-$(document).on( 'turbolinks:load', window.init_redactor );`
+$(document).on( 'turbolinks:load', window.init_redactor );
