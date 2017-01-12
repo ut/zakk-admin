@@ -24,7 +24,10 @@
           - else
             ?
   %h4
-    = link_to "#{p.title}", p
+    - if p.longtext.present?
+      = link_to "#{p.title}", p
+    - else
+      = p.title
     - if can? :create, Post
       = link_to edit_post_path(p), :class=>"tiny" do
         %i.fi-pencil

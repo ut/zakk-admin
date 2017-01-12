@@ -28,27 +28,34 @@
       das zakk
       %strong Programm
     %ol
-      - @program.posts.with_ptype('Programm').each do |post|
+      - @program.posts.with_ptype('0').order(:startdate).each do |post|
         %li
           = render partial: '/posts/show_mini', locals: {post: post}
-
+      %li
+        = link_to new_post_path(:ptype => '0',:program => @program.id), :class => 'button tiny' do
+          %i.fi-plus
+          Post anlegen
     %h3.panel
       Und
       %strong sonst
       ?
     %ol
-      - @program.posts.with_ptype('Und sonst?').each do |post|
+      - @program.posts.with_ptype('2').order(:startdate).each do |post|
         %li
           = render partial: '/posts/show_mini', locals: {post: post}
+      %li
+        = link_to new_post_path(:ptype => '2',:program => @program.id), :class => 'button tiny' do
+          %i.fi-plus
+          Post anlegen
+
     %hr
       .row
         .large-6.columns
           - if !@program.current
-            %button{:class=>"button"} Make this the current program
+            %button{:class=>"button disabled", :disabled => "disabled"} Make this the current program (TODO)
           - else
             %button{:class=>"button disabled", :disabled => "disabled"} (This is the current program)
         .large-6.columns
-          %button{:class=>"button"} Export to XML (InDesign)
-
+          %button{:class=>"button disabled", :disabled => "disabled"} Export to XML (InDesign) (TODO)
   .large-4.columns
     &nbsp;

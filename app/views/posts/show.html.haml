@@ -60,7 +60,7 @@
           = @post.status
         \/
         %span.label
-          = @post.ptype
+          = ptypes[@post.ptype.to_i]
         \/
         %small
           - if @post.program
@@ -81,7 +81,7 @@
             &nbsp;&nbsp;|&nbsp;
             %i.fi-mail.fi-21
             = link_to @post.location.email do
-              = @post.location.email  
+              = @post.location.email
           - if @post.location.twitter.present?
             &nbsp;&nbsp;|&nbsp;
             %i.fi-social-twitter.fi-21

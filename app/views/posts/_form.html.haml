@@ -12,7 +12,8 @@
           .column.small-6
             &nbsp;
         = f.input :program_id, :collection => program_for_select, :label => "Program", :selected => @selected_program, :input_html => { :class => '' }
-        = f.input :ptype, :collection => ptype_for_select, :label => "Type", :selected => @selected_pytpe, :input_html => { :class => '' }
+        %small
+        = f.input :ptype, :collection => ptype_for_select, :label => "Type", :selected => @selected_ptype, :input_html => { :class => '' }
     .large-6.columns
       %p
         &nbsp;

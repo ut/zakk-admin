@@ -12,6 +12,9 @@
     = csrf_meta_tags
     = favicon_link_tag
     = yield :head
+
+
+    = render partial: '/partials/custom_styles', locals: {program: current_program}
   %body
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     - if current_user

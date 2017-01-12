@@ -1,5 +1,19 @@
 module ApplicationHelper
 
+  def current_program
+    p = Program.where('current = ?', true).first
+    if p
+      return p
+    else
+      false
+    end
+  end
+
+  def ptypes
+    ["Programm","Neues im zakk","Und sonst?"]
+  end
+
+
   def fuzzy date
     return '--' unless date
     I18n.with_options :scope => 'datetime.fuzzy' do |locale|

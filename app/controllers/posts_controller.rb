@@ -25,6 +25,17 @@ class PostsController < ApplicationController
     @selected_status = helpers.default_status
     @selected_ptype = helpers.default_ptype
 
+    require 'uri'
+
+    if params[:program]
+      puts params[:program]
+      @selected_program = URI.unescape(params[:program])
+    end
+
+    if params[:ptype]
+      puts params[:ptype]
+      @selected_ptype = params[:ptype].to_i
+    end
 
     respond_with(@post)
   end

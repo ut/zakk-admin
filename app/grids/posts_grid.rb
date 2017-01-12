@@ -37,9 +37,9 @@ class PostsGrid
   end
   column('Metas', :html => true) do |post|
     if post.ptype
-      c = "<span class='label label_ptype'>#{post.ptype}</span>"      
+      c = "<span class='label label_ptype'>#{ptypes[post.ptype.to_i]}</span>"
     else
-      c = "<span class='label label_pytpe'>?</span>"      
+      c = "<span class='label label_pytpe'>?</span>"
     end
     if post.status
       c += "<br />"

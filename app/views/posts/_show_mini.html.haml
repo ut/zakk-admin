@@ -17,7 +17,7 @@
           = post.status
     .metas_label
       %span.label.label_ptype
-        = post.ptype
+        = ptypes[post.ptype.to_i]
   %p
     - if post.startdate
       = smart_date_display(post.startdate,post.enddate)

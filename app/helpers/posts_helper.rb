@@ -32,11 +32,11 @@ module PostsHelper
 
 
   def ptype_for_select
-      ["Programm","Neues im zakk","Und sonst?"]
+    [["Programm","0"],["Neues im zakk","1"],["Und sonst?","2"]]
   end
 
   def default_ptype
-    ptype_for_select[0]
+    "0"
   end
 
   def status_for_select
