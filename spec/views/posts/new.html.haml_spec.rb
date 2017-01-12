@@ -25,7 +25,11 @@ RSpec.describe "posts/new", type: :view do
 
       assert_select "textarea#post_longtext[name=?]", "post[longtext]"
 
-      assert_select "input#post_location_id[name=?]", "post[location_id]"
+
+      # show output
+      # puts assert_select "select#post_location_id"
+
+      assert_select "select#post_location_id[name=?]", "post[location_id]"
 
       assert_select "input#post_link[name=?]", "post[link]"
 

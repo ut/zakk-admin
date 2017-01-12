@@ -9,7 +9,7 @@ RSpec.describe "admin/programs/index", type: :view do
         :published => false
       ),
       Program.create!(
-        :title => "Title",
+        :title => "Title1",
         :description => "MyText",
         :published => false
       )
@@ -18,8 +18,8 @@ RSpec.describe "admin/programs/index", type: :view do
 
   it "renders a list of admin/programs" do
     render
-    assert_select "tr>td", :text => "Title".to_s, :count => 2
+    assert_select "tr>td", :text => "Title".to_s, :count => 1
+    assert_select "tr>td", :text => "Title1".to_s, :count => 1
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
-    assert_select "tr>td", :text => false.to_s, :count => 2
   end
 end

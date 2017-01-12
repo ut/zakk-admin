@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "posts/show", type: :view do
   before(:each) do
+
+    view.extend ApplicationHelper
+
     @post = assign(:post, Post.create!(
       :title => "Title",
       :shortext => "MyText",
@@ -9,9 +12,13 @@ RSpec.describe "posts/show", type: :view do
       :location_id => 1,
       :link => "Link",
       :label => "Label",
+      :ptype => "1",
       :organizer => "Organizer",
       :organizerlink => "Organizerlink"
     ))
+
+   #  view.stub(:ptypes).and_return(["Programm","Neues im zakk","Und sonst?"])
+
   end
 
   it "renders attributes in <p>" do

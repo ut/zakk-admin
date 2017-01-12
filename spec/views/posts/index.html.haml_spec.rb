@@ -24,6 +24,8 @@ RSpec.describe "posts/index", type: :view do
         :organizerlink => "Organizerlink"
       )
     ])
+
+    view.stub(:grid).and_return(@posts)
   end
 
   it "renders a list of posts" do

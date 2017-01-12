@@ -26,8 +26,6 @@ RSpec.describe "locations/show", type: :view do
     expect(rendered).to match(/Email/)
     expect(rendered).to match(/Web/)
     expect(rendered).to match(/Twitter/)
-    expect(rendered).to match(/Lat/)
-    expect(rendered).to match(/Lon/)
     expect(rendered).to match(/MyText/)
     expect(rendered).to match(/MyText/)
   end
