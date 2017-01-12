@@ -9,6 +9,7 @@ public/system
 .lock*
 public/system
 public/uploads
+public/assets
 
 config/application.rb
 config/database.yml
