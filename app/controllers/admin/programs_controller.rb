@@ -1,6 +1,10 @@
 class Admin::ProgramsController < ApplicationController
   before_action :set_program, only: [:show, :edit, :update, :destroy]
 
+  before_action :authenticate_user!
+
+  load_and_authorize_resource class: "User"
+
   # GET /programs
   # GET /programs.json
   def index

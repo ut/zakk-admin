@@ -17,74 +17,51 @@
         #{Location.all.count} Locations
     .columns.large-6
       &nbsp;
-.row
-  .columns.large-12
-    &nbsp;
-.row#main_header
-  .columns.large-12
 
-    .row
-      .columns.large-6
-        .panel
-          %h1
-            %strong zakk
-            klubraum
-      .columns.large-1
-        &nbsp;
-      .columns.large-5
-        %p.text-right
-          TODO:
-          %span.ptext
-            = link_to "Info"
-          %span.ptext
-            = link_to "Kontakt"
+= render partial: "/partials/header"
 
-    .row
-      .columns.large-4
-        .panel
-          %h3
-            Monats
-            %strong Programm
-      .columns.large-4
-        .panel
-          %h3
-            Neues im
-            %strong zakk
-
-      .columns.large-4
-        .panel
-          %h3
-            Und
-            %strong sonst
-            ?
 
 #main_content
-
   .row
     .columns.large-4
+      .panel
+        %h3
+          Monats
+          %strong Programm
       - @posts_programm.each do  |p|
         - if ( p.status == 'Published' ) || ( can? :manage, Post )
           = render partial: "post", locals: { p: p }
-
-      %p.panel
-        sorted by startdate, only future dates (and today)
+      - if ( can? :create, Post )
+        %p.panel
+          sorted by startdate, only future dates (and today)
       - if @current_program.present? && @current_program.image.url
         %div{:class=>"panel"}
           %img{:src=>"#{@current_program.image.thumb.url}"}
 
     .columns.large-4
+      .panel
+        %h3
+          Neues im
+          %strong zakk
       - @posts_neues.each do  |p|
         - if ( p.status == 'Published' ) || ( can? :manage, Post )
           = render partial: "post", locals: { p: p }
-      %p.panel
-        sorted by startdate, all posts
+      - if ( can? :create, Post )
+        %p.panel
+          sorted by startdate, all posts
 
     .columns.large-4
+      .panel
+        %h3
+          Und
+          %strong sonst
+          ?
       - @posts_undsonst.each do  |p|
         - if ( p.status == 'Published' ) || ( can? :manage, Post )
           = render partial: "post", locals: { p: p }
-      %p.panel
-        sorted by startdate, only future dates (and today)
+      - if ( can? :create, Post )
+        %p.panel
+          sorted by startdate, only future dates (and today)
   .row
     .columns.large-4
       %p.text-right
@@ -96,9 +73,9 @@
       %p.text-right
         TODO:
         %span.ptext
-          = link_to "Info"
+          = link_to "info"
         %span.ptext
-          = link_to "Kontakt"
+          = link_to "kontakt"
 
   .row
     .columns.large-12

@@ -1,16 +1,23 @@
-.row
-  .large-9.columns{:role => "content"}
-    %h1 Post
-  .large-3.columns.right
-    = link_to posts_path, :class => 'button tiny' do
-      %i.fi-list-thumbnails
-      Index
-    = link_to new_post_path, :class => 'button tiny' do
-      %i.fi-plus
-      Post anlegen
-    = link_to edit_post_path(@post), :class => 'button tiny' do
-      %i.fi-pencil
-      Bearbeiten
+
+
+
+- if ( can? :create, Post )
+  .row
+    .large-9.columns{:role => "content"}
+      &nbsp;
+    .large-3.columns.right
+      = link_to posts_path, :class => 'button tiny' do
+        %i.fi-list-thumbnails
+        Index
+      = link_to new_post_path, :class => 'button tiny' do
+        %i.fi-plus
+        Post anlegen
+      = link_to edit_post_path(@post), :class => 'button tiny' do
+        %i.fi-pencil
+        Bearbeiten
+
+= render partial: "/partials/header"
+
 .row.panel
   .large-6.text-left.columns{:role => "content"}
     %p
@@ -64,7 +71,10 @@
         \/
         %small
           - if @post.program
-            = link_to "#{@post.program.title}", admin_program_url(@post.program)
+            - if ( can? :create, Post )
+              = link_to "#{@post.program.title}", admin_program_url(@post.program)
+            - else
+              =@post.program.title
     - if @post.location
       %hr
       %p.location

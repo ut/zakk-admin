@@ -4,7 +4,9 @@
       %p
         = Settings.app_name
         (#{Rails.env})
-        VERSION from DATE
+        = Settings.app_version
+        (#{link_to "Github","https://github.com/ut/zakk-admin"})
     .large-6.columns
-      %p
-        = link_to "Login",user_session_path
+      - if !current_user
+        %p
+          = link_to "Login",user_session_path

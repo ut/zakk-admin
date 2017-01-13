@@ -3,6 +3,10 @@ class LocationsController < ApplicationController
 
   respond_to :html
 
+  before_action :authenticate_user!
+
+  load_and_authorize_resource class: "User"
+
   def index
     @locations = Location.all
     respond_with(@locations)

@@ -3,6 +3,10 @@ class PostsController < ApplicationController
 
   respond_to :html
 
+   before_filter :authenticate_user!,
+      :only => [:index,:new,:edit,:create,:update,:destroy]
+
+
   def index
 
     # TODO: show only posts not older than 1 month
