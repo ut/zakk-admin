@@ -60,6 +60,8 @@ group :test, :development do
   gem 'faker'
   gem 'rspec-rails'
   gem 'rails-controller-testing'
+  gem 'capybara-webkit'
+  gem 'launchy'
   gem 'unicorn'
   gem 'unicorn-rails'
 end

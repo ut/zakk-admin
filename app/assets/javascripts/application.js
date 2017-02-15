@@ -32,5 +32,9 @@ $(function() {
 
 
 
+    // this should be at the very end of this script :) and with test env only!
+    <% if ( Rails.env == "test" ) %>
+      $('footer').append("Javascript enabled");
+    <% end %>
 
 });

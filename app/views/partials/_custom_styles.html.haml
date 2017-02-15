@@ -1,6 +1,7 @@
 :css
   body, main { background-color: #{program.backgroundcolor}}
-  main { background-image: url(#{program.backgroundimage.small_thumb.url}) }
+  - if program.backgroundimage && program.backgroundimage.small_thum
+    main { background-image: url(#{program.backgroundimage.small_thumb.url}) }
   .panel h1,
   .panel h2,
   .panel h3,

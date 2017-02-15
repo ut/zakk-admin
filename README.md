@@ -6,7 +6,9 @@ Based on Ruby on Rails 5, Postgres, jQuery and Foundation 5
 
 ## Dependencies
 
-Rails 5 & Ruby 2.3
+Rails 5 & Ruby 2.3, Rspec
+
+Qt for the [compiling of capybara-webkit](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
 
 ## Installation
 

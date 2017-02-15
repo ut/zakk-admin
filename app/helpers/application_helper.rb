@@ -5,7 +5,11 @@ module ApplicationHelper
     if p
       return p
     else
-      false
+      p = Program.new
+      p.backgroundcolor = '#ccc'
+      p.textcolor1 = '#000'
+      p.textcolor2 = '#555'
+      return p
     end
   end
 
