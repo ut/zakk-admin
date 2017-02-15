@@ -17,3 +17,5 @@ config/settings.yml
 config/secrets.yml
 config/deploy.rb
 config/deploy/cap_notify.rb
+
+vendor/assets

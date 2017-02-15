@@ -21,9 +21,13 @@
 
 
 
+
+
 /* basic page styling */
 body {
   background: none repeat scroll 0 0 #888;
+  font-family: 'Helvetica', sans-serif;
+  font-weight: normal;
 }
 main {
   min-height: 600px;
@@ -47,6 +51,7 @@ main {
     border: 1px dotted #000000;
     display: inline-block;
     padding: 0.6em 2.8em 0.6em 0.6em;
+    padding: 1em;
 }
 
 strong.ptext,
@@ -93,26 +98,36 @@ footer:hover, footer:hover a {
 
 /* ---------------------- */
 h1,h2,h3,h4,h5 {
+  font-family: 'Helvetica', sans-serif;
   font-weight: bold;
   text-transform: lowercase;
 }
 h1 a,h2 a,h3 a,h4 a,h5 a{
   text-decoration: none
 }
+h1 strong,h2 strong,h3 strong,h4 strong,h5 strong {
+  font-family: 'Helvetica', sans-serif;
+  font-weight: bold
+
+}
 
 h1 {
     font-size: 1.75rem;
-    font-size: 2.75rem;
+    font-size: 4.25rem;
 }
 h3 { font-size: 1.775rem;
 }
-h4 {   font-size: 1.275rem;
+h4 {   font-size: 1.775rem;
   }
 .panel h4 {
   margin: 0rem 0 0.5rem 0;
+  line-height: 2.75rem;
+  color: #666;
 }
 .panel h3 a, .panel h4 a, .panel h5 a{
-  text-decoration: underline;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 3px solid #333;
 }
 
 
@@ -121,8 +136,9 @@ ol {
   margin-left: 0;
 }
 p {
-  line-height: 1.3rem;
-  margin-bottom: 0.65rem;
+    font-size: 1.25rem;
+    line-height: 1.65rem;
+    margin-bottom: 0.65rem;
 }
 
 strong {
@@ -138,6 +154,7 @@ strong {
 
 small {
     font-size: 80%;
+    text-transform: uppercase;
     line-height: inherit;
 }
 a {
@@ -266,3 +283,7 @@ input, textarea {
 .fi-24 { font-size: 24px;}
 .fi-32 { font-size: 32px;}
 .fi-64 { font-size: 64px;}
+
+
+/* ---- last one :) -------*/
+@import 'stylesheets/application';
