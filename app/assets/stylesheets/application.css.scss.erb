@@ -286,4 +286,6 @@ input, textarea {
 
 
 /* ---- last one :) -------*/
-@import 'stylesheets/application';
+<% if  File.exist?('vendor/assets/zakk-admin-assets') %>
+  @import 'stylesheets/application';
+<% end %>
