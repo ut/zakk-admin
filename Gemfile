@@ -72,6 +72,8 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
   gem 'spring'
+
+  gem 'brakeman', :require => false
 end
 
 group :staging, :production do

@@ -52,6 +52,7 @@ GEM
     bcrypt (3.1.11)
     bootstrap-generators (3.3.4)
       railties (>= 3.1.0)
+    brakeman (3.5.0)
     builder (3.2.2)
     cancan (1.6.10)
     capistrano (3.7.1)
@@ -309,6 +310,7 @@ DEPENDENCIES
   activerecord-session_store
   bcrypt (~> 3.1.7)
   bootstrap-generators
+  brakeman
   cancan
   capistrano-bundler
   capistrano-passenger
