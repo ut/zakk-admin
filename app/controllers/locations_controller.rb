@@ -5,7 +5,6 @@ class LocationsController < ApplicationController
 
   before_action :authenticate_user!
 
-  load_and_authorize_resource class: "User"
 
   def index
     @locations = Location.all

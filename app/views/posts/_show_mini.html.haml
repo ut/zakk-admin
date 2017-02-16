@@ -35,3 +35,6 @@
       - if !post.status
         = link_to edit_post_path(post), :class=>"button tiny" do
           %i.fi-eye
+  - if post.shortext.present?
+    %div
+      = post.shortext

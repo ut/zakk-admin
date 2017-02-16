@@ -3,12 +3,12 @@ class Admin::ProgramsController < ApplicationController
 
   before_action :authenticate_user!
 
-  load_and_authorize_resource class: "User"
+  load_and_authorize_resource
 
   # GET /programs
   # GET /programs.json
   def index
-    @programs = Program.all
+    @programs = Program.all.order( 'updated_at DESC' )
   end
 
   # GET /programs/1

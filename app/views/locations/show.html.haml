@@ -19,21 +19,22 @@
       %p
         #{@location.address}, #{@location.zipcode}, #{@location.city}
         %br
-        - if @location.web
+        - if @location.web.present?
           %i.fi-web
           = link_to @location.web do
             = @location.web
 
-        - if @location.email
+        - if @location.email.present?
           \|
           %i.fi-mail
           = link_to @location.email do
-            = @location.email  
+            = @location.email
         - if @location.twitter.present?
           \|
           %i.fi-social-twitter
           = link_to @location.twitter_link do
             = @location.twitter
-        %br
+      - if @location.shortext.present?
+        %p
           %i.fi-info.fi-21
           = @location.shortext

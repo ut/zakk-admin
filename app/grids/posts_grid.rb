@@ -6,6 +6,11 @@ class PostsGrid
     Post.order("posts.startdate desc")
   end
 
+  def row_class(post)
+
+
+  end
+
   filter(:id, :integer)
   filter(:title, :string) { |value| where("title ilike '%#{value}%'") }
   filter(:shortext, :string) { |value| where("shortext ilike '%#{value}%'") }
@@ -20,13 +25,22 @@ class PostsGrid
     end
   end
   column(:title, :html => true) do |post|
+
+    if post.program
+      textcolor = post.program.textcolor1
+    else
+      textcolor = '#000'
+    end
+
+
+
     if post.status != 'Published'
       link_to post, :class=>'post post_draft' do
-        "<h3>#{post.title}</h3>".html_safe
+        "<h3 style=\"color: #{textcolor}\">#{post.title}</h3>".html_safe
       end
     else
       link_to post, :class=>'post' do
-        "<h3>#{post.title}!!</h3>".html_safe
+        "<h3 style=\"color: #{textcolor}\">#{post.title}!!</h3>".html_safe
       end
     end
   end

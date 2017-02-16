@@ -1,6 +1,4 @@
 
-
-
 - if ( can? :create, Post )
   .row
     .large-9.columns{:role => "content"}
@@ -33,9 +31,8 @@
         = smart_date_display(@post.startdate,@post.enddate)
         - if @post.location
           &nbsp;|&nbsp;
-          = link_to @post do
-            %i.fi-home
-            =@post.location.title
+          %i.fi-home
+          =@post.location.title
     %h2
       %strong
         = @post.title
