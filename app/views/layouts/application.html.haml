@@ -13,9 +13,20 @@
     = favicon_link_tag
     = yield :head
 
-
+    - puts current_program.textcolor1
     = render partial: '/partials/custom_styles', locals: {program: current_program}
-  %body
+
+  - klass = ""
+  - if current_user
+    - klass = "logged_in "
+  - if Rails.env == 'staging' || 'developement'
+    - klass = klass + "#{Rails.env.parameterize}"
+  - id = ''
+  - if controller_name
+    - id = "#{controller_name.parameterize}"
+
+
+  %body{:id=>"#{id}", :class=>"#{klass}"}
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     - if current_user
       %header
