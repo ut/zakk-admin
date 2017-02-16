@@ -1,7 +1,8 @@
+- if program.backgroundimage && program.backgroundimage.small_thumb
+  - thumb = "#{program.backgroundimage.small_thumb.url}"
 :css
   body, main { background-color: #{program.backgroundcolor}}
-  - if program.backgroundimage && program.backgroundimage.small_thum
-    main { background-image: url(#{program.backgroundimage.small_thumb.url}) }
+    main { background-image: url(#{thumb}) }
   .panel h1,
   .panel h2,
   .panel h3,

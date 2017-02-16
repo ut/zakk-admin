@@ -34,9 +34,9 @@
       - if ( can? :create, Post )
         %p.panel
           sorted by startdate, only future dates (and today)
-      - if @current_program.present? && @current_program.image.url
+      - if current_program.present? && current_program.image.url
         %div{:class=>"panel"}
-          %img{:src=>"#{@current_program.image.thumb.url}"}
+          %img{:src=>"#{current_program.image.thumb.url}"}
 
     .columns.large-4
       .panel

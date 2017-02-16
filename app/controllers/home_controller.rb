@@ -9,7 +9,6 @@ class HomeController < ApplicationController
     #  p.startdate.day - DateTime.now.midnight.day
     @posts_neues = Post.where(:ptype => '1').order(:startdate)
     @posts_undsonst = Post.where(:ptype => '2').where("startdate > ?", ( DateTime.now - 1.day)).order(:startdate)
-    @current_program = Program.where('current = ?', true).first
 
   end
 
