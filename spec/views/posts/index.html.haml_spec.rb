@@ -24,8 +24,9 @@ RSpec.describe "posts/index", type: :view do
         :organizerlink => "Organizerlink"
       )
     ])
-
-    view.stub(:grid).and_return(@posts)
+    grid = class_double("DataGrid")
+    # expect(grid).to receive(:grid).and_return(@posts)
+    allow(view).to receive(grid).and_return(@posts)
   end
 
   it "renders a list of posts" do

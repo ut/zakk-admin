@@ -14,7 +14,6 @@ RSpec.describe "admin/programs/new", type: :view do
 
       assert_select "textarea#admin_program_description[name=?]", "admin_program[description]"
 
-      assert_select "input#admin_program_published[name=?]", "admin_program[published]"
     end
   end
 end

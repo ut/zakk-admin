@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   respond_to :html
 
-   before_filter :authenticate_user!,
+   before_action :authenticate_user!,
       :only => [:index,:new,:edit,:create,:update,:destroy]
 
 

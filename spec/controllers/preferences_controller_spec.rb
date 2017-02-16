@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe PreferencesController do
 
-  
+
   describe "functionalities for guests" do
     it "should redirect guests to login " do
       get :edit
-      response.should redirect_to( new_user_session_path )
+      expect(response).to redirect_to( new_user_session_path )
     end
 
   end
@@ -27,7 +27,7 @@ describe PreferencesController do
       response.should be_successful
       flash.now[:notice].should match "Benutzerdaten aktualisiert"
     end
-  end 
-  
+  end
+
 end
 

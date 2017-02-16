@@ -13,13 +13,12 @@
     = favicon_link_tag
     = yield :head
 
-    - puts current_program.textcolor1
     = render partial: '/partials/custom_styles', locals: {program: current_program}
 
   - klass = ""
   - if current_user
     - klass = "logged_in "
-  - if Rails.env == 'staging' || 'developement'
+  - if Rails.env == 'staging' || Rails.env == 'developement'
     - klass = klass + "#{Rails.env.parameterize}"
   - id = ''
   - if controller_name
