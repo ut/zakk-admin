@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
   belongs_to  :location
   belongs_to  :program
 
-
+  require 'date'
 
   validates :title, presence: true
 
@@ -24,6 +24,27 @@ class Post < ActiveRecord::Base
 
   def set_defaults
     self.status  ||= 'draft'
+  end
+
+
+  def starttime
+    "#{self.startdate.hour}.#{sprintf '%02d', self.startdate.min}"
+  end
+
+  def startday
+    "#{self.startdate.day}.#{self.startdate.month}"
+  end
+
+  def startweekday
+
+    day = {0 => "Sontag",
+            1 => "Montag",
+            2 => "Dienstag",
+            3 => "Mittwoch",
+            4 => "Donnerstag",
+            5 => "Freitag",
+            6 => "Samstag"}
+    day[self.startdate.wday]
   end
 
 end

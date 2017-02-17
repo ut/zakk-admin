@@ -9,6 +9,7 @@ class Ability
     elsif user.has_role?("user")
       can :manage, Post
       can :manage, Location
+      can :manage, Program
     else
       can :read, :all
     end

@@ -1,0 +1,66 @@
+- content_for :head do
+  = render partial: '/partials/custom_styles', locals: {program: @program}
+
+- if ( can? :create, Post )
+  .row
+    .large-9.columns{:role => "content"}
+      %h1
+        = @program.title
+        - if @program.current
+          %span.label
+            CURRENT
+      %h3= @program.description
+    .large-3.columns.right
+      = link_to admin_programs_path, :class => 'button tiny' do
+        %i.fi-list-thumbnails
+        Index
+      = link_to new_admin_program_path, :class => 'button tiny' do
+        %i.fi-plus
+        Program anlegen
+      = link_to edit_admin_program_path(@program), :class => 'button tiny' do
+        %i.fi-pencil
+        Bearbeiten
+.row
+  .large-2.columns
+    &nbsp;
+  .large-6.columns{:role => "content"}
+    %h1
+      = @program.title
+    %h3.panel
+      das zakk
+      %strong Programm
+    %ol
+      - @program.posts.with_ptype('0').order(:startdate).each do |post|
+        %li
+          = render partial: '/posts/show_mini', locals: {post: post}
+      - if ( can? :create, Post )
+        %li
+          = link_to new_post_path(:ptype => '0',:program => @program.id), :class => 'button tiny' do
+            %i.fi-plus
+            Post anlegen
+    %h3.panel
+      Und
+      %strong sonst
+      ?
+    %ol
+      - @program.posts.with_ptype('2').order(:startdate).each do |post|
+        %li
+          = render partial: '/posts/show_mini', locals: {post: post}
+      - if ( can? :create, Post )
+        %li
+          = link_to new_post_path(:ptype => '2',:program => @program.id), :class => 'button tiny' do
+            %i.fi-plus
+            Post anlegen
+
+    - if ( can? :create, Post )
+      %hr
+        .row
+          .large-6.columns
+            - if !@program.current
+              %button{:class=>"button disabled", :disabled => "disabled"} Make this the current program (TODO)
+            - else
+              %button{:class=>"button disabled", :disabled => "disabled"} (This is the current program)
+          .large-6.columns
+            %button{:class=>"button disabled", :disabled => "disabled"} Export to XML (InDesign) (TODO)
+  .large-4.columns
+    &nbsp;

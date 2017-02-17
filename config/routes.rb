@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    resources :programs
-  end
   mount RedactorRails::Engine => '/redactor_rails'
 
   resources :locations
 
   resources :posts
+
+  resources :programs, only: [:index, :show]
 
   devise_for :users
 

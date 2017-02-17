@@ -7,17 +7,18 @@
 
 
 %div{:class=>"#{klass}"}
-  .metas
-    .metas_label
-      - if post.status == 'Published'
-        %span.label.label_status.label_status_published
-          = post.status
-      - else
-        %span.label.label_status.label_status_draft
-          = post.status
-    .metas_label
-      %span.label.label_ptype
-        = ptypes[post.ptype.to_i]
+  - if ( can? :create, Post )
+    .metas
+      .metas_label
+        - if post.status == 'Published'
+          %span.label.label_status.label_status_published
+            = post.status
+        - else
+          %span.label.label_status.label_status_draft
+            = post.status
+      .metas_label
+        %span.label.label_ptype
+          = ptypes[post.ptype.to_i]
   %p
     - if post.startdate
       = smart_date_display(post.startdate,post.enddate)
