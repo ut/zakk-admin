@@ -20,10 +20,16 @@ class Admin::ContentsController < ApplicationController
   # GET /contents/new
   def new
     @content = Content.new
+    @selected_col = helpers.default_col
+    @selected_page = ''
   end
 
   # GET /contents/1/edit
   def edit
+
+    @selected_col = @post.col
+    @selected_page = @post.page_id
+
   end
 
   # POST /contents
