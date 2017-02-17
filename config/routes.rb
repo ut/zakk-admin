@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+
+  resources :pages, only: [:show]
+
+
   mount RedactorRails::Engine => '/redactor_rails'
 
   resources :locations
@@ -21,6 +25,8 @@ Rails.application.routes.draw do
       get :undelete, on: :member
     end
     resources :programs
+    resources :pages
+    resources :contents
   end
 
 end

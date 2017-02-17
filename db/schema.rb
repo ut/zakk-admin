@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104124802) do
+ActiveRecord::Schema.define(version: 20170217125951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contents", force: :cascade do |t|
+    t.string   "title"
+    t.text     "text"
+    t.boolean  "published"
+    t.integer  "pos"
+    t.integer  "col"
+    t.integer  "page_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_contents_on_page_id", using: :btree
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string   "title"
@@ -29,6 +41,15 @@ ActiveRecord::Schema.define(version: 20170104124802) do
     t.text     "longtext"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.boolean  "published"
+    t.boolean  "in_menu"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -128,4 +149,5 @@ ActiveRecord::Schema.define(version: 20170104124802) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   end
 
+  add_foreign_key "contents", "pages"
 end

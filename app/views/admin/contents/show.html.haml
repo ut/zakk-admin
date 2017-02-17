@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @content.title
+%p
+  %b Text:
+  = @content.text
+%p
+  %b Published:
+  = @content.published
+%p
+  %b Pos:
+  = @content.pos
+%p
+  %b Col:
+  = @content.col
+%p
+  %b Page:
+  = @content.page
+
+= link_to 'Edit', edit_content_path(@content)
+\|
+= link_to 'Back', contents_path
