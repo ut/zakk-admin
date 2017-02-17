@@ -4,16 +4,17 @@ RSpec.describe "programs/index", type: :view do
   before(:each) do
     assign(:programs, [
       Program.create!(
-        :index => "Index"
+        :title => "Title1"
       ),
       Program.create!(
-        :index => "Index"
+        :title => "Title2"
       )
     ])
   end
 
   it "renders a list of programs" do
     render
-    assert_select "tr>td", :text => "Index".to_s, :count => 2
+    assert_select "tr>td", :text => "Title1".to_s, :count => 1
+    assert_select "tr>td", :text => "Title2".to_s, :count => 1
   end
 end

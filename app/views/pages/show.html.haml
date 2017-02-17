@@ -1,18 +1,14 @@
+.row
+  .large-12.columns
+    %h1
+      = @page.title
+    %p
+      = @page.description
+
+.row
+  .large-4
+    TODO
+
 %p#notice= notice
 
-%p
-  %b Title:
-  = @page.title
-%p
-  %b Description:
-  = @page.description
-%p
-  %b Published:
-  = @page.published
-%p
-  %b In menu:
-  = @page.in_menu
 
-= link_to 'Edit', edit_page_path(@page)
-\|
-= link_to 'Back', pages_path

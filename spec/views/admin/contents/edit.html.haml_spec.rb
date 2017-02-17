@@ -8,7 +8,7 @@ RSpec.describe "admin/contents/edit", type: :view do
       :published => false,
       :pos => 1,
       :col => 1,
-      :page => nil
+      :page => '1'
     ))
   end
 

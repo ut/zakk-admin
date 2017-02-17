@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe "programs/show", type: :view do
   before(:each) do
     @program = assign(:program, Program.create!(
-      :index => "Index"
+      :title => "Title"
     ))
   end
 
   it "renders attributes in <p>" do
     render
-    expect(rendered).to match(/Index/)
+    expect(rendered).to match(/Title/)
   end
 end
