@@ -11,11 +11,6 @@
   %tbody
     - @programs.each do |program|
       %tr
-        %td= program.index
+        %td= program.title
         %td= link_to 'Show', program
-        %td= link_to 'Edit', edit_program_path(program)
-        %td= link_to 'Destroy', program, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
-
-= link_to 'New Program', new_program_path

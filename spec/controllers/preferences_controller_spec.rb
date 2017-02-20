@@ -13,7 +13,9 @@ describe PreferencesController do
 
   describe "functionalities with logged in user with role 'user'" do
     before do
-      sign_in create(:user_with_user_role)
+      @request.env['devise.mapping'] = Devise.mappings[:user]
+      user = FactoryGirl.create(:user)
+      sign_in create(:user)
     end
 
     it "edit" do

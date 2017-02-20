@@ -22,9 +22,9 @@
         %td= content.pos
         %td= content.col
         %td= content.page
-        %td= link_to 'Show', admin_content
+        %td= link_to 'Show', admin_content_path(content)
         %td= link_to 'Edit', edit_admin_content_path(content)
-        %td= link_to 'Destroy', admin_content, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Destroy', admin_content_path(content), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

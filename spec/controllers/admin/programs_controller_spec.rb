@@ -27,25 +27,25 @@ RSpec.describe Admin::ProgramsController, type: :controller do
   end
 
   describe "GET #show" do
-    it "assigns the requested admin_program as @admin_program" do
+    it "assigns the requested program as @program" do
       program = Program.create! valid_attributes
       get :show, params: {id: program.to_param}, session: valid_session
-      expect(assigns(:admin_program)).to eq(program)
+      expect(assigns(:program)).to eq(program)
     end
   end
 
   describe "GET #new" do
-    it "assigns a new admin_program as @admin_program" do
+    it "assigns a new program as @program" do
       get :new, params: {}, session: valid_session
-      expect(assigns(:admin_program)).to be_a_new(Program)
+      expect(assigns(:program)).to be_a_new(Program)
     end
   end
 
   describe "GET #edit" do
-    it "assigns the requested admin_program as @admin_program" do
+    it "assigns the requested program as @program" do
       program = Program.create! valid_attributes
       get :edit, params: {id: program.to_param}, session: valid_session
-      expect(assigns(:admin_program)).to eq(program)
+      expect(assigns(:program)).to eq(program)
     end
   end
 
@@ -53,30 +53,30 @@ RSpec.describe Admin::ProgramsController, type: :controller do
     context "with valid params" do
       it "creates a new Program" do
         expect {
-          post :create, params: {admin_program: valid_attributes}, session: valid_session
+          post :create, params: {program: valid_attributes}, session: valid_session
         }.to change(Program, :count).by(1)
       end
 
-      it "assigns a newly created admin_program as @admin_program" do
-        post :create, params: {admin_program: valid_attributes}, session: valid_session
-        expect(assigns(:admin_program)).to be_a(Program)
-        expect(assigns(:admin_program)).to be_persisted
+      it "assigns a newly created program as @program" do
+        post :create, params: {program: valid_attributes}, session: valid_session
+        expect(assigns(:program)).to be_a(Program)
+        expect(assigns(:program)).to be_persisted
       end
 
-      it "redirects to the created admin_program" do
-        post :create, params: {admin_program: valid_attributes}, session: valid_session
+      it "redirects to the created program" do
+        post :create, params: {program: valid_attributes}, session: valid_session
         expect(response).to redirect_to(Program.last)
       end
     end
 
     context "with invalid params" do
-      it "assigns a newly created but unsaved admin_program as @admin_program" do
-        post :create, params: {admin_program: invalid_attributes}, session: valid_session
-        expect(assigns(:admin_program)).to be_a_new(Program)
+      it "assigns a newly created but unsaved program as @program" do
+        post :create, params: {program: invalid_attributes}, session: valid_session
+        expect(assigns(:program)).to be_a_new(Program)
       end
 
       it "re-renders the 'new' template" do
-        post :create, params: {admin_program: invalid_attributes}, session: valid_session
+        post :create, params: {program: invalid_attributes}, session: valid_session
         expect(response).to render_template("new")
       end
     end
@@ -88,43 +88,43 @@ RSpec.describe Admin::ProgramsController, type: :controller do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested admin_program" do
+      it "updates the requested program" do
         program = Program.create! valid_attributes
-        put :update, params: {id: program.to_param, admin_program: new_attributes}, session: valid_session
+        put :update, params: {id: program.to_param, program: new_attributes}, session: valid_session
         program.reload
         skip("Add assertions for updated state")
       end
 
-      it "assigns the requested admin_program as @admin_program" do
+      it "assigns the requested program as @program" do
         program = Program.create! valid_attributes
-        put :update, params: {id: program.to_param, admin_program: valid_attributes}, session: valid_session
-        expect(assigns(:admin_program)).to eq(program)
+        put :update, params: {id: program.to_param, program: valid_attributes}, session: valid_session
+        expect(assigns(:program)).to eq(program)
       end
 
-      it "redirects to the admin_program" do
+      it "redirects to the program" do
         program = Program.create! valid_attributes
-        put :update, params: {id: program.to_param, admin_program: valid_attributes}, session: valid_session
+        put :update, params: {id: program.to_param, program: valid_attributes}, session: valid_session
         expect(response).to redirect_to(program)
       end
     end
 
     context "with invalid params" do
-      it "assigns the admin_program as @admin_program" do
+      it "assigns the program as @program" do
         program = Program.create! valid_attributes
-        put :update, params: {id: program.to_param, admin_program: invalid_attributes}, session: valid_session
-        expect(assigns(:admin_program)).to eq(program)
+        put :update, params: {id: program.to_param, program: invalid_attributes}, session: valid_session
+        expect(assigns(:program)).to eq(program)
       end
 
       it "re-renders the 'edit' template" do
         program = Program.create! valid_attributes
-        put :update, params: {id: program.to_param, admin_program: invalid_attributes}, session: valid_session
+        put :update, params: {id: program.to_param, program: invalid_attributes}, session: valid_session
         expect(response).to render_template("edit")
       end
     end
   end
 
   describe "DELETE #destroy" do
-    it "destroys the requested admin_program" do
+    it "destroys the requested program" do
       program = Program.create! valid_attributes
       expect {
         delete :destroy, params: {id: program.to_param}, session: valid_session

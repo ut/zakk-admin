@@ -2,26 +2,21 @@ require 'rails_helper'
 
 RSpec.describe "admin/pages/new", type: :view do
   before(:each) do
-    assign(:admin_page, Page.new(
+    assign(:page, Page.new(
       :title => "MyString",
-      :description => "MyString",
-      :published => false,
-      :in_menu => false
+      :description => "MyString"
     ))
   end
 
   it "renders new admin_page form" do
     render
 
-    assert_select "form[action=?][method=?]", pages_path, "post" do
+    assert_select "form[action=?][method=?]", admin_pages_path, "post" do
 
-      assert_select "input#admin_page_title[name=?]", "admin_page[title]"
+      assert_select "input#page_title[name=?]", "page[title]"
 
-      assert_select "input#admin_page_description[name=?]", "admin_page[description]"
+      assert_select "input#page_description[name=?]", "page[description]"
 
-      assert_select "input#admin_page_published[name=?]", "admin_page[published]"
-
-      assert_select "input#admin_page_in_menu[name=?]", "admin_page[in_menu]"
     end
   end
 end

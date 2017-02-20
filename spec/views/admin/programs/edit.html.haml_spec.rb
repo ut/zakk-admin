@@ -5,7 +5,7 @@ RSpec.describe "admin/programs/edit", type: :view do
     @program = FactoryGirl.create(:program)
   end
 
-  it "renders the edit admin_program form" do
+  it "renders the edit admin program form" do
     render
 
     assert_select "form[action=?][method=?]", admin_program_path(@program), "post" do
