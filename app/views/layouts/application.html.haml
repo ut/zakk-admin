@@ -4,7 +4,7 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     %title= content_for?(:title) ? yield(:title) : 'ZakkAdmin'
-    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Empty App4'}"}
+    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : ''}"}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     -# Modernizr is required for Zurb Foundation
     = javascript_include_tag 'vendor/modernizr'
