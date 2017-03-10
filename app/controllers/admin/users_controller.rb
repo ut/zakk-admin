@@ -4,7 +4,7 @@ module Admin
 
     before_action :authenticate_user!
 
-    load_and_authorize_resource class: "User"
+    # load_and_authorize_resource class: "User"
 
     def create
       @user = User.new(user_params)

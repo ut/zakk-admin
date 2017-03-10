@@ -5,6 +5,6 @@ FactoryGirl.define do
     published false
     pos 1
     col 1
-    page nil
+    page
   end
 end

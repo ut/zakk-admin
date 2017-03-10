@@ -4,7 +4,7 @@ class Admin::ContentsController < ApplicationController
 
   before_action :authenticate_user!
 
-  load_and_authorize_resource
+  # load_and_authorize_resource
 
   # GET /contents
   # GET /contents.json
@@ -27,8 +27,8 @@ class Admin::ContentsController < ApplicationController
   # GET /contents/1/edit
   def edit
 
-    @selected_col = @post.col
-    @selected_page = @post.page_id
+   # @selected_col = @content.col
+   # @selected_page = @content.page_id
 
   end
 
@@ -39,7 +39,7 @@ class Admin::ContentsController < ApplicationController
 
     respond_to do |format|
       if @content.save
-        format.html { redirect_to @content, notice: 'Content was successfully created.' }
+        format.html { redirect_to [:admin,@content], notice: 'Content was successfully created.' }
         format.json { render :show, status: :created, location: @content }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class Admin::ContentsController < ApplicationController
   def update
     respond_to do |format|
       if @content.update(content_params)
-        format.html { redirect_to @content, notice: 'Content was successfully updated.' }
+        format.html { redirect_to [:admin,@content], notice: 'Content was successfully updated.' }
         format.json { render :show, status: :ok, location: @content }
       else
         format.html { render :edit }
@@ -67,7 +67,7 @@ class Admin::ContentsController < ApplicationController
   def destroy
     @content.destroy
     respond_to do |format|
-      format.html { redirect_to contents_url, notice: 'Content was successfully destroyed.' }
+      format.html { redirect_to admin_contents_url, notice: 'Content was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
