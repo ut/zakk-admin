@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   resources :locations
 
-  resources :posts
+  resources :posts do
+    get :copy, on: :member
+  end
 
   resources :programs, only: [:index, :show]
 

@@ -5,11 +5,11 @@
   - klass += " post_draft"
 
 
-- if p.image && p.image.url
-  %div{:class=>"#{klass}"}
-    %img{:src=>"#{p.image.thumb.url}"}
-
 %div{:class=>"#{klass}"}
+
+  - if p.image && p.image.url
+    %div{:class=>"image"}
+      %img{:src=>"#{p.image.thumb.url}"}
   - if p.startdate
     %p
       %small
