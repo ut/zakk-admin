@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :set_status]
 
   respond_to :html
 
@@ -102,6 +102,28 @@ class PostsController < ApplicationController
     @post.destroy
     flash[:notice] = "Post deleted"
     respond_with(@post)
+  end
+
+
+  def set_status
+    @dom_id   = "post_#{@post.id}"
+
+    if @post.nil?
+      @text = '<span class="badge badge-warning" title="Item not found!">E</span>'
+      format.js
+    else
+      if @post.status == 'Published'
+        @post.status = 'Draft'
+      else
+        @post.status = 'Published'
+      end
+      @post.save!
+    end
+
+    respond_to do |format|
+      format.js
+    end
+
   end
 
   private

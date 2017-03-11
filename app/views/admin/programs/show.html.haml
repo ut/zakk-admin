@@ -48,18 +48,34 @@
           %i.fi-plus
           Post anlegen
 
-    %hr
-      .row
-        .large-4.columns
-          - if !@program.current
-            %button{:class=>"button disabled", :disabled => "disabled"} Make this the current program (TODO)
-          - else
-            %button{:class=>"button disabled", :disabled => "disabled"}This is the current program!
-        .large-4.columns
-          = link_to program_path(:id => @program.id, :format => 'json'), :class => 'button' do
-            View as JSON (Serialized)
-        .large-4.columns
-          = link_to program_path(:id => @program.id, :format => 'xml'), :class => 'button' do
-            Export to XML (InDesign)
+    .row
+      .large-12.columns.text-center
+        %hr
+        - if !@program.current
+          %button{:class=>"button disabled", :disabled => "disabled"} Make this the current program (TODO)
+        - else
+          %i.fi-check.fi-32
+          %br
+          This is the current program
+        %br
+        - if !@program.published
+          %button{:class=>"button disabled", :disabled => "disabled"} Make this program public (TODO)
+        - else
+          %i.fi-check.fi-32
+          %br
+          This program is published
+    .row
+      .large-12.columns
+        %hr
+    .row
+      .large-4.columns
+        = link_to program_path(:id => @program.id, :format => 'json'), :class => 'button' do
+          Render this page as JSON (Serialized)
+      .large-4.columns
+        = link_to program_path(:id => @program.id, :format => 'xml'), :class => 'button' do
+          Export to XML (InDesign)
+      .large-4.columns
+        %button{:class=>"button disabled", :disabled => "disabled"} Send program via E-Mail
+
   .large-4.columns
     &nbsp;

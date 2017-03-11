@@ -30,12 +30,14 @@
       %img{:src=>"#{post.image.small_thumb.url}"}
   %h4
     = link_to "#{post.title}", post
-    - if can? :create, Post
+    heyhey
+    - if can? :edit, Post
       = link_to edit_post_path(post), :class=>"tiny" do
         %i.fi-pencil
-      - if !post.status
-        = link_to edit_post_path(post), :class=>"button tiny" do
+      - if post.status != 'published'
+        = link_to edit_post_path(post), :class=>"tiny" do
           %i.fi-eye
+
   - if post.shortext.present?
     %div
       = post.shortext

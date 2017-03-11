@@ -8,6 +8,9 @@ class PagesController < ApplicationController
     @col1_content = Content.where(:page =>@page.id).where(:col => "1")
     @col2_content = Content.where(:page =>@page.id).where(:col => "2")
     @col3_content = Content.where(:page =>@page.id).where(:col => "3")
+
+    @pages = Page.where(published: true).where(in_menu: true)
+
   end
 
 

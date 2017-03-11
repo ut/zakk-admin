@@ -11,7 +11,11 @@
   .large-4.columns
     - @col1_content.each do |c|
       %div.panel
-        %h3= c.title
+        %h3
+          = c.title
+          - if can? :edit, Content
+            = link_to edit_admin_content_path(c), :class=>"tiny" do
+              %i.fi-pencil
       %div.panel
         %div= c.text
 
@@ -20,7 +24,11 @@
 
     - @col2_content.each do |c|
       %div.panel
-        %h3= c.title
+        %h3
+          = c.title
+          - if can? :edit, Content
+            = link_to edit_admin_content_path(c), :class=>"tiny" do
+              %i.fi-pencil
       %div.panel
         %div= c.text
 
@@ -29,7 +37,11 @@
 
     - @col3_content.each do |c|
       %div.panel
-        %h3= c.title
+        %h3
+          = c.title
+          - if can? :edit, Content
+            = link_to edit_admin_content_path(c), :class=>"tiny" do
+              %i.fi-pencil
       %div.panel
         %div= c.text
 

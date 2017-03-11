@@ -50,16 +50,23 @@ main {
     background-color: white;
     border: 1px dotted #000000;
     display: inline-block;
-    padding: 0.6em 2.8em 0.6em 0.6em;
     padding: 1em;
+    padding: 1em 2.5rem 0.5em 1em;
 }
 
-strong.ptext,
-span.ptext {
+strong.ptext a,
+span.ptext a {
   border: 1px dotted #000000;
   background-color: white;
   padding: 0.2em 0.6em;
   margin-right: 0.2em;
+  text-transform: lowercase;
+  text-decoration: none;
+}
+span.ptext a:hover {
+  background-color: black;
+  color: white;
+  text-decoration: none;
 }
 
 
@@ -119,6 +126,7 @@ h3 { font-size: 1.775rem;
 }
 h4 {   font-size: 1.775rem;
   }
+
 .panel h4 {
   margin: 0rem 0 0.5rem 0;
   line-height: 2.75rem;
@@ -140,7 +148,9 @@ p {
     line-height: 1.65rem;
     margin-bottom: 0.65rem;
 }
-
+hr {
+  border-color: #000;
+}
 strong {
   color: #E50066;
 }
@@ -184,6 +194,13 @@ a.post {
   background-image: url(<%= asset_path 'stripe.png' %>);
 }
 .post.post_published {
+}
+
+.post-status-anchor {
+  display: none;
+}
+.post-status-anchor-active {
+  display: inline;
 }
 
 
@@ -232,6 +249,13 @@ select {
 }
 
 /*--------------------*/
+
+
+table {
+    background: #888 none repeat scroll 0 0;
+    border: 0px solid #dddddd;
+}
+
 table tr td:first-child {
   border-left: 10px solid white;
 }
@@ -250,6 +274,30 @@ img.small_thumb {
 img.medium_thumb {
   width: 150px;
   height: 150px;
+}
+div.panel img {
+  margin-bottom: 1rem;
+}
+/*--------------------*/
+div.input {
+    background: white none repeat scroll 0 0;
+    margin-bottom: 1.05rem;
+    padding: 0.15rem 1.05rem;
+}
+div.input.file.post_image {
+    min-height: 276px;
+}
+label {
+    color: #4d4d4d;
+    cursor: pointer;
+    display: block;
+    font-size: 0.805rem;
+    font-weight: bold;
+    letter-spacing: 0rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+    padding: 0.5rem 0rem;
+    text-transform: unset;
 }
 /*--------------------*/
 input.input-large {

@@ -26,18 +26,23 @@
     .columns.large-4
       .panel
         %h3
-          Monats
+          Klubraum
           %strong Programm
       - @posts_programm.each do  |p|
         - if ( p.status == 'Published' ) || ( can? :manage, Post )
           = render partial: "post", locals: { p: p }
+
+
       - if ( can? :create, Post )
         %p.panel
           sorted by startdate, only future dates (and today)
       - if current_program.present? && current_program.image.url
         %div{:class=>"panel"}
           %img{:src=>"#{current_program.image.thumb.url}"}
-
+          %p
+            Aktuelles Monatsprogramm:
+            = link_to program_path(current_program) do
+              %strong #{current_program.title}
     .columns.large-4
       .panel
         %h3
@@ -65,19 +70,20 @@
   .row
     .columns.large-4
       %p.text-right
-        %strong.ptext zakk
-        %span.ptext klubraum
+        %span.ptext
+          %a{:href=>"/"}
+            %strong zakk
+        %span.ptext
+          %a{:href=>"/"}
+            klubraum
     .columns.large-4
       &nbsp;
     .columns.large-4
       %p.text-right
-        TODO:
-
-        %span.ptext
-          %a{:href=>"info"} Info
-        %span.ptext
-          %a{:href=>"kontakt"} Kontakt
-
+        - @pages.each do |p|
+          %span.ptext
+            = link_to page_path(p) do
+              #{p.title}
   .row
     .columns.large-12
       &nbsp;

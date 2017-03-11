@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     get :copy, on: :member
+    get :set_status, on: :member
   end
 
   resources :programs, only: [:index, :show]

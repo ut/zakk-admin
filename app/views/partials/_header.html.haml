@@ -15,7 +15,7 @@
         &nbsp;
       .columns.large-5
         %p.text-right
-          %span.ptext
-            %a{:href=>"info"} Info
-          %span.ptext
-            %a{:href=>"kontakt"} Kontakt
+          - @pages.each do |p|
+            %span.ptext
+              = link_to page_path(p) do
+                #{p.title}

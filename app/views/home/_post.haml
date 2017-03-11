@@ -5,7 +5,7 @@
   - klass += " post_draft"
 
 
-%div{:class=>"#{klass}"}
+%div{:class=>"#{klass}",:id=>"post_#{p.id}"}
 
   - if p.image && p.image.url
     %div{:class=>"image"}
@@ -31,9 +31,19 @@
     - if can? :create, Post
       = link_to edit_post_path(p), :class=>"tiny" do
         %i.fi-pencil
-      - if !p.status
-        = link_to edit_post_path(p), :class=>"button tiny" do
+      %span.post-status
+        - if p.status == 'Published'
+          - klass_published = 'post-status-published post-status-anchor-active'
+          - klass_draft = 'post-status-draft post-status-anchor'
+        - else
+          - klass_published = 'post-status-published post-status-anchor'
+          - klass_draft = 'post-status-draft post-status-anchor-active'
+
+        = link_to set_status_post_path(p), :class=>"tiny #{klass_published}", remote: true do
           %i.fi-eye
+        = link_to set_status_post_path(p), :class=>"tiny #{klass_draft}", remote: true do
+          %i.fi-prohibited
+
 
   - if p.shortext.present?
     %p= p.shortext

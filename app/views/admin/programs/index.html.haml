@@ -13,9 +13,8 @@
           %tr
             %th
             %th Title
-            %th Description
+            %th Published?
             %th Events
-            %th Current?/Published
 
             %th
             %th
@@ -39,23 +38,27 @@
                 %h4
                   = link_to admin_program_path(program) do
                     = program.title
-              %td= program.description
-              %td= program.posts.count
+                  - if program.current
+                    %span.label
+                      CURRENT
+
+                - if program.description.present?
+                  %div
+                    = program.description
               %td
-                - if program.current
-                  %span.label
-                    CURRENT
-                %br
                 - if program.published
-                  %i.fi-check
+                  %i.fi-check.fi-32
                 - else
-                  %i.fi-x
+                  %i.fi-x.fi-32
+              %td= program.posts.count
 
               %td
                 = link_to edit_admin_program_path(program), :class=>"button tiny" do
-                  %i.fi-pencil
+                  %i.fi-pencil.fi-21
+                  %br
                   Bearbeiten
               %td
                 = link_to [:admin,program], :data => { confirm: 'Wirklich löschen?' }, :method => :delete, :class=>"button tiny alert" do
-                  %i.fi-x
+                  %i.fi-x.fi-21
+                  %br
                   Löschen
