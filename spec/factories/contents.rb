@@ -6,5 +6,8 @@ FactoryGirl.define do
     pos 1
     col 1
     page
+    trait :invalid do
+      title nil
+    end
   end
 end

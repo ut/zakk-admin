@@ -34,6 +34,8 @@ RSpec.configure do |config|
     Warden.test_reset!
   end
 
+  # config.infer_spec_type_from_file_location!
+
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
     # and `failure_message` of custom matchers include text for helper methods

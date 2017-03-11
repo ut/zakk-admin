@@ -4,7 +4,6 @@ RSpec.describe Admin::ProgramsController, type: :controller do
 
   describe "functionalities with logged in user with role 'admin'" do
     before do
-      @request.env['devise.mapping'] = Devise.mappings[:user]
       user = FactoryGirl.create(:user_with_admin_role)
       sign_in user
     end
@@ -17,10 +16,10 @@ RSpec.describe Admin::ProgramsController, type: :controller do
     let(:valid_attributes) {
       FactoryGirl.build(:program).attributes
     }
-
     let(:invalid_attributes) {
-      FactoryGirl.build(:program).attributes
+      FactoryGirl.attributes_for(:program, :invalid)
     }
+
 
     # This should return the minimal set of values that should be in the session
     # in order to pass any filters (e.g. authentication) defined in
@@ -74,7 +73,7 @@ RSpec.describe Admin::ProgramsController, type: :controller do
 
         it "redirects to the created program" do
           post :create, params: {program: valid_attributes}, session: valid_session
-          expect(response).to redirect_to(Program.last)
+          expect(response).to redirect_to(admin_programs_url)
         end
       end
 
@@ -113,7 +112,7 @@ RSpec.describe Admin::ProgramsController, type: :controller do
         it "redirects to the program" do
           program = Program.create! valid_attributes
           put :update, params: {id: program.to_param, program: valid_attributes}, session: valid_session
-          expect(response).to redirect_to(program)
+          expect(response).to redirect_to(admin_programs_url)
         end
       end
 
@@ -143,7 +142,7 @@ RSpec.describe Admin::ProgramsController, type: :controller do
       it "redirects to the programs list" do
         program = Program.create! valid_attributes
         delete :destroy, params: {id: program.to_param}, session: valid_session
-        expect(response).to redirect_to(programs_url)
+        expect(response).to redirect_to(admin_programs_url)
       end
     end
   end

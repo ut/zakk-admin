@@ -24,8 +24,8 @@ def define_user_with_role(role)
   FactoryGirl.define do
 
     factory :"user_with_#{role}_role", :parent => :user do |u|
-      # u.login { generate :login }
-      u.login "huibuh"
+      u.login { generate :login }
+      # u.login "huibuh"
       u.roles {[ build(:role, :name => role) ]} # lazy evaluation with {}
     end
   end

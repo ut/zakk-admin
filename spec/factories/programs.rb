@@ -7,5 +7,8 @@ FactoryGirl.define do
     backgroundimage "File"
     textcolor1 "#cc0000"
     textcolor2 "#dd0000"
+    trait :invalid do
+      title nil
+    end
   end
 end

@@ -2,9 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "Pages", type: :request do
   describe "GET /pages" do
-    it "works! (now write some real specs)" do
-      get admin_pages_path
-      expect(response).to have_http_status(200)
+    it "does not exists" do
+      expect{ get "/pages" }.to raise_error(ActionController::RoutingError)
     end
   end
+
+
 end
