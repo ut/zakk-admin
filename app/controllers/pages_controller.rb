@@ -4,6 +4,10 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
+
+    @col1_content = Content.where(:page =>@page.id).where(:col => "1")
+    @col2_content = Content.where(:page =>@page.id).where(:col => "2")
+    @col3_content = Content.where(:page =>@page.id).where(:col => "3")
   end
 
 

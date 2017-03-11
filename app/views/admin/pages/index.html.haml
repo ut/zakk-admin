@@ -1,27 +1,63 @@
-%h1 Listing pages
+.row
+  .large-9.columns{:role => "content"}
+    %h1 Pages
+  .large-3.columns.right
+    = link_to new_admin_page_path, :class => 'button' do
+      %i.fi-plus
+      Seite anlegen
+.row
+  .large-12.columns{:role => "content"}
+    .table-responsive
+      %table.table.table-striped.table-bordered.table-hover
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th Description
-      %th Published
-      %th In menu
-      %th
-      %th
-      %th
+        %thead
+          %tr
+            %th Title
+            %th Description
+            %th Published
+            %th In menu
+            %th
+            %th
+            %th
 
-  %tbody
-    - @pages.each do |page|
-      %tr
-        %td= page.title
-        %td= page.description
-        %td= page.published
-        %td= page.in_menu
-        %td= link_to 'Show', admin_page_path(page)
-        %td= link_to 'Edit', edit_admin_page_path(page)
-        %td= link_to 'Destroy', admin_page_path(page), :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %tbody
+          - @pages.each do |page|
+            %tr
+              %td
+                %h3
+                  = link_to admin_page_path(page) do
+                    = page.title
+              %td= page.description
+              %td
+                - if page.published
+                  %i.fi-check
+                - else
+                  %i.fi-x
+              %td
+                - if page.in_menu
+                  %i.fi-check
+                - else
+                  %i.fi-x
+              %td
+                = link_to page_path(page), :class=>"button tiny" do
+                  %i.fi-eye.fi-21
+                  %br
+                  Anzeigen
+              %td
+                = link_to edit_admin_page_path(page), :class=>"button tiny" do
+                  %i.fi-pencil.fi-21
+                  %br
+                  Bearbeiten
+              %td
+                = link_to admin_page_path(page), :method => :delete, :data => { :confirm => 'Are you sure?' }, :class=>"button tiny alert" do
+                  %i.fi-x.fi-21
+                  %br
+                  Löschen
 
-%br
-
-= link_to 'New Page', new_admin_page_path
+.row
+  .large-9.columns
+    #{@pages.count} Seiten
+  .large-3.columns.right
+    = link_to new_admin_page_path, :class => 'button' do
+      %i.fi-plus
+      Seite anlegen
