@@ -1,0 +1,38 @@
+.row
+  .large-9.columns{:role => "content"}
+    %h1 Flyers
+  .large-3.columns.right
+    = link_to new_admin_flyer_path, :class => 'button' do
+      %i.fi-plus
+      Flyer hochladen
+.row
+  .large-12.columns{:role => "content"}
+    .table-responsive
+      %table.table.table-striped.table-bordered.table-hover
+        %thead
+          %tr
+            %th Image
+            %th Title
+            %th
+            %th
+
+
+        %tbody
+          - @flyers.each do |flyer|
+            %tr
+              %td
+                - if flyer.image.url
+                  <img src="#{flyer.image.medium_thumb.url}">
+                - else
+                  "#{image_tag('zakk_pattern3.png', :class => "medium_thumb placeholder_thumb", :with => '150', :height => '150')}".html_safe
+              %td= flyer.title
+              %td
+                = link_to edit_admin_flyer_path(flyer), :class=>"button tiny" do
+                  %i.fi-pencil.fi-21
+                  %br
+                  Bearbeiten
+              %td
+                = link_to admin_flyer_path(flyer), :method => :delete, :data => { :confirm => 'Are you sure?' }, :class=>"button tiny alert" do
+                  %i.fi-x.fi-21
+                  %br
+                  Löschen

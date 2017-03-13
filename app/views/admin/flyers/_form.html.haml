@@ -1,0 +1,30 @@
+= simple_form_for [:admin,@flyer] do |f|
+  .row
+    .large-12.columns
+      = f.error_notification
+  .row
+    .large-3.columns
+      &nbsp;
+    .large-6.columns
+
+      .field
+
+        = f.input :image, as: :file
+        - if @flyer.image.present?
+          = image_tag @flyer.image.medium_thumb.url
+          %br
+          = f.check_box :remove_image
+          Bild löschen
+      .field
+        = f.label :title
+        = f.text_field :title
+    .large-3.columns
+      &nbsp;
+  .row
+    .large-3.columns
+      &nbsp;
+    .large-6.columns
+      .form-actions
+        = f.button :submit, :class=>"button large"
+    .large-3.columns
+      &nbsp;

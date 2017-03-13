@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
   resources :pages, only: [:show]
 
 
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
     end
     resources :pages
     resources :contents
+    resources :flyers
   end
 
 end
