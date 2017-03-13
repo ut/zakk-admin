@@ -106,7 +106,7 @@ class PostsController < ApplicationController
 
 
   def set_status
-    @dom_id   = "post_#{@post.id}"
+    @switch_id   = "post_switch_#{@post.id}"
 
     if @post.nil?
       @text = '<span class="badge badge-warning" title="Item not found!">E</span>'

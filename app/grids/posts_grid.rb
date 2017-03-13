@@ -7,9 +7,13 @@ class PostsGrid
   end
 
   def row_class(post)
-
-
+    if post.status != 'Published'
+      "tr_draft"
+    else
+      "tr_published"
+    end
   end
+
 
   filter(:id, :integer)
   filter(:title, :string) { |value| where("title ilike '%#{value}%'") }
@@ -21,7 +25,7 @@ class PostsGrid
     if post.image.url
       "<img src=\"#{post.image.medium_thumb.url}\">".html_safe
     else
-      "#{image_tag('zakk_pattern3.png', :class => "medium_thumb")}".html_safe
+      "#{image_tag('zakk_pattern3.png', :class => "medium_thumb placeholder_thumb", :with => '150', :height => '150')}".html_safe
     end
   end
   column(:title, :html => true) do |post|
@@ -38,6 +42,9 @@ class PostsGrid
       link_to post, :class=>'post post_draft' do
         "<h3 style=\"color: #{textcolor}\">#{post.title}</h3>".html_safe
       end
+
+
+
     else
       link_to post, :class=>'post' do
         "<h3 style=\"color: #{textcolor}\">#{post.title}!!</h3>".html_safe
@@ -74,8 +81,9 @@ class PostsGrid
     end
   end
   column('', :html => true) do |post|
-    link_to post, :class=>"button tiny" do
-      '<i class="fi-eye fi-21"></i>Details'.html_safe
+
+    if can? :create, Post
+      render partial: "/partials/post_publish", locals: { p: post }
     end
   end
   column('', :html => true) do |post|

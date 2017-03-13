@@ -1,13 +1,19 @@
 <% if @text %>
-  $("#<%= @dom_id %>").find('.post-status').text("<%= @text %>");
+  $("#<%= @switch_id %>").find('.post-switch-message').removeClass("hide");
+  $("#<%= @switch_id %>").find('.post-switch-message').text("<%= @text %>");
 <% else %>
+  $("#<%= @switch_id %>").find('.post-switch-message').addClass("hide");
   <% if @post.status == 'Published' %>
-    $("#<%= @dom_id %>").removeClass("post_draft").addClass("post_published");
-    $("#<%= @dom_id %>").find('.post-status-draft').removeClass("post-status-anchor-active").addClass("post-status-anchor");
-    $("#<%= @dom_id %>").find('.post-status-published').removeClass("post-status-anchor").addClass("post-status-anchor-active");
+    $("#<%= @switch_id %>").parents('tr').find('td').removeClass("post_draft").addClass("post_published");
+    $("#<%= @switch_id %>").parents('div.panel').removeClass("post_draft").addClass("post_published");
+    $("#<%= @switch_id %>").removeClass("post_draft").addClass("post_published");
+    $("#<%= @switch_id %>").find('.post-status-draft').removeClass("post-status-anchor-active").addClass("post-status-anchor");
+    $("#<%= @switch_id %>").find('.post-status-published').removeClass("post-status-anchor").addClass("post-status-anchor-active");
   <% else %>
-    $("#<%= @dom_id %>").removeClass("post_published").addClass("post_draft");
-    $("#<%= @dom_id %>").find('.post-status-published').removeClass("post-status-anchor-active").addClass("post-status-anchor");
-    $("#<%= @dom_id %>").find('.post-status-draft').removeClass("post-status-anchor").addClass("post-status-anchor-active");
+    $("#<%= @switch_id %>").parents('tr').find('td').removeClass("post_published").addClass("post_draft");
+    $("#<%= @switch_id %>").parents('div.panel').removeClass("post_published").addClass("post_draft");
+    $("#<%= @switch_id %>").removeClass("post_published").addClass("post_draft");
+    $("#<%= @switch_id %>").find('.post-status-published').removeClass("post-status-anchor-active").addClass("post-status-anchor");
+    $("#<%= @switch_id %>").find('.post-status-draft').removeClass("post-status-anchor").addClass("post-status-anchor-active");
   <% end %>
 <% end %>

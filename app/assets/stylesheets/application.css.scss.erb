@@ -190,9 +190,44 @@ a.post {
 }
 
 /*--------------------*/
+tr.tr_draft,
+tr.tr_draft td
+ {
+  background-image: url(<%= asset_path 'stripe.png' %>);
+}
+td.post_draft,
+
 .post.post_draft {
   background-image: url(<%= asset_path 'stripe.png' %>);
 }
+
+
+/*--------------------*/
+.post-switch {
+    width: 100px;
+}
+td .post-switch {
+  a.post-edit {
+    display: none;
+  }
+
+}
+
+div.panel .post-switch {
+    display: inline;
+    float: right;
+    width: 22px;
+
+    a.button.tiny {
+      padding: 0;
+    }
+    .post-status-text {
+      display: none;
+    }
+}
+
+
+/*--------------------*/
 .post.post_published {
 }
 
@@ -200,9 +235,23 @@ a.post {
   display: none;
 }
 .post-status-anchor-active {
-  display: inline;
+  display: block;
+}
+.post-status-publish {
+  background-color: #008cba;
+}
+.post-status-publish:hover .fi-eye::before {
+  content: "";
 }
 
+.post-status-draft {
+  background-color: grey;
+}
+.post-status-draft:hover .fi-eye::before {
+    content: "";
+}
+
+/*--------------------*/
 
 .post .metas {
   position: absolute;
@@ -274,7 +323,13 @@ img.small_thumb {
 img.medium_thumb {
   width: 150px;
   height: 150px;
+  max-width: 150px;
 }
+
+img.medium_thumb.placeholder_thumb {
+    filter: blur(3px);
+}
+
 div.panel img {
   margin-bottom: 1rem;
 }
