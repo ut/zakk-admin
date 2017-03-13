@@ -1,0 +1,9 @@
+#flyer_wall
+  - for i in 0..9
+    %div.flyer
+      - # if flyers[i] && flyers[i].image.url
+      - # <img src="#{flyers[i].image.medium_thumb.url}">
+      - # else
+      - rnd = ( Random.rand(90) ) - 45
+
+      #{image_tag('zakk_pattern3.png', :class => "medium_thumb placeholder_thumb", :with => '150', :height => '300', :style=>"transform: rotate(#{rnd}deg)")}

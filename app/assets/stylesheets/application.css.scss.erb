@@ -190,6 +190,38 @@ a.post {
 }
 
 /*--------------------*/
+/*--------------------*/
+div#flyer_wall {
+
+    width: 100%;
+}
+div#flyer_wall div.flyer {
+    float: left;
+}
+div#flyer_wall div.flyer img {
+    float: left;
+    height: 300px;
+    width: 200px;
+    bottom: -200px;
+    position: relative;
+    transition: bottom 2s, transform 2s;
+    opacity: 0.5;
+}
+div#flyer_wall div.flyer img:hover {
+    float: left;
+    height: 300px;
+    width: 200px;
+    bottom: -100px;
+    transform: rotate(0deg) !important;
+    transition: bottom 2s, transform 2s;
+    opacity: 1;
+    position: relative;
+}
+div#flyer_wall div.flyer img.medium_thumb.placeholder_thumb {
+    filter: blur(0);
+    max-width: 200px;
+}
+/*--------------------*/
 tr.tr_draft,
 tr.tr_draft td
  {
