@@ -27,7 +27,9 @@ Rails.application.routes.draw do
     resources :users do
       get :undelete, on: :member
     end
-    resources :programs
+    resources :programs do
+      get :sendmail, on: :member
+    end
     resources :pages
     resources :contents
   end

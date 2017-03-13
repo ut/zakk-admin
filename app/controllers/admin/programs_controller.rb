@@ -65,6 +65,17 @@ class Admin::ProgramsController < ApplicationController
     end
   end
 
+
+  def sendmail
+    @program = Program.find(params[:id])
+    if @program
+      ProgramsMailer.program_email(@program).deliver_now
+      redirect_to admin_program_url(@program), notice: 'Programmvorschau wurde versendet'
+    else
+      redirect_to root_url, notice: 'Ein Problem ist aufgetreten'
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_program

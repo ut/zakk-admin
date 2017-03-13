@@ -75,7 +75,7 @@
         = link_to program_path(:id => @program.id, :format => 'xml'), :class => 'button' do
           Export to XML (InDesign)
       .large-4.columns
-        %button{:class=>"button disabled", :disabled => "disabled"} Send program via E-Mail
-
+        = link_to sendmail_admin_program_path(:id => @program.id, :user => current_user), :class=>"button" do
+          Send program via E-Mail
   .large-4.columns
     &nbsp;

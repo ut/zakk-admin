@@ -1,0 +1,67 @@
+<h1><%= @program.title %></h1>
+<div><%= @program.description %></div>
+<p><%=link_to "Programm im Web anzeigen/bearbeiten", admin_program_url(@program) %></p>
+<hr />
+<h3>das zakk <strong>programm</strong></h3>
+<ul>
+<% @program.posts.with_ptype('0').order(:startdate).each do |post| %>
+  <li>
+    <p>
+      <% if post.startdate %>
+        <%= smart_date_display(post.startdate,post.enddate) %>
+      <% end %>
+      <% if post.location %>
+        |
+        <%= post.location.title %>
+      <% end %>
+    </p>
+    <h4>
+      <%= link_to "#{post.title}", post  %>
+    </h4>
+    <% if post.shortext.present? %>
+        <div>
+          <%= post.shortext  %>
+        </div>
+    <% end %>
+    <% if post.longtext.present? %>
+        <div>
+          <%= post.longtext  %>
+        </div>
+    <% end %>
+  </li>
+<% end %>
+</ol>
+<hr />
+<h3>und <strong>sonst</strong>?</h3>
+<ul>
+<% @program.posts.with_ptype('2').order(:startdate).each do |post|  %>
+  <li>
+    <p>
+      <% if post.startdate %>
+        <%= smart_date_display(post.startdate,post.enddate) %>
+      <% end %>
+      <% if post.location %>
+        \|
+        <%= post.location.title %>
+      <% end %>
+    </p>
+    <h4>
+      <%= link_to "#{post.title}", post %>
+    </h4>
+    <% if post.shortext.present? %>
+        <div>
+          <%= post.shortext %>
+        </div>
+    <% end %>
+    <% if post.longtext.present? %>
+        <div>
+          <%= post.longtext  %>
+        </div>
+    <% end %>
+  </li>
+<% end %>
+</ol>
+<hr />
+<p><%=link_to "Programm im Web anzeigen/bearbeiten", admin_program_url(@program) %></p>
+<hr />
+ZakkAdmin

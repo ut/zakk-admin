@@ -41,6 +41,7 @@ Rails.application.configure do
       :exception_recipients => %w{ulf.treger@3plusx.de}
     }
 
+  config.action_mailer.default_url_options = { host: 'zakk2.klubraum.org' }
 
 
   # Mount Action Cable outside main process or domain
