@@ -1,6 +1,8 @@
 class Admin::ProgramsController < ApplicationController
   before_action :set_program, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
+
   before_action :authenticate_user!
 
   # load_and_authorize_resource

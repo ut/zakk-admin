@@ -3,7 +3,7 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-    %title= content_for?(:title) ? yield(:title) : 'ZakkAdmin'
+    %title= content_for?(:title) ? yield(:title) : "#{Settings.app_name}"
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : ''}"}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     -# Modernizr is required for Zurb Foundation
@@ -24,12 +24,15 @@
   - if controller_name
     - id = "#{controller_name.parameterize}"
 
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+
 
   %body{:id=>"#{id}", :class=>"#{klass}"}
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+
     - if current_user
       %header
         = render 'layouts/navigation'
+
     %main{:role => "main"}
       = render 'layouts/messages'
       = yield

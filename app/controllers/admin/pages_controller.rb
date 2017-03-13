@@ -1,6 +1,8 @@
 class Admin::PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
+
   before_action :authenticate_user!
 
   # FIXME: throws error

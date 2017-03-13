@@ -1,6 +1,7 @@
 class Admin::ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
 
   before_action :authenticate_user!
 
