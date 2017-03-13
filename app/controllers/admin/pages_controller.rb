@@ -21,6 +21,9 @@ class Admin::PagesController < ApplicationController
   # GET /pages/new
   def new
     @page = Page.new
+    @page.contents.build(published: true, col:1,pos: 1)
+    @page.contents.build(published: true, col:2,pos: 1)
+    @page.contents.build(published: true, col:3,pos: 1)
   end
 
   # GET /pages/1/edit
@@ -75,6 +78,6 @@ class Admin::PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:title, :description, :published, :in_menu)
+      params.require(:page).permit(:title, :description, :published, :in_menu, contents_attributes: [:id, :pos, :col, :page_id, :published, :title, :text ])
     end
 end

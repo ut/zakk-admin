@@ -1,0 +1,21 @@
+= f.simple_fields_for :contents do |c|
+
+  = c.input :published, :as => :hidden, :input_html => { :value => "true" }
+  .row
+    .large-3.columns
+      .field
+        &nbsp;
+    .large-3.columns
+      .field
+        = c.input :page_id, :input_html => { :class => '', :value => "#{p.id}" }
+    .large-3.columns
+      .field
+        = c.input :col, :input_html => { :class => '', :value=>"#{col}" }
+    .large-3.columns
+      .field
+        = c.input :pos, :input_html => { :class => '', :value => 1 }
+  .field
+    = c.input :title
+  .field
+    = c.input :text, :input_html => { :rows => 5, :class => 'redactor' }
+

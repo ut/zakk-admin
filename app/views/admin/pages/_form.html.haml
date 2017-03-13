@@ -22,8 +22,23 @@
         = f.text_field :title
       .field
         = f.input :description
-      .actions
+    .large-3.columns
+      &nbsp;
+
+  .row
+    .large-4.columns
+      = render partial: "content", locals: { f: f, p: @page, col: 1 }
+    .large-4.columns
+      = render partial: "content", locals: { f: f, p: @page, col: 2 }
+    .large-4.columns
+      = render partial: "content", locals: { f: f, p: @page, col: 3 }
+
+  .row
+    .large-12.columns
+      .form-actions
         = f.button :submit, :class=>"button large"
+
+
     .large-3.columns
       &nbsp;
 
