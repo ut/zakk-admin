@@ -26,6 +26,17 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+
+
+
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[ZakkAdmin] ",
+    :sender_address => %{"notifier" <technik@klubraum.org>},
+    :exception_recipients => %w{ulf.treger@3plusx.de}
+  }
+
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 

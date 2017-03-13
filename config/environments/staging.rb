@@ -34,6 +34,15 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+    :email => {
+      :email_prefix => "[ZakkAdmin] ",
+      :sender_address => %{"notifier" <technik@klubraum.org>},
+      :exception_recipients => %w{ulf.treger@3plusx.de}
+    }
+
+
+
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'

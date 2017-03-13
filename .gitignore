@@ -11,6 +11,7 @@ public/system
 public/uploads
 public/assets
 
+config/environment.rb
 config/application.rb
 config/database.yml
 config/settings.yml
