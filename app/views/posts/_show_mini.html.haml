@@ -30,8 +30,7 @@
       %img{:src=>"#{post.image.small_thumb.url}"}
   %h4
     = link_to "#{post.title}", post
-    heyhey
-    - if can? :edit, Post
+    - if (can? :edit, Post) && (public != true)
       = link_to edit_post_path(post), :class=>"tiny" do
         %i.fi-pencil
       - if post.status != 'published'

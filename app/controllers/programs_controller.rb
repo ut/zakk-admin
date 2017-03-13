@@ -4,7 +4,7 @@ class ProgramsController < ApplicationController
   # GET /programs
   # GET /programs.json
   def index
-    @programs = Program.all
+    redirect_to program_url(helpers.current_program.id)
   end
 
   # GET /programs/1

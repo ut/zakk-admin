@@ -3,13 +3,8 @@
 
 - if ( can? :create, Post )
   .row
-    .large-9.columns{:role => "content"}
-      %h1
-        = @program.title
-        - if @program.current
-          %span.label
-            CURRENT
-      %h3= @program.description
+    .large-9.columns
+      &nbsp;
     .large-3.columns.right
       = link_to admin_programs_path, :class => 'button tiny' do
         %i.fi-list-thumbnails
@@ -32,12 +27,7 @@
     %ol
       - @program.posts.with_ptype('0').order(:startdate).each do |post|
         %li
-          = render partial: '/posts/show_mini', locals: {post: post}
-      - if ( can? :create, Post )
-        %li
-          = link_to new_post_path(:ptype => '0',:program => @program.id), :class => 'button tiny' do
-            %i.fi-plus
-            Post anlegen
+          = render partial: '/posts/show_mini', locals: {post: post, public: true}
     %h3.panel
       Und
       %strong sonst
@@ -45,12 +35,7 @@
     %ol
       - @program.posts.with_ptype('2').order(:startdate).each do |post|
         %li
-          = render partial: '/posts/show_mini', locals: {post: post}
-      - if ( can? :create, Post )
-        %li
-          = link_to new_post_path(:ptype => '2',:program => @program.id), :class => 'button tiny' do
-            %i.fi-plus
-            Post anlegen
+          = render partial: '/posts/show_mini', locals: {post: post, public: true}
 
     - if ( can? :create, Post )
       %hr
