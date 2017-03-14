@@ -18,6 +18,7 @@ class Admin::PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
+    redirect_to page_path(@page)
   end
 
   # GET /pages/new

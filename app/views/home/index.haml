@@ -1,3 +1,6 @@
+= render partial: '/partials/custom_styles', locals: {program: current_program}
+
+
 - if ( can? :create, Post ) && ( can? :create, Location )
   .row.hide
     .columns.large-2
