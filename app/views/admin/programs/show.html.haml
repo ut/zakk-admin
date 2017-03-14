@@ -32,7 +32,7 @@
         %li
           = render partial: '/posts/show_mini', locals: {post: post}
       %li
-        = link_to new_post_path(:ptype => '0',:program => @program.id), :class => 'button tiny' do
+        = link_to new_admin_post_path(:ptype => '0',:program => @program.id), :class => 'button tiny' do
           %i.fi-plus
           Post anlegen
     %h3.panel
@@ -44,7 +44,7 @@
         %li
           = render partial: '/posts/show_mini', locals: {post: post}
       %li
-        = link_to new_post_path(:ptype => '2',:program => @program.id), :class => 'button tiny' do
+        = link_to new_admin_post_path(:ptype => '2',:program => @program.id), :class => 'button tiny' do
           %i.fi-plus
           Post anlegen
 

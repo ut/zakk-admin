@@ -40,12 +40,8 @@
     - if ( can? :create, Post )
       %hr
         .row
-          .large-6.columns
-            - if !@program.current
-              %button{:class=>"button disabled", :disabled => "disabled"} Make this the current program (TODO)
-            - else
-              %button{:class=>"button disabled", :disabled => "disabled"} (This is the current program)
-          .large-6.columns
-            %button{:class=>"button disabled", :disabled => "disabled"} Export to XML (InDesign) (TODO)
+          .large-12.columns
+            = link_to admin_program_path(@program.id), :class => 'button' do
+              Switch to admin view of this program
   .large-4.columns
     &nbsp;
