@@ -1,6 +1,10 @@
 class Admin::FlyersController < ApplicationController
   before_action :set_flyer, only: [:edit, :update, :destroy]
 
+  layout 'admin'
+
+  before_action :authenticate_user!
+
   # GET /flyers
   # GET /flyers.json
   def index

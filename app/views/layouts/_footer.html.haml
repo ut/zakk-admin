@@ -1,13 +1,17 @@
-.large-12.columns
-  .row
-    .large-6.columns
+
+.row#sub-footer
+  .large-12.columns
+    = render partial: '/partials/flyer_wall', locals: {flyers: @flyers}
+.row#footer
+  .large-6.columns
+    %p
+      = link_to "/" do
+        = Settings.app_name
+        (#{Rails.env})
+      &nbsp;
+      = Settings.app_version
+      (#{link_to "Github","https://github.com/ut/zakk-admin"})
+  .large-6.columns.text-right
+    - if !current_user
       %p
-        = link_to "/" do
-          = Settings.app_name
-          (#{Rails.env})
-        = Settings.app_version
-        (#{link_to "Github","https://github.com/ut/zakk-admin"})
-    .large-6.columns
-      - if !current_user
-        %p
-          = link_to "Login",user_session_path
+        = link_to "Login",user_session_path

@@ -82,25 +82,79 @@ footer {
   left: 0;
   color: #555;
   height: 50px;
-  background-color: #333;
+  background-color: transparent;
 }
-footer div.columns {
-  padding: 0
+footer .row#sub-footer {
+  padding: 0;
 }
-footer div .row {
+footer .row#sub-footer .columns {
+  padding: 0;
+}
+footer .row#footer {
   background-color: #333;
   max-width: none;
   margin: 0;
 }
-footer .columns .row .columns {
-  padding: 10px 0 0 20px;
+footer .row#footer .columns {
+  padding: 10px 20px 0 20px;
 }
 
 footer a {
     color: #555;
 }
-footer:hover, footer:hover a {
+footer div#footer .column:hover, footer a:hover {
   color: #ccc;
+}
+/*--------------------*/
+/*--------------------*/
+div#flyer_wall {
+    height: 270px;
+    overflow: hidden;
+    width: 100%;
+}
+div#flyer_wall div.flyer {
+    float: left;
+    width: 10%;
+}
+div#flyer_wall div.flyer img {
+    float: left;
+    height: 300px;
+    width: 200px;
+    top: 200px;
+    margin-top: -40px;
+    position: relative;
+    /* transition: bottom 2s, transform 2s, opacity 2s; */
+    transition: all 2s ease-in-out;
+    opacity: 0.5;
+}
+div#flyer_wall div.flyer:hover img {
+    margin-top: -150px;
+    /* transform: scale(1.1), rotate(random(50) - 25 + deg) !important; */
+    transform: scale(1.6);
+    opacity: 1;
+    /* transition: bottom 2s, transform 2s, opacity 2s; */
+    /* transition: transform 2s, bottom 2s, opacity 2s; */
+    transition: all 2s;
+    cursor: pointer;
+}
+/*
+div#flyer_wall div.flyer:nth-child(1):hover img {
+    transform: rotate(random(50) - 25 + deg) !important;
+}
+div#flyer_wall div.flyer:nth-child(2):hover img {
+    transform: rotate(random(50) - 25 + deg) !important;
+}
+div#flyer_wall div.flyer:nth-child(3):hover img {
+    transform: rotate(random(50) - 25 + deg) !important;
+}
+div#flyer_wall div.flyer:nth-child(4):hover img {
+    transform: rotate(random(50) - 25 + deg) !important;
+}
+*/
+
+div#flyer_wall div.flyer img.medium_thumb.placeholder_thumb {
+    filter: blur(0);
+    max-width: 200px;
 }
 
 /* ---------------------- */
@@ -189,38 +243,7 @@ a.post {
   display: block;
 }
 
-/*--------------------*/
-/*--------------------*/
-div#flyer_wall {
 
-    width: 100%;
-}
-div#flyer_wall div.flyer {
-    float: left;
-}
-div#flyer_wall div.flyer img {
-    float: left;
-    height: 300px;
-    width: 200px;
-    bottom: -200px;
-    position: relative;
-    transition: bottom 2s, transform 2s;
-    opacity: 0.5;
-}
-div#flyer_wall div.flyer img:hover {
-    float: left;
-    height: 300px;
-    width: 200px;
-    bottom: -100px;
-    transform: rotate(0deg) !important;
-    transition: bottom 2s, transform 2s;
-    opacity: 1;
-    position: relative;
-}
-div#flyer_wall div.flyer img.medium_thumb.placeholder_thumb {
-    filter: blur(0);
-    max-width: 200px;
-}
 /*--------------------*/
 tr.tr_draft,
 tr.tr_draft td
