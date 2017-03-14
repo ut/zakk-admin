@@ -21,7 +21,10 @@
         %td= content.published
         %td= content.pos
         %td= content.col
-        %td= content.page
+        %td
+          = link_to admin_page_path(content.page) do
+            = content.page.title
+
         %td= link_to 'Show', admin_content_path(content)
         %td= link_to 'Edit', edit_admin_content_path(content)
         %td= link_to 'Destroy', admin_content_path(content), :method => :delete, :data => { :confirm => 'Are you sure?' }

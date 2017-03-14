@@ -9,11 +9,7 @@ Rails.application.routes.draw do
 
   resources :locations
 
-  resources :posts do
-    get :copy, on: :member
-    get :set_status, on: :member
-  end
-
+  resources :posts, only: [:index, :show]
   resources :programs, only: [:index, :show]
 
   devise_for :users
@@ -30,6 +26,10 @@ Rails.application.routes.draw do
     end
     resources :programs do
       get :sendmail, on: :member
+    end
+    resources :posts do
+      get :copy, on: :member
+      get :set_status, on: :member
     end
     resources :pages
     resources :contents

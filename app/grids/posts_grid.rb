@@ -87,17 +87,17 @@ class PostsGrid
     end
   end
   column('', :html => true) do |post|
-    link_to edit_post_path(post), :class=>"button tiny" do
+    link_to edit_admin_post_path(post), :class=>"button tiny" do
       '<i class="fi-pencil fi-21"></i>Bearbeiten'.html_safe
     end
   end
   column('', :html => true) do |post|
-    link_to copy_post_path(post), :class=>"button tiny" do
+    link_to copy_admin_post_path(post), :class=>"button tiny" do
       '<i class="fi-plus fi-21"></i>Kopieren'.html_safe
     end
   end
   column('', :html => true) do |post|
-    link_to post, :data => { confirm: 'Wirklich löschen?' }, :method => :delete, :class=>"button tiny alert" do
+    link_to admin_post_path(post), :data => { confirm: 'Wirklich löschen?' }, :method => :delete, :class=>"button tiny alert" do
       '<i class="fi-x fi-21"></i>Löschen'.html_safe
     end
   end

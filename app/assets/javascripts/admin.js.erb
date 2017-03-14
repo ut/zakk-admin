@@ -8,23 +8,22 @@
 //= require foundation-datetimepicker
 //= require admin
 
+$(document).on('turbolinks:load', function() {
 
-
-$(function() {
   $(document).foundation();
-    console.log("admin js loaded");
+  console.log("admin js loaded");
 
-    $('.fdatetimepicker').fdatetimepicker({
-          language: 'de',
-          startDate: '+0d',
-          format: 'dd.mm.yyyy hh:ii',
-    });
-    $('.datetimepicker-inline').css('display', 'none');
+  $('.fdatetimepicker').fdatetimepicker({
+        language: 'de',
+        startDate: '+0d',
+        format: 'dd.mm.yyyy hh:ii',
+  });
+  $('.datetimepicker-inline').css('display', 'none');
 
 
-    // this should be at the very end of this script :) and with test env only!
-    <% if ( Rails.env == "test" ) %>
-      $('footer').append("Javascript enabled");
-    <% end %>
+  // this should be at the very end of this script :) and with test env only!
+  <% if ( Rails.env == "test" ) %>
+    $('footer').append("Javascript enabled");
+  <% end %>
 
 });
