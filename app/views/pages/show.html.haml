@@ -17,7 +17,7 @@
             = link_to edit_admin_content_path(c), :class=>"tiny" do
               %i.fi-pencil
       %div.panel
-        %div= c.text
+        %div= c.text.html_safe
 
 
   .large-4.columns
@@ -30,7 +30,7 @@
             = link_to edit_admin_content_path(c), :class=>"tiny" do
               %i.fi-pencil
       %div.panel
-        %div= c.text
+        %div= c.text.html_safe
 
 
   .large-4.columns
@@ -43,5 +43,5 @@
             = link_to edit_admin_content_path(c), :class=>"tiny" do
               %i.fi-pencil
       %div.panel
-        %div= c.text
+        %div= c.text.html_safe
 

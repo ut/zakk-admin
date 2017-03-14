@@ -66,7 +66,7 @@ class Admin::PostsController < ApplicationController
       respond_with(@post)
     else
 
-      respond_with(@post, :status => :created, :location => new_post_path)
+      respond_with(@post, :status => :created, :location => new_admin_post_path)
     end
   end
 
