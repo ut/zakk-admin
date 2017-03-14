@@ -23,7 +23,7 @@ class Program < ActiveRecord::Base
     if self.current == true
       self.published = true
     else
-      self.published = false
+      # self.published = false
     end
     true
   end
