@@ -31,7 +31,10 @@
     - if post.image.url
       %img{:src=>"#{post.image.small_thumb.url}"}
   %h4
-    = link_to "#{post.title}", post
+    - if post.longtext.present?
+      = link_to "#{post.title}", post
+    - else
+      = post.title
     - if (can? :edit, Post) && (public != true)
       = link_to edit_admin_post_path(post), :class=>"tiny" do
         %i.fi-pencil
