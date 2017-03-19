@@ -12,13 +12,15 @@ class User < ActiveRecord::Base
 
   devise  :database_authenticatable,
           :timeoutable,
-		      :recoverable, 
+		      :recoverable,
           :trackable,
           :lockable,
 		      :validatable,
           :timeout_in => (5*60).minutes
 
   has_and_belongs_to_many :roles
+
+  accepts_nested_attributes_for :roles
 
   validates :login, presence: true,
                     uniqueness: { case_sensitive: false },

@@ -1,7 +1,15 @@
 - @page_title = "Benutzerverwaltung > Profil"
-%h2 Profil anlegen
 
-= form_for [:admin, @user] do |f|
-  = render "layouts/error_messages", :target => @user
-  = render :partial => "form", :object => f
-  = f.submit "Benutzer anlegen", :class => "button"
+.row
+  .large-8.columns
+    %h1 account anlegen
+  .large-4.columns.right
+    = link_to admin_users_path, :class => 'button tiny' do
+      %i.fi-list-thumbnails
+      Index
+
+.row
+  .large-10.columns
+    = render 'form'
+  .large-2.columns
+    &nbsp;

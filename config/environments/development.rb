@@ -26,16 +26,6 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-
-
-
-  Rails.application.config.middleware.use ExceptionNotification::Rack,
-  :email => {
-    :email_prefix => "[ZakkAdmin] ",
-    :sender_address => %{"notifier" <technik@klubraum.org>},
-    :exception_recipients => %w{ulf.treger@3plusx.de}
-  }
-
   config.action_mailer.default_url_options = { host: '127.0.0.1:3000' }
 
 

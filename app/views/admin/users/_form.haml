@@ -1,24 +1,25 @@
-%div{ class: :col1 }
+= simple_form_for [:admin, @user] do |f|
+  = f.error_notification
+  .row
+    .large-4.columns
+      = f.input :login
+      = f.input :password
+      = f.input :password_confirmation
+    .large-4.columns
+      = f.input :email
+      = f.input :firstname
+      = f.input :lastname
+    .large-4.columns
+      %div.input
+        %label Rolle
+        - Role.order(:name).each do |r|
 
-  = labeled_textfield( form, :login, 'Benutzername')
-  = labeled_textfield( form, :firstname, 'Vorname')
-  = labeled_textfield( form, :lastname, 'Nachname')
-  = labeled_textfield( form, :email, 'Email')
+          - if r.fe_name
+            %p
+              = radio_button_tag "user[role_ids][]", r.id, @user.roles.include?(r), id: "user_role_id_#{r.id}"
+              = label_tag "user_role_id_#{r.id}", r.fe_name, class: :inline
 
-  %p
-    = form.label :password, form.object.new_record? ?  "Passwort" : "Passwort ändern"
-    = form.password_field :password
-  %p
-    = form.label :password_confirmation, "Passwortbestätigung"
-    = form.password_field :password_confirmation
-
-%div{ class: :col2 }
-
-  %h3 Rollen
-  - Role.order(:name).each do |r|
-
-    - if r.fe_name
-      %p
-        = check_box_tag "user[role_ids][]" , r.id, @user.roles.include?(r), id: "user_role_id_#{r.id}"
-        = label_tag "user_role_id_#{r.id}", r.fe_name, class: :inline
+  .row
+    .large-12.columns
+      = f.submit "Benutzer anlegen", :class => "button"
 

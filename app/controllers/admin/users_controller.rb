@@ -1,7 +1,7 @@
 module Admin
   class UsersController < ApplicationController
 
-  layout 'admin'
+    layout 'admin'
 
     before_action :authenticate_user!
 
@@ -54,7 +54,7 @@ module Admin
         #  logger.debug "BYPASSING"
         #  sign_in(@user, :bypass => true)
         #end
-        redirect_to admin_user_url( @user ), notice: "Benutzer '#{@user.login}' aktualisiert!"
+        redirect_to admin_users_url, notice: "Benutzer '#{@user.login}' aktualisiert!"
       else
         render :edit
       end
@@ -64,8 +64,7 @@ module Admin
 
     def user_params
       params.require(:user).permit( :email, :firstname, :lastname, :login,
-                                    :password, :password_confirmation, :role_ids)
-
+                                    :password, :password_confirmation, role_ids: [])
     end
 
   end
