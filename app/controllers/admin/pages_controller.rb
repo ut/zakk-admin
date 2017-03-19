@@ -31,6 +31,16 @@ class Admin::PagesController < ApplicationController
 
   # GET /pages/1/edit
   def edit
+
+    if !@page.contents.first.present?
+      @page.contents.build(published: true, col:1,pos: 1)
+    end
+    if !@page.contents.second.present?
+      @page.contents.build(published: true, col:2,pos: 1)
+    end
+    if !@page.contents[2].present?
+      @page.contents.build(published: true, col:3,pos: 1)
+    end
   end
 
   # POST /pages
@@ -81,6 +91,7 @@ class Admin::PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
+      puts params.inspect
       params.require(:page).permit(:title, :description, :published, :in_menu, contents_attributes: [:id, :pos, :col, :page_id, :published, :title, :text ])
     end
 end

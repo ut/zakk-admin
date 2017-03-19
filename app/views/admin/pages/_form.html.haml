@@ -6,32 +6,30 @@
     .large-3.columns
       &nbsp;
     .large-6.columns
-      .row
-        .large-2.columns
-          .field
-            = f.label :published
-            = f.check_box :published
-        .large-2.columns
-          .field
-            = f.label :in_menu
-            = f.check_box :in_menu
-        .large-6.columns
-          &nbsp;
       .field
-        = f.label :title
-        = f.text_field :title
+        = f.input :title
       .field
-        = f.input :description
+        = f.input :description, :as => :hidden
+      .input
+        .row
+          .large-2.columns
+            .field
+              = f.label :published
+              = f.check_box :published
+          .large-2.columns
+            .field
+              = f.label :in_menu
+              = f.check_box :in_menu
+          .large-6.columns
+            &nbsp;
     .large-3.columns
       &nbsp;
 
   .row
-    .large-4.columns
-      = render partial: "content", locals: { f: f, p: @page, col: 1 }
-    .large-4.columns
-      = render partial: "content", locals: { f: f, p: @page, col: 2 }
-    .large-4.columns
-      = render partial: "content", locals: { f: f, p: @page, col: 3 }
+    = f.simple_fields_for :contents do |c|
+      .large-4.columns
+        = render partial: "content", locals: { f: f, p: @page, c: c }
+
 
   .row
     .large-12.columns

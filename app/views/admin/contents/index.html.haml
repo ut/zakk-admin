@@ -17,17 +17,33 @@
     - @contents.each do |content|
       %tr
         %td= content.title
-        %td= content.text
-        %td= content.published
+        %td= content.text.html_safe
+        %td
+          - if content.published
+            %i.fi-check
+          - else
+            %i.fi-x
         %td= content.pos
         %td= content.col
         %td
           = link_to admin_page_path(content.page) do
             = content.page.title
+        %td
+          = link_to admin_content_path(content), :class=>"button tiny" do
+            %i.fi-eye.fi-21
+            %br
+            Anzeigen
+        %td
+          = link_to  edit_admin_content_path(content), :class=>"button tiny" do
+            %i.fi-pencil.fi-21
+            %br
+            Bearbeiten
+        %td
+          = link_to admin_content_path(content), :method => :delete, :data => { :confirm => 'Are you sure?' }, :class=>"button tiny alert" do
+            %i.fi-x.fi-21
+            %br
+            Löschen
 
-        %td= link_to 'Show', admin_content_path(content)
-        %td= link_to 'Edit', edit_admin_content_path(content)
-        %td= link_to 'Destroy', admin_content_path(content), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

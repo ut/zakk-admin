@@ -1,7 +1,7 @@
 module Admin::ContentsHelper
 
   def col_for_select
-    [["Col #1",1],["Col #2",2],["Col #3",3]]
+    [["1",1],["2",2],["3",3]]
   end
 
   def default_col

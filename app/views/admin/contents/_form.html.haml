@@ -8,16 +8,15 @@
     .large-6.columns
       .row
         .large-2.columns
-          .field
+          .field.input
             = f.label :published
             = f.check_box :published
         .large-2.columns
           .field
-            = f.input :col, :collection => col_for_select, :label => "Column", :selected => @selected_col, :input_html => { :class => '' }
+            = f.input :col, :collection => col_for_select, :label => "Col", :selected => @selected_col, :input_html => { :class => '' }
         .large-2.columns
           .field
-            = f.label :pos
-            = f.number_field :pos
+            = f.input :pos, :as => :hidden
         .large-6.columns
           .field
             = f.input :page_id, :collection => page_for_select, :label => "Page", :selected => @selected_page, :input_html => { :class => '' }
