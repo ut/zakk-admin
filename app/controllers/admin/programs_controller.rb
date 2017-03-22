@@ -71,7 +71,7 @@ class Admin::ProgramsController < ApplicationController
   def sendmail
     @program = Program.find(params[:id])
     if @program
-      ProgramsMailer.program_email(@program).deliver_now
+      ProgramsMailer.program_email(@program,current_user.email).deliver_now
       redirect_to admin_program_url(@program), notice: 'Programmvorschau wurde versendet'
     else
       redirect_to root_url, notice: 'Ein Problem ist aufgetreten'
