@@ -17,8 +17,7 @@ class PreferencesController < ApplicationController
   private
 
   def user_params
-      params.require(:user).permit( :email, :firstname, :lastname, :login,
-                                    :password, :password_confirmation)
+      params.require(:user).permit( :email, :firstname, :lastname, :login, :password, :password_confirmation)
   end
 
 end

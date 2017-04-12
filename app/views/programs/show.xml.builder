@@ -5,6 +5,7 @@ xml.instruct! :xml, :version => "1.0"
 xml.program do
   xml.program_title "#{@program.title}"
   xml.program_description "#{@program.description}"
+  xml.program_hint "zakk Monatsprogramm (XML Export for Adobe Indesign)"
   xml.part do
 
     xml.part_title "das zakk programm"
