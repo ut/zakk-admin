@@ -12,13 +12,25 @@ Qt for the [compiling of capybara-webkit](https://github.com/thoughtbot/capybara
 
 ## Installation
 
-...
+Set up configuration: Copy all *.example files in /config and change them as needed.
 
-Database Setup
+### Database Setup
 
-...
+This application relies on a PostgreSQL database. Setup a database, check db/create_db.sql for some basic commands.
+Define database name and user at config/database.yml
 
-Tests
+Run migrations
+
+`$ bundle exec bin/rails db:migrate`
+
+Run seeds
+
+`$ bundle exec bin/rails db:seeds`
+
+### Testing w/RSpec
+
+
+`$ bundle exec rspec spec`
 
 
 ## Run
