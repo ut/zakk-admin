@@ -12,7 +12,6 @@ RSpec.describe "Programs", type: :request do
     it "redirects to root url if no current_program is NOT defined" do
       @program.current = false
       allow(@helpers).to receive(:current_program).and_return(@program)
-      puts @helpers.current_program.id
       get programs_path
       expect(response).to have_http_status(302)
     end
@@ -20,7 +19,7 @@ RSpec.describe "Programs", type: :request do
     xit "rendes program show if a current_program is defined" do
       @program.current = true
       allow(@helpers).to receive(:current_program).and_return(@program)
-      puts @helpers.current_program.id
+      # puts @helpers.current_program.id
       get programs_path
       expect(response).to have_http_status(200)
     end
