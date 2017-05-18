@@ -15,7 +15,8 @@
         &nbsp;
       .columns.large-5
         %p.text-right
-          - @pages.each do |p|
-            %span.ptext
-              = link_to page_path(p) do
-                #{p.title}
+          - if @pages
+            - @pages.each do |p|
+              %span.ptext
+                = link_to page_path(p) do
+                  #{p.title}

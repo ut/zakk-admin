@@ -9,39 +9,40 @@
 
 .row
   .large-4.columns
-    - @col1_content.each do |c|
-      %div.panel
-        %h3
-          = c.title
-          - if can? :edit, Content
-            = link_to edit_admin_content_path(c), :class=>"tiny" do
-              %i.fi-pencil
-      %div.panel
-        %div= c.text.html_safe
+    - if @col1_content
+      - @col1_content.each do |c|
+        %div.panel
+          %h3
+            = c.title
+            - if can? :edit, Content
+              = link_to edit_admin_content_path(c), :class=>"tiny" do
+                %i.fi-pencil
+        %div.panel
+          %div= c.text.html_safe
 
 
   .large-4.columns
-
-    - @col2_content.each do |c|
-      %div.panel
-        %h3
-          = c.title
-          - if can? :edit, Content
-            = link_to edit_admin_content_path(c), :class=>"tiny" do
-              %i.fi-pencil
-      %div.panel
-        %div= c.text.html_safe
+    - if @col2_content
+      - @col2_content.each do |c|
+        %div.panel
+          %h3
+            = c.title
+            - if can? :edit, Content
+              = link_to edit_admin_content_path(c), :class=>"tiny" do
+                %i.fi-pencil
+        %div.panel
+          %div= c.text.html_safe
 
 
   .large-4.columns
-
-    - @col3_content.each do |c|
-      %div.panel
-        %h3
-          = c.title
-          - if can? :edit, Content
-            = link_to edit_admin_content_path(c), :class=>"tiny" do
-              %i.fi-pencil
+    - if @col3_content
+      - @col3_content.each do |c|
+        %div.panel
+          %h3
+            = c.title
+            - if can? :edit, Content
+              = link_to edit_admin_content_path(c), :class=>"tiny" do
+                %i.fi-pencil
       %div.panel
         %div= c.text.html_safe
 

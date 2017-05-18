@@ -48,11 +48,6 @@ describe Admin::UsersController do
       flash[:notice].should match "Benutzer angelegt"
     end
 
-    it "should show" do
-      get :show, params: { id: User.first.id }
-      expect(response).to be_success
-    end
-
     it "should undelete" do
       get :undelete, params: { id: User.first.id }
       expect(response).to redirect_to(admin_users_path)

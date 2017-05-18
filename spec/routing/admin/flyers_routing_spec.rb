@@ -11,10 +11,6 @@ RSpec.describe Admin::FlyersController, type: :routing do
       expect(:get => "/admin/flyers/new").to route_to("admin/flyers#new")
     end
 
-    it "routes to #show" do
-      expect(:get => "/admin/flyers/1").to route_to("admin/flyers#show", :id => "1")
-    end
-
     it "routes to #edit" do
       expect(:get => "/admin/flyers/1/edit").to route_to("admin/flyers#edit", :id => "1")
     end

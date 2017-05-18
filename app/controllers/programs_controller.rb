@@ -4,8 +4,8 @@ class ProgramsController < ApplicationController
   # GET /programs
   # GET /programs.json
   def index
-    if helpers.current_program
-      redirect_to program_url(helpers.current_program.id)
+    if helpers.current_program && helpers.current_program.id
+        redirect_to program_url(helpers.current_program.id)
     else
       redirect_to root_url
     end

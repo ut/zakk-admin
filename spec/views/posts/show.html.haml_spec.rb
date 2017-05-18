@@ -19,6 +19,12 @@ RSpec.describe "posts/show", type: :view do
 
    #  view.stub(:ptypes).and_return(["Programm","Neues im zakk","Und sonst?"])
 
+    @program = assign(:program, Program.create!(
+      :title => "Title",
+      :backgroundimage => 'image',
+      :backgroundcolor => '#cc0000'
+    ))
+
   end
 
   it "renders attributes in <p>" do

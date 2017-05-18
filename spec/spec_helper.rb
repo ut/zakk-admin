@@ -17,6 +17,7 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
 
+  config.color = true
 
   config.include Capybara::DSL
   Capybara.javascript_driver = :webkit

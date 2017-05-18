@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "admin/flyers/new", type: :view do
   before(:each) do
-    assign(:admin_flyer, Flyer.new(
+    assign(:flyer, Flyer.new(
       :image => "MyString",
       :title => "MyString"
     ))
@@ -11,11 +11,11 @@ RSpec.describe "admin/flyers/new", type: :view do
   it "renders new admin_flyer form" do
     render
 
-    assert_select "form[action=?][method=?]", flyers_path, "post" do
+    assert_select "form[action=?][method=?]", admin_flyers_path, "post" do
 
-      assert_select "input#admin_flyer_image[name=?]", "admin_flyer[image]"
+      assert_select "input#flyer_image[name=?]", "flyer[image]"
 
-      assert_select "input#admin_flyer_title[name=?]", "admin_flyer[title]"
+      assert_select "input#flyer_title[name=?]", "flyer[title]"
     end
   end
 end

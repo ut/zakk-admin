@@ -18,7 +18,11 @@ class Admin::PostsController < ApplicationController
   end
 
   def show
-    redirect_to page_path(@page)
+    if @page
+      redirect_to page_path(@page)
+    else
+      redirect_to admin_pages_url, notice: 'Related page is not available :('
+    end
   end
 
   def new
@@ -65,7 +69,6 @@ class Admin::PostsController < ApplicationController
     if params[:commit] == "Post erstellen"
       respond_with(@post)
     else
-
       respond_with(@post, :status => :created, :location => new_admin_post_path)
     end
   end
@@ -101,7 +104,10 @@ class Admin::PostsController < ApplicationController
   def destroy
     @post.destroy
     flash[:notice] = "Post deleted"
-    respond_with(@post)
+    respond_to do |format|
+      format.html { redirect_to admin_posts_url, notice: 'Post was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
 

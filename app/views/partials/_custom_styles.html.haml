@@ -1,10 +1,11 @@
-- if program.backgroundimage && program.backgroundimage.small_thumb
-  - thumb = "#{program.backgroundimage.medium_thumb.url}"
-:css
-  body, main { background-color: #{program.backgroundcolor}}
-    main { background-image: url(#{thumb}) }
-  .panel h1,
-  .panel h2,
-  .panel h3,
-  .panel h4 { color: #{program.textcolor2}}
-  strong { color: #{program.textcolor1}}
+- if program
+  - if program.backgroundimage && program.backgroundimage.small_thumb
+    - thumb = "#{program.backgroundimage.medium_thumb.url}"
+  :css
+    body, main { background-color: #{program.backgroundcolor}}
+      main { background-image: url(#{thumb}) }
+    .panel h1,
+    .panel h2,
+    .panel h3,
+    .panel h4 { color: #{program.textcolor2}}
+    strong { color: #{program.textcolor1}}

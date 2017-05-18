@@ -91,7 +91,6 @@ class Admin::PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      puts params.inspect
       params.require(:page).permit(:title, :description, :published, :in_menu, contents_attributes: [:id, :pos, :col, :page_id, :published, :title, :text ])
     end
 end
