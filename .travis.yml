@@ -7,12 +7,12 @@ before_script:
 - sleep 3
 before_install:
 - openssl aes-256-cbc -K $encrypted_2f8b813a2d77_key -iv $encrypted_2f8b813a2d77_iv
-  -in database.yml.enc -out database.yml -d
+  -in config/database.yml.enc -out config/database.yml -d
 - openssl aes-256-cbc -K $encrypted_2f8b813a2d77_key -iv $encrypted_2f8b813a2d77_iv
-  -in settings.yml.enc -out settings.yml -d
+  -in config/settings.yml.enc -out config/settings.yml -d
 - openssl aes-256-cbc -K $encrypted_2f8b813a2d77_key -iv $encrypted_2f8b813a2d77_iv
-  -in secrets.yml.enc -out secrets.yml -d
+  -in config/secrets.yml.enc -out config/secrets.yml -d
 - openssl aes-256-cbc -K $encrypted_2f8b813a2d77_key -iv $encrypted_2f8b813a2d77_iv
-  -in environment.rb.enc -out environment.rb -d
+  -in config/environment.rb.enc -out config/environment.rb -d
 - openssl aes-256-cbc -K $encrypted_837fd4b2deec_key -iv $encrypted_837fd4b2deec_iv
-  -in application.rb.enc -out config/application.rb -d
+  -in config/application.rb.enc -out config/application.rb -d
