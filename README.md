@@ -1,3 +1,5 @@
+https://api.travis-ci.org/ut/zakk-admin.svg?branch=master
+
 # zakk-admin
 
 Website and admin interface for zakk (a cultural center in Bremen, GER)
@@ -51,21 +53,19 @@ $ gem install travis
 
 ```
 
-Add files to .travis.yml
+Adding secret files to .travis.yml
 
 ```
-$ cd config
-$ travis encrypt-file application.rb --add
-$ travis encrypt-file environment.rb --add
-$ travis encrypt-file secrets.yml --add
-$ travis encrypt-file settings.yml --add
-$ travis encrypt-file database.yml --add
+$ tar cvf secrets.tar config/application.rb config/database.yml config/environment.rb config/secrets.yml config/settings.yml
+$ travis encrypt-file secrets.tar --add
 ```
+
+[Setting up Postgres database](https://docs.travis-ci.com/user/database-setup/#PostgreSQL)
 
 
 ## Credits
 
-Designed and developed by Ulf Treger, <ulf.treger@googlemail.com>
+Designed and developed by Ulf Treger <ulf.treger@googlemail.com>
 
 ## Contributions
 
