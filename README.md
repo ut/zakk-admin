@@ -38,6 +38,31 @@ Run seeds
 `$ bundle exec bin/rails s`
 
 
+## Travis CI
+
+[Encrypt config files for safe usage in Travis](https://docs.travis-ci.com/user/encrypting-files/), without publishing it to Github
+
+Before: [Install Travis CLI](https://docs.travis-ci.com/user/encrypting-files/) with Ruby 2.1 (with Ruby 2.3 it is not working yet)
+
+
+```
+$ rm use ruby-2.1.8
+$ gem install travis
+
+```
+
+Add files to .travis.yml
+
+```
+$ cd config
+$ travis encrypt-file application.rb --add
+$ travis encrypt-file environment.rb --add
+$ travis encrypt-file secrets.yml --add
+$ travis encrypt-file settings.yml --add
+$ travis encrypt-file database.yml --add
+```
+
+
 ## Credits
 
 Designed and developed by Ulf Treger, <ulf.treger@googlemail.com>
