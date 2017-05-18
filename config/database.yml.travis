@@ -1,0 +1,11 @@
+test:
+  adapter: postgresql
+  min_messages: notice
+  encoding: unicode
+  host: localhost
+  pool: 5
+  reconnect: true
+  username: postgres
+  password:
+  database: travis_ci_test
+
