@@ -1,4 +1,5 @@
-https://api.travis-ci.org/ut/zakk-admin.svg?branch=master
+![Travis CI Status](https://api.travis-ci.org/ut/zakk-admin.svg?branch=master)
+
 
 # zakk-admin
 
