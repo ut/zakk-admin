@@ -29,7 +29,7 @@
     .columns.large-4
       .panel
         %h3
-          Klubraum
+          zakk
           %strong Programm
       - @posts_programm.each do  |p|
         - if ( p.status == 'Published' ) || ( can? :manage, Post )
@@ -37,7 +37,7 @@
 
 
       - if ( can? :create, Post )
-        %p.panel
+        %p.panel.hint
           sorted by startdate, only future dates (and today)
       - if current_program.present? && current_program.image.url
         %div{:class=>"panel"}
@@ -55,21 +55,22 @@
         - if ( p.status == 'Published' ) || ( can? :manage, Post )
           = render partial: "post", locals: { p: p }
       - if ( can? :create, Post )
-        %p.panel
+        %p.panel.hint
           sorted by startdate, all posts
 
     .columns.large-4
-      .panel
-        %h3
-          Und
-          %strong sonst
-          ?
-      - @posts_undsonst.each do  |p|
-        - if ( p.status == 'Published' ) || ( can? :manage, Post )
-          = render partial: "post", locals: { p: p }
-      - if ( can? :create, Post )
-        %p.panel
-          sorted by startdate, only future dates (and today)
+      - if @posts_undsonst.count > 0
+        .panel
+          %h3
+            Und
+            %strong sonst
+            ?
+        - @posts_undsonst.each do  |p|
+          - if ( p.status == 'Published' ) || ( can? :manage, Post )
+            = render partial: "post", locals: { p: p }
+        - if ( can? :create, Post )
+          %p.panel.hint
+            sorted by startdate, only future dates (and today)
   .row
     .columns.large-4
       %p.text-right
