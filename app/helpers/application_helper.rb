@@ -18,6 +18,25 @@ module ApplicationHelper
   end
 
 
+  def git_version
+
+    g = Git.open('.')
+    # g.object('HEAD').sha
+    # g.object('HEAD').date.strftime("%d.%m.%y")
+    # g.object('HEAD').message
+
+    sha = g.object('HEAD').sha
+    url = "https://github.com/ut/zakk-admin/commit/"+sha
+    title = "Commit "+sha[0..6]+" "+g.object('HEAD').message
+    msg = sha[0..6]
+    date = g.object('HEAD').date.strftime("%d.%m.%y %H:%m")
+
+    "<a href=\""+url+"\" title=\""+title+"\">"+msg+"</a> ("+date+")"
+  end
+
+
+
+
   def fuzzy date
     return '--' unless date
     I18n.with_options :scope => 'datetime.fuzzy' do |locale|

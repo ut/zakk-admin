@@ -7,11 +7,14 @@
     %p
       = link_to "/" do
         = Settings.app_name
+      - if current_user
+        = Settings.app_version
         (#{Rails.env})
-      &nbsp;
-      = Settings.app_version
-      (#{link_to "Github","https://github.com/ut/zakk-admin"})
   .large-6.columns.text-right
-    - if !current_user
-      %p
+    %p
+      - if current_user
+        Commit
+        = raw git_version
+        (#{link_to "Github","https://github.com/ut/zakk-admin"})
+      - else
         = link_to "Login",user_session_path
