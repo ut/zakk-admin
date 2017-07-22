@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '5.0.1'
+gem 'rails', '5.0.3'
 
 gem 'activerecord-session_store'
 gem 'bcrypt', '~> 3.1.7'
@@ -20,9 +20,6 @@ gem 'settingslogic'
 gem 'uglifier', '>= 1.3.0'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
-
-gem 'git'
-
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 
