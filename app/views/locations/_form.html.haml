@@ -1,24 +1,31 @@
-.row
-  .large-2.columns
-    &nbsp;
-  .large-8.columns
-    = simple_form_for(@location) do |f|
+
+= simple_form_for(@location) do |f|
+
+  .row
+    .large-12.columns
       = f.error_notification
+      %h3
+        = f.input :title, :label => "Title"
 
-      .form-inputs
-        = f.input :title
-        = f.input :address
-        = f.input :zipcode
-        = f.input :city
-        = f.input :email
-        = f.input :web
-        = f.input :twitter
-        = f.input :lat
-        = f.input :lon
-        = f.input :shortext
-        = f.input :longtext
+  .row.form-inputs
+    .large-4.columns
+      = f.input :address
+      .row
+        .column.small-2
+          = f.input :zipcode
+        .column.small-6
+          = f.input :city
+      = f.input :lat, :label => "Lat (not implemented yet)"
+      = f.input :lon, :label => "Lat (not implemented yet)"
+    .large-4.columns
+      = f.input :email
+      = f.input :web
+      = f.input :twitter
+    .large-4.columns
+      = f.input :shortext, :input_html => { :class => '', :rows => 4}
+      = f.input :longtext, :input_html => { :class => 'redactor', :rows => 8}
 
+  .row
+    .large-12.columns
       .form-actions
         = f.button :submit, {:class=>"button large"}
-  .large-2.columns
-    &nbsp;

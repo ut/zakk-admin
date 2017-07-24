@@ -1,18 +1,21 @@
 %li
+%li.has-dropdown
   = link_to admin_programs_path do
     Programs
-%li
-  = link_to admin_posts_path do
-    Posts
+  %ul.dropdown
+    %li
+      = link_to admin_posts_path do
+        Posts
 %li
   = link_to locations_path do
     Locations
-%li
+%li.has-dropdown
   = link_to admin_pages_path do
     Pages
-%li
-  = link_to admin_contents_path do
-    Contents
+  %ul.dropdown
+    %li
+      = link_to admin_contents_path do
+        Contents
 %li
   = link_to admin_flyers_path do
     Flyers

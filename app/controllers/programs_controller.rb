@@ -15,7 +15,6 @@ class ProgramsController < ApplicationController
   # GET /programs/1.json
   def show
     if current_user || ( helpers.current_program && ( params[:id] == "current" ))
-
       respond_to do |format|
         format.xml { render layout: false }
         format.json { render layout: false }

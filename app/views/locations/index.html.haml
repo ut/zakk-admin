@@ -16,7 +16,7 @@
             %th Address/Zipcode/City
             %th Email/Web/Twitter
             %th Lat/Lon
-    
+
             %th
             %th
             %th
@@ -25,7 +25,9 @@
           - @locations.each do |location|
             %tr
               %td
-                %h3= location.title
+                %h3
+                  = link_to location do
+                    = location.title
               %td= location.shortext
               %td
                 = location.address
@@ -48,13 +50,13 @@
               %td
                 = location.lat
                 = location.lon
-      
+
               %td
                 = link_to location, :class=>"button tiny" do
                   Details
               %td
                 = link_to edit_location_path(location), :class=>"button tiny" do
-                  %i.fi-plus
+                  %i.fi-pencil
                   Bearbeiten
               %td
                 = link_to location, :data => { confirm: 'Wirklich löschen?' }, :method => :delete, :class=>"button tiny alert" do

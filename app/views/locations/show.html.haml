@@ -17,8 +17,8 @@
       %h2
         %strong=@location.title
       %p
-        #{@location.address}, #{@location.zipcode}, #{@location.city}
-        %br
+        #{@location.address}, #{@location.zipcode} #{@location.city}
+      %p
         - if @location.web.present?
           %i.fi-web
           = link_to @location.web do

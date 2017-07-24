@@ -44,7 +44,7 @@
           %img{:src=>"#{current_program.image.thumb.url}"}
           %p
             Aktuelles Monatsprogramm:
-            = link_to program_path(current_program) do
+            = link_to program_path("current") do
               %strong #{current_program.title}
     .columns.large-4
       .panel
