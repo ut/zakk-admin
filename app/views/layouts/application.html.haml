@@ -38,6 +38,9 @@
     %main{:role => "main"}
       = render 'layouts/messages'
       = yield
+      .row#sub-footer
+        .large-12.columns
+          = render partial: '/partials/flyer_wall', locals: {flyers: @flyers}
     #print
       = image_tag('popular-culture.gif')
       %p why do you want to PRINT a WEBSITE?
