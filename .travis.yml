@@ -12,3 +12,5 @@ before_script:
 before_install:
 - openssl aes-256-cbc -K $encrypted_837fd4b2deec_key -iv $encrypted_837fd4b2deec_iv -in secrets.tar.enc -out secrets.tar -d
 - tar xvf secrets.tar
+notifications:
+  slack: zakk-ws:lxRYHkgE7M0urCcR1aHPeTvl
