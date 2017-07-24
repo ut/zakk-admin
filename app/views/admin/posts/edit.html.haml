@@ -2,12 +2,12 @@
   .large-8.columns
     %h1 Edit Post
   .large-4.columns.right
-    = link_to admin_posts_path, :class => 'button tiny' do
+    = link_to admin_posts_path, :class => 'button' do
       %i.fi-list-thumbnails
       Index
-    = link_to @post, :class => 'button tiny' do
-      %i.eye
-      Show
+    = link_to @post, :class => 'button' do
+      %i.fi-eye
+      Anzeigen
 .row
   .large-8.columns
     = render 'form'

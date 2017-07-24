@@ -25,26 +25,26 @@
           Bild löschen
   .row
     .large-6.columns
-      = f.input :title, :input_html => { :class => 'input-large'}
+      = f.input :title, :input_html => { :class => 'input-large large'}
       .row
         .column.small-6
           = f.input :startdate, as: :fdatetimepicker
         .column.small-6
           = f.input :enddate, as: :fdatetimepicker
-      = f.input :shortext, :input_html => { :class => '', :rows => 1}
+      = f.input :shortext, :input_html => { :class => '', :rows => 3}
       = f.input :longtext, :input_html => { :class => 'redactor' }
 
 
     .large-6.columns
-
-      = f.input :location_id, :collection => location_for_select, :label => "", :include_blank => "--", :selected => @selected_location, :input_html => { :class => '' }
-      ODER
-      = f.input :locationtext
       %hr
-      = f.input :link, :placeholder => "http://"
+      = f.input :location_id, :collection => location_for_select, :label => "Location auswählen", :include_blank => "--", :selected => @selected_location, :input_html => { :class => '' }
+      %p
+        ODER
+      = f.input :locationtext, :label => "Name der Location"
+      = f.input :link, :placeholder => "http://", :label => "Website der Location"
       %hr
-      = f.input :organizer
-      = f.input :organizerlink, :placeholder => "http://"
+      = f.input :organizer, :label => "Organizer"
+      = f.input :organizerlink, :placeholder => "http://", :label => "Website des/der Organizers"
       %hr
       = f.input :label
   .row

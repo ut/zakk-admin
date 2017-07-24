@@ -3,21 +3,21 @@
 
 
 .row
-  .large-9.columns{:role => "content"}
+  .large-7.columns
     %h1
       = @program.title
       - if @program.current
         %span.label
           CURRENT
     %h3= @program.description
-  .large-3.columns.right
-    = link_to admin_programs_path, :class => 'button tiny' do
+  .large-5.columns.right
+    = link_to admin_programs_path, :class => 'button' do
       %i.fi-list-thumbnails
       Index
-    = link_to new_admin_program_path, :class => 'button tiny' do
+    = link_to new_admin_program_path, :class => 'button' do
       %i.fi-plus
       Program anlegen
-    = link_to edit_admin_program_path(@program), :class => 'button tiny' do
+    = link_to edit_admin_program_path(@program), :class => 'button' do
       %i.fi-pencil
       Bearbeiten
 .row

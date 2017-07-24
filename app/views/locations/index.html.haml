@@ -1,8 +1,8 @@
 .row
-  .large-9.columns{:role => "content"}
+  .large-9.columns
     %h1 Locations
   .large-3.columns.right
-    = link_to new_location_path, :class => 'button tiny' do
+    = link_to new_location_path, :class => 'button' do
       %i.fi-plus
       Location anlegen
 .row
@@ -53,7 +53,8 @@
 
               %td
                 = link_to location, :class=>"button tiny" do
-                  Details
+                  %i.fi-eye
+                  Anzeigen
               %td
                 = link_to edit_location_path(location), :class=>"button tiny" do
                   %i.fi-pencil

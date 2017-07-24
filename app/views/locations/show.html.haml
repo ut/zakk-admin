@@ -1,14 +1,14 @@
 .row
-  .large-9.columns{:role => "content"}
+  .large-7.columns{:role => "content"}
     %h1 Location
-  .large-3.columns.right
-    = link_to locations_path, :class => 'button tiny' do
+  .large-5.columns.right
+    = link_to locations_path, :class => 'button' do
       %i.fi-list-thumbnails
       Index
-    = link_to new_location_path, :class => 'button tiny' do
+    = link_to new_location_path, :class => 'button' do
       %i.fi-plus
       Location anlegen
-    = link_to edit_location_path(@location), :class => 'button tiny' do
+    = link_to edit_location_path(@location), :class => 'button' do
       %i.fi-pencil
       Bearbeiten
 .row

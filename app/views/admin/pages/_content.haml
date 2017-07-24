@@ -1,17 +1,18 @@
 = c.input :published, :as => :hidden, :input_html => { :value => "true" }
-.row
-  .large-3.columns
-    .field
-      &nbsp;
-  .large-3.columns
-    .field
-      = c.input :page_id, :input_html => { :class => '', :value => "#{p.id}" }
-  .large-3.columns
-    .field
-      = c.input :col
-  .large-3.columns
-    .field
-      = c.input :pos, :as => :hidden
+- if params[:action] == "edit"
+  .row
+    .large-3.columns
+      .field
+        &nbsp;
+    .large-3.columns
+      .field
+        = c.input :page_id, :input_html => { :class => '', :value => "#{p.id}" }
+    .large-3.columns
+      .field
+        = c.input :col
+    .large-3.columns
+      .field
+        = c.input :pos
 .field
   = c.input :title
 .field
