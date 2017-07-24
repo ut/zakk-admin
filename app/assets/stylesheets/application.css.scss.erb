@@ -33,6 +33,7 @@ main {
   min-height: 600px;
   background-color: #f5b2cb;
   background-size: cover;
+  padding: 0;
 }
 .row, section {
     margin: 0 auto;
@@ -43,6 +44,14 @@ main {
   text-align: left !important;
   padding: 0  ;
  }
+
+/* ---------------------- */
+main .row#sub-footer {
+  padding: 0;
+}
+main .row#sub-footer .columns {
+  padding: 0;
+}
 
 /* ---------------------- */
 
@@ -92,12 +101,7 @@ footer {
   height: 50px;
   background-color: transparent;
 }
-footer .row#sub-footer {
-  padding: 0;
-}
-footer .row#sub-footer .columns {
-  padding: 0;
-}
+
 footer .row#footer {
   background-color: #333;
   max-width: none;
@@ -132,36 +136,21 @@ div#flyer_wall div.flyer img {
     margin-top: -40px;
     position: relative;
     /* transition: bottom 2s, transform 2s, opacity 2s; */
-    transition: all 2s ease-in-out;
     opacity: 0.5;
+    transform: scale(1);
+    filter: blur(1px);
+    transition: all 2s ease-in-out;
 }
 div#flyer_wall div.flyer:hover img {
     margin-top: -150px;
-    /* transform: scale(1.1), rotate(random(50) - 25 + deg) !important; */
-    transform: scale(1.6);
     opacity: 1;
-    /* transition: bottom 2s, transform 2s, opacity 2s; */
-    /* transition: transform 2s, bottom 2s, opacity 2s; */
+    transform: scale(3);
+    filter: blur(0);
     transition: all 2s;
     cursor: pointer;
 }
-/*
-div#flyer_wall div.flyer:nth-child(1):hover img {
-    transform: rotate(random(50) - 25 + deg) !important;
-}
-div#flyer_wall div.flyer:nth-child(2):hover img {
-    transform: rotate(random(50) - 25 + deg) !important;
-}
-div#flyer_wall div.flyer:nth-child(3):hover img {
-    transform: rotate(random(50) - 25 + deg) !important;
-}
-div#flyer_wall div.flyer:nth-child(4):hover img {
-    transform: rotate(random(50) - 25 + deg) !important;
-}
-*/
 
 div#flyer_wall div.flyer img.medium_thumb.placeholder_thumb {
-    filter: blur(0);
     max-width: 200px;
 }
 
