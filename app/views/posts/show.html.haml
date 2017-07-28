@@ -1,3 +1,4 @@
+- content_for :title, @post.title
 = render partial: '/partials/custom_styles', locals: {program: @post.program}
 
 - if ( can? :create, Post )
