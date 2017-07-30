@@ -53,7 +53,7 @@
               %td= program.posts.count
 
               %td
-                = link_to edit_admin_program_path(program), :class=>"button tiny" do
+                = link_to edit_admin_program_path(program), :class=>"button tiny", :data => { :turbolinks=> "false" } do
                   %i.fi-pencil.fi-21
                   %br
                   Bearbeiten
