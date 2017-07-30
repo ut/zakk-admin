@@ -21,6 +21,17 @@ $(document).on('turbolinks:load', function() {
   });
   $('.datetimepicker-inline').css('display', 'none');
 
+  var bootstrapColorpicker = function() {
+    console.log("bootstrapColorpicker")
+    $('[data-minicolors]').each(function(i, elem) {
+      var input = $(this);
+      input.minicolors(input.data('minicolors'));
+    });
+  };
+
+  $(bootstrapColorpicker);
+
+  bootstrapColorpicker;
 
   // this should be at the very end of this script :) and with test env only!
   <% if ( Rails.env == "test" ) %>
@@ -28,3 +39,5 @@ $(document).on('turbolinks:load', function() {
   <% end %>
 
 });
+
+
