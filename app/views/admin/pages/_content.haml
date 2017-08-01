@@ -1,5 +1,21 @@
 = c.input :published, :as => :hidden, :input_html => { :value => "true" }
-- if params[:action] == "edit"
+- if params[:action] == "new"
+  .row
+    .large-3.columns
+      .field
+        &nbsp;
+    .large-3.columns
+      .field
+        = c.input :page_id, :as => :hidden, :input_html => { :class => '', :value => "#{p.id}" }
+    .large-3.columns
+      .field
+        = c.input :col, :as => :hidden
+    .large-3.columns
+      .field
+        = c.input :pos, :as => :hidden
+
+
+- else
   .row
     .large-3.columns
       .field
@@ -13,6 +29,7 @@
     .large-3.columns
       .field
         = c.input :pos
+
 .field
   = c.input :title
 .field
