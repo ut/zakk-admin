@@ -4,8 +4,8 @@ class ProgramsController < ApplicationController
   # GET /programs
   # GET /programs.json
   def index
-    if helpers.current_program && helpers.current_program.id
-      redirect_to program_url(helpers.current_program.id)
+    if current_program && current_program.id
+      redirect_to program_url(current_program.id)
     else
       redirect_to root_url
     end
@@ -14,7 +14,7 @@ class ProgramsController < ApplicationController
   # GET /programs/1
   # GET /programs/1.json
   def show
-    if current_user || ( helpers.current_program && ( params[:id] == "current" ))
+    if current_user || ( current_program && ( params[:id] == "current" ))
       respond_to do |format|
         format.xml { render layout: false }
         format.json { render layout: false }
@@ -28,8 +28,8 @@ class ProgramsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_program
-      if helpers.current_program && ( params[:id] == "current" )
-        @program = helpers.current_program
+      if current_program && ( params[:id] == "current" )
+        @program = current_program
       else
         @program = Program.find(params[:id])
       end

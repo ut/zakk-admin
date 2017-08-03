@@ -9,8 +9,14 @@ RSpec.describe ProgramsController, type: :controller do
   let(:program) {
     FactoryGirl.create(:program)
   }
+  let(:current_program) {
+    FactoryGirl.attributes_for(:program, :current)
+  }
   let(:valid_attributes) {
     FactoryGirl.build(:program).attributes
+  }
+  let(:valid_attributes_current) {
+    FactoryGirl.build(:program, :current).attributes
   }
 
   let(:invalid_attributes) {
@@ -23,10 +29,16 @@ RSpec.describe ProgramsController, type: :controller do
   let(:valid_session) { {} }
 
   describe "GET #index" do
-    it "assigns all programs as @programs" do
-      program = Program.create! valid_attributes
+    it "redirect to current_program" do
+      # puts subject.current_program.id
       get :index, params: {}, session: valid_session
-      expect(response).to redirect_to(root_url)
+      expect(response).to redirect_to(program_url(subject.current_program))
+    end
+
+    it "never redirect to root" do
+      expect(subject.current_program.id).to eq(1)
+      get :index, params: {}, session: valid_session
+      expect(response).to redirect_to(program_path(subject.current_program))
     end
   end
 
