@@ -1,5 +1,7 @@
 ![Travis CI Status](https://api.travis-ci.org/ut/zakk-admin.svg?branch=master)
 
+[![Build Status](https://travis-ci.org/ut/zakk-admin.svg?branch=master)](https://travis-ci.org/ut/zakk-admin)
+
 
 # zakk-admin
 
