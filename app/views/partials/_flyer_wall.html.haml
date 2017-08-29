@@ -5,6 +5,6 @@
       - rnd = ( Random.rand(90) ) - 45
       - if flyers[i] && flyers[i].image.url
         - f = flyers[i]
-        #{image_tag("#{f.image.medium_thumb.url}", :class => "medium_thumb placeholder_thumb", :title => "Flyer Nr. #{i} #{f.title}",:with => '150', :height => '300', :style=>"transform: rotate(#{rnd}deg)")}
+        #{image_tag("#{f.image.medium_thumb.url}", :class => "medium_thumb placeholder_thumb", :title => "Flyer Nr. #{i} #{f.title}",:with => '', :height => '', :style=>"transform: rotate(#{rnd}deg)")}
       - else
-        #{image_tag('zakk_pattern3.png', :class => "medium_thumb placeholder_thumb", :with => '150', :height => '300', :style=>"transform: rotate(#{rnd}deg)")}
+        #{image_tag('zakk_pattern3.png', :class => "medium_thumb placeholder_thumb", :with => '', :height => '', :style=>"transform: rotate(#{rnd}deg)")}

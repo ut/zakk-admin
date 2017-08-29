@@ -120,7 +120,7 @@ footer div#footer .column:hover, footer a:hover {
 /*--------------------*/
 /*--------------------*/
 div#flyer_wall {
-    height: 270px;
+    height: 400px;
     overflow: hidden;
     width: 100%;
 }
@@ -130,24 +130,26 @@ div#flyer_wall div.flyer {
 }
 div#flyer_wall div.flyer img {
     float: left;
-    height: 300px;
-    width: 200px;
-    top: 200px;
-    margin-top: -40px;
+    max-height: 300px;
+    min-height: 200px;
+    width: auto;
+    top: 100px;
+    margin-top: 0;
     position: relative;
     /* transition: bottom 2s, transform 2s, opacity 2s; */
     opacity: 0.5;
-    transform: scale(1);
-    filter: blur(1px);
+    transform: scale(0.8);
+    filter:  brightness(80%);
     transition: all 2s ease-in-out;
 }
 div#flyer_wall div.flyer:hover img {
-    margin-top: -150px;
+    margin-top: -65px;
     opacity: 1;
     transform: scale(3);
-    filter: blur(0);
+    filter:  brightness(100%);
     transition: all 2s;
     cursor: pointer;
+    transform: scale(1.2) rotate(0deg) !important;
 }
 
 div#flyer_wall div.flyer img.medium_thumb.placeholder_thumb {
