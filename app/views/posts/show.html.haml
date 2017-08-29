@@ -18,15 +18,14 @@
 
 = render partial: "/partials/header"
 
-.row.panel
-  .large-6.text-left.columns{:role => "content"}
+.row.panel#post
+  .large-12.text-left.columns{:role => "content"}
+
     %p
       - if @post.image.url
         %img{:src=>"#{@post.image.url}"}
       - else
         = image_tag('zakk_pattern3.png')
-
-  .large-6.columns
     %p
       - if @post.startdate
         %i.fi-calendar
@@ -38,8 +37,9 @@
     %h2
       %strong
         = @post.title
-      \|
-      = @post.shortext
+      - if @post.shortext.present?
+        \|
+        = @post.shortext
     %p= @post.longtext.html_safe
 
     %p
@@ -55,25 +55,27 @@
         %dt Label:
         %dd= @post.label
       - if !@post.organizer.blank?
-        %dt Organizer:
-        %dd
+        - if @post.organizerlink.present?
+          = link_to @post.organizerlink do
+            = @post.organizer
+        - else
           = @post.organizer
-          = @post.organizerlink
-    %hr
+
     .row
       .large-12.columns
-        %span.label
-          = @post.status
-        \/
+        - if ( can? :create, Post )
+          %span.label
+            = @post.status
+          \/
         %span.label
           = ptypes[@post.ptype.to_i]
-        \/
+        \:
         %small
           - if @post.program
             - if ( can? :create, Post )
               = link_to "#{@post.program.title}", admin_program_url(@post.program)
             - else
-              =@post.program.title
+              = link_to "#{@post.program.title}", program_url(@post.program)
     - if @post.location
       %hr
       %p.location
@@ -100,4 +102,3 @@
           %p
             %i.fi-info.fi-21
             = @post.location.shortext
-
