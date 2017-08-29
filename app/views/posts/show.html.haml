@@ -76,7 +76,7 @@
               = link_to "#{@post.program.title}", admin_program_url(@post.program)
             - else
               = link_to "#{@post.program.title}", program_url(@post.program)
-    - if @post.location
+    - if @post.location.present?
       %hr
       %p.location
         %h4=@post.location.title
@@ -102,3 +102,13 @@
           %p
             %i.fi-info.fi-21
             = @post.location.shortext
+    - elsif @post.locationtext.present?
+      %hr
+      %p.location
+        - if @post.link.present?
+          = link_to @post.link do
+            %h4=@post.locationtext
+
+        - else
+          %h4=@post.locationtext
+

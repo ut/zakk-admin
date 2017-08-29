@@ -14,7 +14,7 @@
     %p
       %small
         = smart_date_display(p.startdate,p.enddate)
-        - if p.ptype == "Und sonst?"
+        - if p.ptype == "2"
           \|
           - if p.location
             = link_to p.location do
