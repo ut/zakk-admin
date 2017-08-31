@@ -5,15 +5,23 @@
   .columns.large-12
 
     .row
-      .columns.large-6
+      .columns.large-7
         .panel
           %h1
             = link_to root_url do
               %strong zakk
               klubraum
+            - if @page
+              - if can? :edit, Page
+                %small
+                  = link_to edit_admin_page_path(@page), :class=>"tiny" do
+                    #{@page.title}&nbsp;<i class='fi-pencil'></i>
+              - else
+                #{@page.title}
+
       .columns.large-1
         &nbsp;
-      .columns.large-5
+      .columns.large-4
         %p.text-right
           - if @pages
             - @pages.each do |p|

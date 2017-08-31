@@ -16,6 +16,7 @@ class Admin::ContentsController < ApplicationController
   # GET /contents/1
   # GET /contents/1.json
   def show
+    redirect_to page_path(@content.page)
   end
 
   # GET /contents/new
@@ -28,8 +29,8 @@ class Admin::ContentsController < ApplicationController
   # GET /contents/1/edit
   def edit
 
-   # @selected_col = @content.col
-   # @selected_page = @content.page_id
+   @selected_col = @content.col
+   @selected_page = @content.page_id
 
   end
 

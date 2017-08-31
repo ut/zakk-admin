@@ -26,10 +26,21 @@
       &nbsp;
 
   .row
-    = f.simple_fields_for :contents do |c|
-      .large-4.columns
-        %h3 column #{c.object.col}
-        = render partial: "content", locals: { f: f, p: @page, c: c }
+    .large-4.columns
+      %h3 column 1
+      = f.simple_fields_for :contents do |c|
+        - if c.object.col == 1
+          = render partial: "content", locals: { f: f, p: @page, c: c }
+    .large-4.columns
+      %h3 column 2
+      = f.simple_fields_for :contents do |c|
+        - if c.object.col == 2
+          = render partial: "content", locals: { f: f, p: @page, c: c }
+    .large-4.columns
+      %h3 column 3
+      = f.simple_fields_for :contents do |c|
+        - if c.object.col == 3
+          = render partial: "content", locals: { f: f, p: @page, c: c }
 
 
   .row
