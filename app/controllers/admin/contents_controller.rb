@@ -16,7 +16,7 @@ class Admin::ContentsController < ApplicationController
   # GET /contents/1
   # GET /contents/1.json
   def show
-    redirect_to page_path(@content.page)
+   redirect_to page_path(@content.page)
   end
 
   # GET /contents/new
