@@ -3,12 +3,9 @@
   .large-8.columns
     %h1 Location
   .large-4.columns.right
-    = link_to locations_path, :class => 'button' do
+    = link_to admin_locations_path, :class => 'button' do
       %i.fi-list-thumbnails
       Index
-    = link_to @location, :class => 'button' do
-      %i.fi-eye
-      Anzeigen
 .row
   .large-12.columns
     = render 'form'

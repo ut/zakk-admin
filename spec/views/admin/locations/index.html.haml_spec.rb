@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "locations/index", type: :view do
+RSpec.describe "admin/locations/index", type: :view do
   before(:each) do
     assign(:locations, [
       Location.create!(

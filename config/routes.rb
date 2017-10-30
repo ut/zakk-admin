@@ -7,8 +7,7 @@ Rails.application.routes.draw do
 
   mount RedactorRails::Engine => '/redactor_rails'
 
-  resources :locations
-
+  resources :locations, only: [:index, :show]
   resources :posts, only: [:index, :show]
   resources :programs, only: [:index, :show]
 
@@ -34,6 +33,7 @@ Rails.application.routes.draw do
     resources :pages
     resources :contents
     resources :flyers
+    resources :locations
   end
 
 end
