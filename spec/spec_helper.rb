@@ -28,6 +28,9 @@ RSpec.configure do |config|
 
   config.include( ControllerMacros )
 
+  # for factory validations in model rspecs:
+  config.include FactoryGirl::Syntax::Methods
+
 
   config.include Warden::Test::Helpers
   config.before :suite do
