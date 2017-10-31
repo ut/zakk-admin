@@ -34,5 +34,5 @@
 
   - if p.shortext.present?
     %p= p.shortext
-  - else
+  - elsif p.longtext.present?
     %div= p.longtext.html_safe

@@ -5,6 +5,9 @@ FactoryGirl.define do
     published false
     backgroundcolor "#ee0000"
     backgroundimage "File"
+    image "File"
+    backgroundimage_credit "Maxi (cc-by-sa)"
+    image_credit "Maxi (cc-by-sa)"
     textcolor1 "#cc0000"
     textcolor2 "#dd0000"
     current false
