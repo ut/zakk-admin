@@ -73,6 +73,18 @@
             sorted by startdate, only future dates (and today)
   .row
     .columns.large-4
+      #imagecredits
+        - if current_program.image_credit.present?
+          %span.ptext
+            Bild:
+            = current_program.image_credit
+        - if current_program.backgroundimage_credit.present?
+          %span.ptext
+            - if current_program.image_credit.present? && current_program.backgroundimage_credit.present?
+              Hintergrundbild:
+            - else
+              Bild:
+            = current_program.backgroundimage_credit
       %p.text-right
         %span.ptext
           %a{:href=>"/"}

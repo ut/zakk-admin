@@ -24,8 +24,11 @@ RSpec.describe "home/index", type: :view do
       :title => "Title",
       :backgroundimage => 'image',
       :backgroundcolor => '#cc0000',
-      :backgroundimage_credit => 'Max (cc-by-sa)'
+      :backgroundimage_credit => 'Max (cc-by-sa)',
+      :current => true,
+      :published => true
     ))
+    current_program = @program
     @posts_programm = assign(:post, [Post.create!(
       :title => 'Post1',
       :ptype => '0',
@@ -61,6 +64,6 @@ RSpec.describe "home/index", type: :view do
   end
   it "renders backgroundimage credit" do
     render
-    expect(rendered).to match(/Max (cc-by-sa)/)
+    expect(rendered).to match(/Max \(cc-by-sa\)/)
   end
 end

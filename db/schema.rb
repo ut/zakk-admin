@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170313203533) do
+ActiveRecord::Schema.define(version: 20171031165036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,14 +83,16 @@ ActiveRecord::Schema.define(version: 20170313203533) do
     t.string   "title"
     t.text     "description"
     t.boolean  "published"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "backgroundcolor"
     t.string   "textcolor1"
     t.string   "textcolor2"
     t.string   "image"
     t.string   "backgroundimage"
-    t.boolean  "current",         default: false, null: false
+    t.boolean  "current",                default: false, null: false
+    t.string   "backgroundimage_credit"
+    t.string   "image_credit"
   end
 
   create_table "redactor_assets", force: :cascade do |t|

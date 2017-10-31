@@ -50,6 +50,22 @@
 
     .row
       .large-12.columns.text-center
+        - if @program.image_credit.present? || @program.backgroundimage_credit.present?
+          %hr
+        - if @program.image_credit.present?
+          %p
+            Credit for the program image:
+            %br
+            %strong
+              =  @program.image_credit
+        - if @program.backgroundimage_credit.present?
+          %p
+            Credit for the program background image:
+            %br
+            %strong
+              =  @program.backgroundimage_credit
+    .row
+      .large-12.columns.text-center
         %hr
         - if !@program.current
           %button{:class=>"button disabled", :disabled => "disabled"} Make this the current program (TODO)
