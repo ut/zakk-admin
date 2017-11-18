@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.org/ut/zakk-admin.svg?branch=master)](https://travis-ci.org/ut/zakk-admin)
+[![Build Status](https://travis-ci.org/ut/zakk-admin.svg?branch=master)](https://travis-ci.org/ut/zakk-admin) [![Code Climate](https://api.codeclimate.com/v1/badges/7ff4670aaf0ef66ccb83/maintainability)](https://codeclimate.com/github/ut/zakk-admin/maintainability)
+
+
 
 
 # zakk-admin
