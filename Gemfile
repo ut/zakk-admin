@@ -53,9 +53,6 @@ group :test do
 end
 
 group :test, :development do
-  # Use debugger
-  # gem 'debugger'
-
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_girl_rails'

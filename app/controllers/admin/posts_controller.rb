@@ -65,7 +65,6 @@ class Admin::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.save
     flash[:notice] = "Post saved"
-
     if params[:commit] == "Post erstellen"
       respond_with(@post)
     else
@@ -78,7 +77,6 @@ class Admin::PostsController < ApplicationController
     @old_post = Post.find(params[:id])
     @post = @old_post.dup
     @post.save!
-    flash[:notice] = "Post copied"
 
     if @post.location.present?
       @selected_location = @post.location_id
@@ -88,8 +86,6 @@ class Admin::PostsController < ApplicationController
     @selected_program = @post.program_id
     @selected_status = @post.status
     @selected_ptype = @post.ptype
-
-    # respond_with(@post, :status => :created, :location => edit_post_path(@post))
 
     redirect_to edit_admin_post_url( @post ), notice: "Kopie dieses Post angelegt."
 
