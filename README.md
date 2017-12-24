@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ut/zakk-admin.svg?branch=master)](https://travis-ci.org/ut/zakk-admin) [![Code Climate](https://api.codeclimate.com/v1/badges/7ff4670aaf0ef66ccb83/maintainability)](https://codeclimate.com/github/ut/zakk-admin/maintainability)
+[![Build Status](https://travis-ci.org/ut/zakk-admin.svg?branch=master)](https://travis-ci.org/ut/zakk-admin) [![Code Climate](https://api.codeclimate.com/v1/badges/7ff4670aaf0ef66ccb83/maintainability)](https://codeclimate.com/github/ut/zakk-admin/maintainability) [![Coverage Status](https://coveralls.io/repos/github/ut/zakk-admin/badge.svg?branch=master)](https://coveralls.io/github/ut/zakk-admin?branch=master)
 
 
 
