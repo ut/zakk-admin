@@ -42,6 +42,8 @@ gem "mini_magick"
 
 gem 'datagrid'
 
+gem 'coveralls', require: false
+
 group :development do
   gem 'rails_layout'
   gem 'haml-rails'
