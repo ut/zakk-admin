@@ -21,5 +21,8 @@ FactoryGirl.define do
     trait :missing_location do
       location_id nil
     end
+    trait :enddate do
+      enddate "2015-03-16 16:13:04"
+    end
   end
 end
