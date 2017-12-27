@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "admin/programs/show", type: :view do
   before(:each) do
-    @program = FactoryGirl.create(:program)
+    @program = FactoryGirl.create(:program,  :title => "Title")
   end
 
   it "renders attributes in <p>" do

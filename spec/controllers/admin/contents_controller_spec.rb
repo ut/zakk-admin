@@ -93,14 +93,15 @@ RSpec.describe Admin::ContentsController, type: :controller do
     describe "PUT #update" do
       context "with valid params" do
         let(:new_attributes) {
-          skip("Add a hash of attributes valid for your model")
+          FactoryGirl.attributes_for(:content, title: "new content title")
+
         }
 
         it "updates the requested content " do
           content = Content.create! valid_attributes
           put :update, params: {id: content.to_param, content:new_attributes}, session: valid_session
           content.reload
-          skip("Add assertions for updated state")
+          expect(content.title).to eq "new content title"
         end
 
         it "assigns the requested content as @content" do

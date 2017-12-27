@@ -18,10 +18,10 @@ class Admin::PostsController < ApplicationController
   end
 
   def show
-    if @page
-      redirect_to page_path(@page)
+    if @post
+      redirect_to post_path(@post)
     else
-      redirect_to admin_pages_url, notice: 'Related page is not available :('
+      redirect_to admin_posts_url, notice: 'Related post is not available :('
     end
   end
 

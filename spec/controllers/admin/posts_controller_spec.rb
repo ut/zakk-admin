@@ -39,6 +39,11 @@ RSpec.describe Admin::PostsController, type: :controller do
         get :show, params: {:id => post.to_param}, session: valid_session
         expect(assigns(:post)).to eq(post)
       end
+      it "redirects to public view of this post" do
+        post = Post.create! valid_attributes
+        get :show, params: {:id => post.to_param}, session: valid_session
+        expect(response).to redirect_to(post_url(post))
+      end
     end
 
     describe "GET #new" do
@@ -125,14 +130,14 @@ RSpec.describe Admin::PostsController, type: :controller do
     describe "PUT #update" do
       context "with valid params" do
         let(:new_attributes) {
-          skip("Add a hash of attributes valid for your model")
+          FactoryGirl.attributes_for(:post, title: "new post title")
         }
 
         it "updates the requested post" do
           post = Post.create! valid_attributes
           put :update, params: {:id => post.to_param, :post => new_attributes}, session: valid_session
           post.reload
-          skip("Add assertions for updated state")
+          expect(post.title).to eq "new post title"
         end
 
         it "assigns the requested post as @post" do

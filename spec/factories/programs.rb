@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :program do
-    title "Title"
+    title { Faker::Lorem.word }
     description "Description"
     published false
     backgroundcolor "#ee0000"

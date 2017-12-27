@@ -85,13 +85,13 @@ RSpec.describe Admin::PagesController, type: :controller do
       describe "PUT #update" do
         context "with valid params" do
           let(:new_attributes) {
-            FactoryGirl.build(:page).attributes
+            FactoryGirl.attributes_for(:page, title: "new page title")
           }
 
           it "updates the requested page" do
             put :update, params: {id: page.to_param, page: new_attributes}, session: valid_session
             page.reload
-            skip("Add assertions for updated state")
+            expect(page.title).to eq "new page title"
           end
 
           it "assigns the requested page as @page" do

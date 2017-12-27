@@ -93,14 +93,14 @@ RSpec.describe Admin::ProgramsController, type: :controller do
     describe "PUT #update" do
       context "with valid params" do
         let(:new_attributes) {
-          skip("Add a hash of attributes valid for your model")
+          FactoryGirl.attributes_for(:program, title: "new program title")
         }
 
         it "updates the requested program" do
           program = Program.create! valid_attributes
           put :update, params: {id: program.to_param, program: new_attributes}, session: valid_session
           program.reload
-          skip("Add assertions for updated state")
+          expect(program.title).to eq "new program title"
         end
 
         it "assigns the requested program as @program" do

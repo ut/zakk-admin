@@ -94,14 +94,15 @@ RSpec.describe Admin::LocationsController, type: :controller do
     describe "PUT #update" do
       context "with valid params" do
         let(:new_attributes) {
-          skip("Add a hash of attributes valid for your model")
+          FactoryGirl.attributes_for(:location, title: "new location title")
         }
 
         it "updates the requested location" do
           location = Location.create! valid_attributes
           put :update, params: {:id => location.to_param, :location => new_attributes}, session: valid_session
           location.reload
-          skip("Add assertions for updated state")
+          expect(location.title).to eq "new location title"
+
         end
 
         it "assigns the requested location as @location" do
