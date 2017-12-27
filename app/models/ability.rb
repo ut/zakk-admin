@@ -10,6 +10,8 @@ class Ability
       can :manage, Post
       can :manage, Location
       can :manage, Program
+      can :manage, Content
+      can :manage, Flyer
     else
       can :read, :all
     end
