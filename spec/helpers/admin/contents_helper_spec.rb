@@ -11,5 +11,15 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe Admin::ContentsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it "returns col_for_select" do
+    expect(helper.col_for_select).to eq([["1",1],["2",2],["3",3]])
+  end
+  it "returns default_col" do
+      expect(helper.default_col).to eq(1)
+  end
+
+
 end
+
+

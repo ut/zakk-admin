@@ -1,15 +1,5 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the PostsHelper. For example:
-#
-# describe PostsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe PostsHelper, type: :helper do
 
   describe "defaults for posts" do
@@ -46,9 +36,6 @@ RSpec.describe PostsHelper, type: :helper do
       expect(helper.current_program_id).to eq(program.id)
     end
   end
-
-
-
 
   describe "smart data displays" do
     it "returns %d.%m.%Y, %H:%M" do
