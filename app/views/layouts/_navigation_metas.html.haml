@@ -14,7 +14,7 @@
         %i.fi-wrench
         Präferenzen
     %li
-      = link_to destroy_user_session_path, :method => :delete, :confirm => "Wirklich abmelden?" do
+      = link_to destroy_user_session_path, :method => :delete, :confirm => "Wirklich abmelden?", :id => 'logout' do
         %i.fi-power
         Abmelden
 
