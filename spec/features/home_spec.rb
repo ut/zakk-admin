@@ -12,7 +12,7 @@ describe 'visiting the homepage' do
 
   it "receives a js enabled message", :js => true do
     visit "/"
-    save_and_open_page
+    # save_and_open_page
     expect(page).to have_css("html.js")
   end
 

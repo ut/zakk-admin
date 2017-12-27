@@ -9,7 +9,7 @@ RSpec.describe "Programs", type: :request do
   end
 
   describe "GET /programs" do
-    it "redirects to root url if no current_program is NOT defined" do
+    it "redirects to root url if a current_program is NOT defined" do
       @program.current = false
       allow(@helpers).to receive(:current_program).and_return(@program)
       get programs_path
