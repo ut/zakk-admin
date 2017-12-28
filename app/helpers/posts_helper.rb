@@ -50,15 +50,15 @@ module PostsHelper
 
   def smart_date_display(startdate,enddate)
     if !enddate
-      startdate.strftime("%d.%m.%Y, %H:%M")
+      "#{I18n.l(startdate, format: '%A')[0..1]} #{startdate.strftime("%d.%m.%y, %H:%M")}"
     elsif startdate > enddate
-      startdate.strftime("%d.%m.%Y, %H:%M")
+      "#{I18n.l(startdate, format: '%A')[0..1]} #{startdate.strftime("%d.%m.%y, %H:%M")}"
     elsif  startdate == enddate
-      startdate.strftime("%d.%m.%Y, %H:%M")
+      "#{I18n.l(startdate, format: '%A')[0..1]} #{startdate.strftime("%d.%m.%y, %H:%M")}"
     elsif startdate.to_date == enddate.to_date
-      "#{startdate.strftime("%d.%m.%y, %H:%M")} ‒ #{enddate.strftime("%H:%M")}"
+      "#{I18n.l(startdate, format: '%A')[0..1]} #{startdate.strftime("%d.%m.%y, %H:%M")} ‒ #{enddate.strftime("%H:%M")}"
     else
-      "#{startdate.strftime("%d.%m.%y, %H:%M")} ‒ #{enddate.strftime("%d.%m.%y, %H:%M")}"
+      "#{I18n.l(startdate, format: '%A')[0..1]} #{startdate.strftime("%d.%m.%y, %H:%M")} ‒ #{I18n.l(enddate, format: '%A')[0..1]} #{enddate.strftime("%d.%m.%y, %H:%M")}"
     end
 
   end
