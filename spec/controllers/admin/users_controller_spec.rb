@@ -53,10 +53,6 @@ describe Admin::UsersController do
       expect(response).to redirect_to(admin_users_path)
     end
 
-    xit "should update" do
-      get :show, params: { id: User.first.id }
-      expect(response).to redirect_to(admin_users_path)
-    end
   end
 
 end

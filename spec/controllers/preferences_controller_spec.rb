@@ -24,8 +24,18 @@ describe PreferencesController, type: :controller  do
       response.should be_success
     end
 
-    xit "should update" do
-      put :edit, params: {id: User.first.id, user: User.first}
+    it "edit should handle params" do
+      get :edit, params: { id: User.first.id }
+      response.should be_success
+    end
+
+    it "edit response should be success" do
+      get :edit, params: { user: FactoryGirl.build(:user).attributes }
+      response.should be_success
+    end
+
+    it "should update" do
+      put :edit, params: {id: User.first.id, user: FactoryGirl.build(:user).attributes }
       response.should be_successful
     end
   end

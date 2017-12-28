@@ -5,8 +5,6 @@ module Admin
 
     before_action :authenticate_user!
 
-    # load_and_authorize_resource class: "User"
-
     def create
       @user = User.new(user_params)
       if @user.save
@@ -35,10 +33,6 @@ module Admin
       @user = User.new
     end
 
-    def show
-      @user = User.unscoped.find(params[:id])
-    end
-
     def undelete
       @user = User.unscoped.find(params[:id])
       @user.update_attribute(:deleted_at, nil)
@@ -50,10 +44,6 @@ module Admin
       params[:user].delete(:password) if params[:user][:password].blank?
       params[:user].delete(:password_confirmation) if params[:user][:password_confirmation].blank?
       if @user.update_attributes( user_params )
-        #if params[:user].present? && params[:user][:password].present?
-        #  logger.debug "BYPASSING"
-        #  sign_in(@user, :bypass => true)
-        #end
         redirect_to admin_users_url, notice: "Benutzer '#{@user.login}' aktualisiert!"
       else
         render :edit

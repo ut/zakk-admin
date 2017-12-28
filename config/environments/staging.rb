@@ -36,7 +36,7 @@ Rails.application.configure do
 
 
 
-  config.action_mailer.default_url_options = { host: 'zakk2.klubraum.org' }
+  config.action_mailer.default_url_options = { host: 'zakk.klubraum.org' }
 
 
   # Mount Action Cable outside main process or domain
