@@ -25,6 +25,7 @@ RSpec.describe "home/index", type: :view do
       :backgroundimage => 'image',
       :backgroundcolor => '#cc0000',
       :backgroundimage_credit => 'Max (cc-by-sa)',
+      :backgroundimage_credit_link => 'http://www.domain.de',
       :current => true,
       :published => true
     ))
@@ -65,5 +66,6 @@ RSpec.describe "home/index", type: :view do
   it "renders backgroundimage credit" do
     render
     expect(rendered).to match(/Max \(cc-by-sa\)/)
+    expect(rendered).to match(/http\:\/\/www.domain.de/)
   end
 end

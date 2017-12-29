@@ -7,6 +7,7 @@ FactoryGirl.define do
     backgroundimage "File"
     image "File"
     backgroundimage_credit "Maxi (cc-by-sa)"
+    backgroundimage_credit_link "http://www.domain.com"
     image_credit "Maxi (cc-by-sa)"
     textcolor1 "#cc0000"
     textcolor2 "#dd0000"

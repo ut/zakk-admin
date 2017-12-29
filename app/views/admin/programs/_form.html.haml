@@ -30,7 +30,10 @@
                 %br
                 = f.check_box :remove_image
                 Bild löschen
-              = f.input :image_credit
+              .hide
+                = f.input :image_credit
+                = f.input :image_credit_link
+
             .large-6.columns
               = f.input :backgroundimage, as: :file
               - if @program.backgroundimage.present?
@@ -39,6 +42,7 @@
                 = f.check_box :remove_backgroundimage
                 Bild löschen
               = f.input :backgroundimage_credit
+              = f.input :backgroundimage_credit_link
         .large-4.columns#preview
           %h3 Colors preview:
           .panel

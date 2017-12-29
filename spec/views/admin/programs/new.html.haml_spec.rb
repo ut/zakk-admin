@@ -17,6 +17,9 @@ RSpec.describe "admin/programs/new", type: :view do
 
       assert_select "textarea#program_description[name=?]", "program[description]"
 
+      assert_select "input#program_backgroundimage_credit[name=?]", "program[backgroundimage_credit]"
+
+      assert_select "input#program_backgroundimage_credit_link[name=?]", "program[backgroundimage_credit_link]"
     end
   end
 end
