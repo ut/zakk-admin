@@ -53,6 +53,14 @@ describe Admin::UsersController do
       expect(response).to redirect_to(admin_users_path)
     end
 
+    it "should update" do
+      put :update, params: {id: User.first.id, user: FactoryGirl.build(:user).attributes }
+      # response.should be_successful
+      expect(response).to redirect_to(admin_users_url)
+    end
+
+
+
   end
 
 end

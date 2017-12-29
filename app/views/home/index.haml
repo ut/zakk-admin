@@ -87,7 +87,8 @@
             - if current_program.backgroundimage_credit_link.present?
               = link_to "#{current_program.backgroundimage_credit_link}" do
                 = current_program.backgroundimage_credit
-            = current_program.backgroundimage_credit
+            - else
+              = current_program.backgroundimage_credit
       %p.text-right
         %span.ptext
           %a{:href=>"/"}

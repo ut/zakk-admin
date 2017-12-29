@@ -118,7 +118,7 @@ RSpec.describe Admin::FlyersController, type: :controller do
           expect(assigns(:flyer)).to eq(flyer)
         end
 
-        xit "re-renders the 'edit' template" do
+        it "re-renders the 'edit' template" do
           flyer = Flyer.create! valid_attributes
           put :update, params: {id: flyer.to_param, flyer: invalid_attributes}, session: valid_session
           expect(response).to redirect_to(admin_flyers_url)

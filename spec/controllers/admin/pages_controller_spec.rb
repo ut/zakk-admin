@@ -108,7 +108,8 @@ RSpec.describe Admin::PagesController, type: :controller do
       end
 
       describe "DELETE #destroy" do
-        xit "destroys the requested page" do
+        it "destroys the requested page" do
+          page = Page.create! valid_attributes
           expect {
             delete :destroy, params: {id: page.to_param}, session: valid_session
           }.to change(Page, :count).by(-1)

@@ -133,6 +133,16 @@ div#imagecredits {
   margin-left: -100px;
   text-shadow: 1px 1px 2px white;
   margin-top: -100px;
+  span.ptext a {
+    background-color: transparent;
+    text-decoration: underline;
+    color: #000;
+    border: none;
+  }
+  span.ptext a:hover {
+    color: #000;
+    text-decoration: underline;
+  }
 
 }
 
@@ -288,40 +298,62 @@ td .post-switch {
 div.panel .post-switch {
     display: inline;
     float: right;
-    width: 22px;
+    width: 60px;
 
-    a.button.tiny {
+    a {
+      border-bottom: none;
+      margin-right: 3px;
+    }
+
+    a.button {
+      float: left;
       padding: 0;
+      font-size: 30px;
+      color: black;
+      background-color: transparent;
+    }
+    a.button:hover {
+      padding: 0;
+      color: #777;
+      background-color: transparent;
     }
     .post-status-text {
       display: none;
     }
+    /*--------------------*/
+    .post.post_published {
+    }
+
+    .post-status-anchor {
+      display: none;
+    }
+    .post-status-anchor-active {
+      display: block;
+    }
+    .post-status-publish {
+      /*
+        background-color: #008cba;
+      */
+      background-color: transparent;
+      font-size: 34px;
+    }
+    .post-status-publish:hover .fi-eye::before {
+      content: "";
+    }
+
+    .post-status-draft {
+      /*
+        background-color: grey;
+      */
+      background-color: transparent;
+      font-size: 34px;
+    }
+    .post-status-draft:hover .fi-eye::before {
+        content: "";
+    }
 }
 
 
-/*--------------------*/
-.post.post_published {
-}
-
-.post-status-anchor {
-  display: none;
-}
-.post-status-anchor-active {
-  display: block;
-}
-.post-status-publish {
-  background-color: #008cba;
-}
-.post-status-publish:hover .fi-eye::before {
-  content: "";
-}
-
-.post-status-draft {
-  background-color: grey;
-}
-.post-status-draft:hover .fi-eye::before {
-    content: "";
-}
 
 /*--------------------*/
 

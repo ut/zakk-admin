@@ -1,5 +1,5 @@
 %div{:class=>"post-switch", :id=>"post_switch_#{p.id}"}
-  = link_to edit_admin_post_path(p), :class=>"tiny post-edit", :title => "Bearbeiten" do
+  = link_to edit_admin_post_path(p), :class=>"button post-edit", :title => "Bearbeiten" do
     %i.fi-pencil
   %span.hide.post-switch-message
     &nbsp;
@@ -10,13 +10,13 @@
     - klass_published = 'post-status-published post-status-anchor'
     - klass_draft = 'post-status-draft post-status-anchor-active'
 
-  = link_to set_status_admin_post_path(p), :id=>"post_status_to_draft_#{p.id}", :class=>"tiny button #{klass_published}", :title => "Eintrag auf Draft schalten", remote: true do
-    %i.fi-prohibited.fi-21
+  = link_to set_status_admin_post_path(p), :id=>"post_status_to_draft_#{p.id}", :class=>"button #{klass_published}", :title => "Eintrag verstecken (Draft)", remote: true do
+    %i.fi-prohibited
     %span.post-status-text
       %br
       Draft!
-  = link_to set_status_admin_post_path(p), :id=>"post_status_to_publish_#{p.id}", :class=>"tiny button #{klass_draft}", :title => "Eintrag veröffentlichen", remote: true do
-    %i.fi-eye.fi-21
+  = link_to set_status_admin_post_path(p), :id=>"post_status_to_publish_#{p.id}", :class=>"button #{klass_draft}", :title => "Eintrag veröffentlichen", remote: true do
+    %i.fi-eye
     %span.post-status-text
       %br
       Veröffentlichen!

@@ -43,7 +43,7 @@ RSpec.describe Admin::ContentsController, type: :controller do
     end
 
     describe "GET #new" do
-      xit "assigns a new content as @content" do
+      it "assigns a new content as @content" do
         get :new, params: {}, session: valid_session
         expect(assigns(:content)).to be_a_new(Content)
       end

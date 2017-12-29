@@ -33,7 +33,11 @@
         - if @post.location
           &nbsp;|&nbsp;
           %i.fi-home
-          =@post.location.title
+          - if @post.location.web.present?
+            = link_to @post.location.web do
+              = @post.location.title
+          - else
+            = @post.location.title
     %h2
       %strong
         = @post.title
@@ -99,9 +103,8 @@
             = link_to @post.location.twitter_link do
               = @post.location.twitter
           %br
-          %p
-            %i.fi-info.fi-21
-            = @post.location.shortext
+          %i.fi-info.fi-21
+          = @post.location.shortext
     - elsif @post.locationtext.present?
       %hr
       %p.location
