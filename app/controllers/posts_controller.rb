@@ -14,7 +14,14 @@ class PostsController < ApplicationController
 
   def show
     @pages = Page.where(published: true).where(in_menu: true)
-    respond_with(@post)
+
+    if current_user || @post.status == 'Published'
+      respond_to do |format|
+        format.html { render :show }
+      end
+    else
+      redirect_to root_url, notice: 'Post is not publically available :('
+    end
   end
 
   private

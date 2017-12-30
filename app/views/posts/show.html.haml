@@ -18,14 +18,20 @@
 
 = render partial: "/partials/header"
 
-.row.panel#post
-  .large-12.text-left.columns{:role => "content"}
+- if @post.status == 'Published'
+  - klass = "post post_published"
+- else
+  - klass = "post post_draft"
 
+
+.row.panel#post{:class=>"#{klass}"}
+  .large-12.text-left.columns{:role => "content"}
     %p
-      - if @post.image.url
+
+
+    - if @post.image.url
+      %p
         %img{:src=>"#{@post.image.url}"}
-      - else
-        = image_tag('zakk_pattern3.png')
     %p
       - if @post.startdate
         %i.fi-calendar
@@ -114,4 +120,5 @@
 
         - else
           %h4=@post.locationtext
+}
 

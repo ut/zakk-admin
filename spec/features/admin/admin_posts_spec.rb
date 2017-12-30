@@ -30,7 +30,6 @@ RSpec.describe "Admin::Posts" do
 
         click_link("post_status_to_publish_"+@post.id.to_s)
         wait_for_ajax
-        # save_and_open_page
         find("a#post_status_to_draft_"+@post.id.to_s).has_css?('post-status-anchor-active')
       end
     end

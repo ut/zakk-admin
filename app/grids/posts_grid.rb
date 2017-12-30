@@ -42,9 +42,6 @@ class PostsGrid
       link_to post, :class=>'post post_draft' do
         "<h3 style=\"color: #{textcolor}\">#{post.title}</h3>".html_safe
       end
-
-
-
     else
       link_to post, :class=>'post' do
         "<h3 style=\"color: #{textcolor}\">#{post.title}!!</h3>".html_safe

@@ -283,7 +283,42 @@ td.post_draft,
   background-image: url(<%= asset_path 'stripe.png' %>);
 }
 
+/*--------------------*/
+.post.post_published {
+}
 
+.post-status-anchor {
+  display: none;
+}
+.post-status-anchor-active {
+  display: block;
+}
+.post-status-published {
+  font-size: 11px;
+  padding: 11px 20px 20px 10px;
+  background-color: #999;
+
+  i {
+    font-size: 23px;
+  }
+
+}
+.post-status-draft {
+  font-size: 11px;
+  padding: 11px 20px 20px 10px;
+  i {
+    font-size: 23px;
+  }
+
+}
+
+.post-status-publish:hover .fi-eye::before {
+  content: "";
+}
+
+.post-status-draft:hover .fi-eye::before {
+    content: "";
+    }
 /*--------------------*/
 .post-switch {
     width: 100px;
@@ -295,6 +330,7 @@ td .post-switch {
 
 }
 
+/* in list/home view */
 div.panel .post-switch {
     display: inline;
     float: right;
@@ -320,16 +356,6 @@ div.panel .post-switch {
     .post-status-text {
       display: none;
     }
-    /*--------------------*/
-    .post.post_published {
-    }
-
-    .post-status-anchor {
-      display: none;
-    }
-    .post-status-anchor-active {
-      display: block;
-    }
     .post-status-publish {
       /*
         background-color: #008cba;
@@ -337,19 +363,12 @@ div.panel .post-switch {
       background-color: transparent;
       font-size: 34px;
     }
-    .post-status-publish:hover .fi-eye::before {
-      content: "";
-    }
-
     .post-status-draft {
       /*
-        background-color: grey;
+        background-color: #008cba;
       */
       background-color: transparent;
       font-size: 34px;
-    }
-    .post-status-draft:hover .fi-eye::before {
-        content: "";
     }
 }
 
