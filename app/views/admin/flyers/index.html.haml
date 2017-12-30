@@ -24,7 +24,8 @@
             %tr
               %td
                 - if flyer.image.url
-                  <img src="#{flyer.image.medium_thumb.url}">
+                  = link_to flyer.image.url do
+                    <img src="#{flyer.image.medium_thumb.url}">
                 - else
                   "#{image_tag('zakk_pattern3.png', :class => "medium_thumb placeholder_thumb", :with => '150', :height => '150')}".html_safe
               %td= flyer.title
