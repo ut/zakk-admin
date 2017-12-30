@@ -12,6 +12,7 @@ FactoryGirl.define do
     organizer "MyString"
     organizerlink "MyString"
     status 'Draft'
+    ptype 0
     trait :invalid do
       title nil
     end
