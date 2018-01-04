@@ -7,12 +7,12 @@ describe Admin::UsersController do
 
   describe "functionalities with logged in user with role 'user'" do
     before do
-      user = FactoryGirl.create(:user)
+      user = FactoryBot.create(:user)
       sign_in user
     end
 
     it "create" do
-      get :create, params: {user: FactoryGirl.build(:user).attributes}
+      get :create, params: {user: FactoryBot.build(:user).attributes}
       expect(response).to be_success
 
     end
@@ -40,7 +40,7 @@ describe Admin::UsersController do
     end
 
     it "should create new user and redirect to index" do
-      user = FactoryGirl.build(:user)
+      user = FactoryBot.build(:user)
       count = User.count
       post :create, params: { user: { login: 'testuser', password: 'monkey', password_confirmation: 'monkey', email: "a@cdb.de" }}
       User.count.should == count + 1
@@ -54,7 +54,7 @@ describe Admin::UsersController do
     end
 
     it "should update" do
-      put :update, params: {id: User.first.id, user: FactoryGirl.build(:user).attributes }
+      put :update, params: {id: User.first.id, user: FactoryBot.build(:user).attributes }
       # response.should be_successful
       expect(response).to redirect_to(admin_users_url)
     end

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "admin/programs/edit", type: :view do
   before(:each) do
-    @program = FactoryGirl.create(:program)
+    @program = FactoryBot.create(:program)
   end
 
   it "renders the edit admin program form" do

@@ -8,15 +8,15 @@ RSpec.describe LocationsController, type: :controller do
   describe "functionalities with logged in user with role 'admin'" do
     before do
       @request.env['devise.mapping'] = Devise.mappings[:user]
-      user = FactoryGirl.create(:user_with_admin_role)
+      user = FactoryBot.create(:user_with_admin_role)
       sign_in user
     end
 
     let(:location) {
-      FactoryGirl.create(:location)
+      FactoryBot.create(:location)
     }
     let(:valid_attributes) {
-      FactoryGirl.build(:location).attributes
+      FactoryBot.build(:location).attributes
     }
 
 

@@ -6,10 +6,10 @@ RSpec.describe PagesController, type: :controller do
   # Page. As you add validations to Page, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    FactoryGirl.build(:page).attributes
+    FactoryBot.build(:page).attributes
   }
   let(:invalid_attributes) {
-    FactoryGirl.attributes_for(:page, :invalid)
+    FactoryBot.attributes_for(:page, :invalid)
   }
 
   let(:valid_session) { {} }

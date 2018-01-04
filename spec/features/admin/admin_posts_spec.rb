@@ -13,8 +13,8 @@ RSpec.describe "Admin::Posts" do
 
   describe "Users" do
     before do
-      @user = FactoryGirl.create(:user_with_admin_role)
-      @post = FactoryGirl.create(:post)
+      @user = FactoryBot.create(:user_with_admin_role)
+      @post = FactoryBot.create(:post)
     end
 
     context "change status of a post (with XHR)" do

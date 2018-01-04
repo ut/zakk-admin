@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '5.0.4'
+gem 'rails', '5.1.4'
 
 gem 'activerecord-session_store'
 gem 'bcrypt', '~> 3.1.7'
@@ -57,7 +57,7 @@ end
 group :test, :development do
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker'
   gem 'rspec-rails'
   gem 'rails-controller-testing'

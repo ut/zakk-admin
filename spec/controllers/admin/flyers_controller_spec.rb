@@ -6,19 +6,19 @@ RSpec.describe Admin::FlyersController, type: :controller do
 
   describe "functionalities with logged in user with role 'admin'" do
     before do
-      user = FactoryGirl.create(:user_with_admin_role)
+      user = FactoryBot.create(:user_with_admin_role)
       sign_in user
     end
 
 
     let(:flyer) {
-      FactoryGirl.create(:flyer)
+      FactoryBot.create(:flyer)
     }
     let(:valid_attributes) {
-      FactoryGirl.build(:flyer).attributes
+      FactoryBot.build(:flyer).attributes
     }
     let(:invalid_attributes) {
-      FactoryGirl.attributes_for(:flyer, :invalid)
+      FactoryBot.attributes_for(:flyer, :invalid)
     }
 
     # This should return the minimal set of values that should be in the session
@@ -88,7 +88,7 @@ RSpec.describe Admin::FlyersController, type: :controller do
     describe "PUT #update" do
       context "with valid params" do
         let(:new_attributes) {
-          FactoryGirl.attributes_for(:location, title: "new flyer title")
+          FactoryBot.attributes_for(:location, title: "new flyer title")
         }
 
         it "updates the requested flyer" do

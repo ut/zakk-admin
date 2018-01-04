@@ -22,7 +22,7 @@ RSpec.describe "Admin::Programs" do
 
   describe "Users" do
     before do
-      @user = FactoryGirl.create(:user)
+      @user = FactoryBot.create(:user)
       visit "/admin/programs"
       fill_in 'user_login', :with => @user.login
       fill_in 'user_password', :with => @user.password

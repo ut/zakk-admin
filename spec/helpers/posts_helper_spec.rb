@@ -16,11 +16,11 @@ RSpec.describe PostsHelper, type: :helper do
 
   describe "location based helper" do
     it "returns list of locations for select" do
-      location = FactoryGirl.create(:location)
+      location = FactoryBot.create(:location)
       expect(helper.location_for_select).to eq([[location.title, location.id]])
     end
     it "returns default_location_id" do
-      location = FactoryGirl.create(:location, :title => "zakk")
+      location = FactoryBot.create(:location, :title => "zakk")
       expect(helper.default_location_id).to eq(location.id)
     end
   end
@@ -28,11 +28,11 @@ RSpec.describe PostsHelper, type: :helper do
 
   describe "program based helper" do
     it "returns list of programs for select" do
-      program = FactoryGirl.create(:program)
+      program = FactoryBot.create(:program)
       expect(helper.program_for_select).to eq([[program.title, program.id]])
     end
     it "returns current_program_id" do
-      program = FactoryGirl.create(:program, :current => true)
+      program = FactoryBot.create(:program, :current => true)
       expect(helper.current_program_id).to eq(program.id)
     end
   end

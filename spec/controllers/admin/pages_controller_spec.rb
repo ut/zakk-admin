@@ -6,14 +6,14 @@ RSpec.describe Admin::PagesController, type: :controller do
 
   describe "functionalities with logged in user with role 'admin'" do
     before do
-      user = FactoryGirl.create(:user_with_admin_role)
+      user = FactoryBot.create(:user_with_admin_role)
       sign_in user
     end
 
     describe "functionalities with logged in user with role 'admin'" do
       before do
         @request.env['devise.mapping'] = Devise.mappings[:user]
-        user = FactoryGirl.create(:user_with_admin_role)
+        user = FactoryBot.create(:user_with_admin_role)
         sign_in user
       end
 
@@ -21,10 +21,10 @@ RSpec.describe Admin::PagesController, type: :controller do
       # Page. As you add validations to Page, be sure to
       # adjust the attributes here as well.
       let(:page) {
-        FactoryGirl.create(:page)
+        FactoryBot.create(:page)
       }
       let(:valid_attributes) {
-        FactoryGirl.build(:page).attributes
+        FactoryBot.build(:page).attributes
       }
 
       # This should return the minimal set of values that should be in the session
@@ -85,7 +85,7 @@ RSpec.describe Admin::PagesController, type: :controller do
       describe "PUT #update" do
         context "with valid params" do
           let(:new_attributes) {
-            FactoryGirl.attributes_for(:page, title: "new page title")
+            FactoryBot.attributes_for(:page, title: "new page title")
           }
 
           it "updates the requested page" do

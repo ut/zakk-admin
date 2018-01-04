@@ -5,18 +5,18 @@ RSpec.describe PostsController, type: :controller do
 describe "functionalities with logged in user with role 'admin'" do
     before do
       @request.env['devise.mapping'] = Devise.mappings[:user]
-      user = FactoryGirl.create(:user_with_admin_role)
+      user = FactoryBot.create(:user_with_admin_role)
       sign_in user
     end
 
     let(:post) {
-      FactoryGirl.create(:post)
+      FactoryBot.create(:post)
     }
     let(:valid_attributes) {
-      FactoryGirl.build(:post).attributes
+      FactoryBot.build(:post).attributes
     }
     let(:invalid_attributes) {
-      FactoryGirl.attributes_for(:post, :invalid)
+      FactoryBot.attributes_for(:post, :invalid)
     }
 
     # This should return the minimal set of values that should be in the session

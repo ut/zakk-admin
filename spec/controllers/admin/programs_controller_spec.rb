@@ -4,20 +4,20 @@ RSpec.describe Admin::ProgramsController, type: :controller do
 
   describe "functionalities with logged in user with role 'admin'" do
     before do
-      user = FactoryGirl.create(:user_with_admin_role)
+      user = FactoryBot.create(:user_with_admin_role)
       sign_in user
     end
     # This should return the minimal set of attributes required to create a valid
     # Program. As you add validations to Program, be sure to
     # adjust the attributes here as well.
     let(:program) {
-      FactoryGirl.create(:program)
+      FactoryBot.create(:program)
     }
     let(:valid_attributes) {
-      FactoryGirl.build(:program).attributes
+      FactoryBot.build(:program).attributes
     }
     let(:invalid_attributes) {
-      FactoryGirl.attributes_for(:program, :invalid)
+      FactoryBot.attributes_for(:program, :invalid)
     }
 
 
@@ -93,7 +93,7 @@ RSpec.describe Admin::ProgramsController, type: :controller do
     describe "PUT #update" do
       context "with valid params" do
         let(:new_attributes) {
-          FactoryGirl.attributes_for(:program, title: "new program title")
+          FactoryBot.attributes_for(:program, title: "new program title")
         }
 
         it "updates the requested program" do

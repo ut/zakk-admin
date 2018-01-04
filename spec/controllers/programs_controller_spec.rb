@@ -7,20 +7,20 @@ RSpec.describe ProgramsController, type: :controller do
   # Program. As you add validations to Program, be sure to
   # adjust the attributes here as well.
   let(:program) {
-    FactoryGirl.create(:program)
+    FactoryBot.create(:program)
   }
   let(:current_program) {
-    FactoryGirl.attributes_for(:program, :current)
+    FactoryBot.attributes_for(:program, :current)
   }
   let(:valid_attributes) {
-    FactoryGirl.build(:program).attributes
+    FactoryBot.build(:program).attributes
   }
   let(:valid_attributes_current) {
-    FactoryGirl.build(:program, :current).attributes
+    FactoryBot.build(:program, :current).attributes
   }
 
   let(:invalid_attributes) {
-    FactoryGirl.attributes_for(:program, :invalid)
+    FactoryBot.attributes_for(:program, :invalid)
   }
 
   # This should return the minimal set of values that should be in the session

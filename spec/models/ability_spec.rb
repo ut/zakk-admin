@@ -24,7 +24,7 @@ RSpec.describe Ability, type: :model do
       end
 
       context "... when normal user" do
-        let(:user){ FactoryGirl.create(:user_with_user_role) }
+        let(:user){ FactoryBot.create(:user_with_user_role) }
 
         it{ should_not be_able_to(:manage, User.new) }
         it{ should be_able_to(:manage, Program.new) }
@@ -34,7 +34,7 @@ RSpec.describe Ability, type: :model do
       end
 
       context "... when admin" do
-        let(:user){ FactoryGirl.create(:user_with_admin_role) }
+        let(:user){ FactoryBot.create(:user_with_admin_role) }
 
         it{ should be_able_to(:manage, User.new) }
         it{ should be_able_to(:manage, Program.new) }

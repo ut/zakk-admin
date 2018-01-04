@@ -1,14 +1,16 @@
-require 'coveralls'
-Coveralls.wear!
-
-require 'simplecov'
-SimpleCov.start if ENV["COVERAGE"]
-# cli: try  COVERAGE=true rspec spec
+if !ENV["COVERAGE"]
+  require 'coveralls'
+  Coveralls.wear!
+else
+  # cli: try  COVERAGE=true rspec spec
+  require 'simplecov'
+  SimpleCov.start
+end
 
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'factory_girl'
+require 'factory_bot'
 require 'capybara/rspec'
 require 'capybara/rails'
 
@@ -51,7 +53,7 @@ RSpec.configure do |config|
   config.include( ControllerMacros )
 
   # for factory validations in model rspecs:
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
 
 
   config.include Warden::Test::Helpers

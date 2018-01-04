@@ -5,7 +5,7 @@ describe PreferencesController, type: :controller  do
 
   describe "functionalities for guests" do
     it "should redirect guests to login " do
-      user = FactoryGirl.create(:user)
+      user = FactoryBot.create(:user)
       get :edit, params: { id: user.id }
       expect(response).to redirect_to( new_user_session_path )
     end
@@ -15,7 +15,7 @@ describe PreferencesController, type: :controller  do
   describe "functionalities with logged in user with role 'user'" do
     before do
       @request.env['devise.mapping'] = Devise.mappings[:user]
-      @user = FactoryGirl.create(:user)
+      @user = FactoryBot.create(:user)
       sign_in @user
     end
 
@@ -30,12 +30,12 @@ describe PreferencesController, type: :controller  do
     end
 
     it "edit response should be success" do
-      get :edit, params: { user: FactoryGirl.build(:user).attributes }
+      get :edit, params: { user: FactoryBot.build(:user).attributes }
       response.should be_success
     end
 
     it "should update" do
-      put :edit, params: {id: User.first.id, user: FactoryGirl.build(:user).attributes }
+      put :edit, params: {id: User.first.id, user: FactoryBot.build(:user).attributes }
       response.should be_successful
     end
   end

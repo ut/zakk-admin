@@ -10,9 +10,9 @@ RSpec.describe "Admin::Pages", type: :request do
 
   describe "for signed in users" do
     before do
-      @user = FactoryGirl.create(:user)
+      @user = FactoryBot.create(:user)
       sign_in @user
-      @page = FactoryGirl.create(:page)
+      @page = FactoryBot.create(:page)
     end
     it "redirects for pages/show" do
       get admin_page_path(@page)

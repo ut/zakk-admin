@@ -11,9 +11,9 @@ RSpec.describe "Admin::Contents", type: :request do
 
   describe "for signed in users" do
     before do
-      @user = FactoryGirl.create(:user)
+      @user = FactoryBot.create(:user)
       sign_in @user
-      @content = FactoryGirl.create(:content)
+      @content = FactoryBot.create(:content)
     end
     it "redirects for contents/show" do
       get admin_content_path(@content)

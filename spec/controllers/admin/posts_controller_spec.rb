@@ -5,18 +5,18 @@ RSpec.describe Admin::PostsController, type: :controller do
  describe "functionalities with logged in user with role 'admin'" do
     before do
       @request.env['devise.mapping'] = Devise.mappings[:user]
-      user = FactoryGirl.create(:user_with_admin_role)
+      user = FactoryBot.create(:user_with_admin_role)
       sign_in user
     end
 
     let(:post) {
-      FactoryGirl.create(:post)
+      FactoryBot.create(:post)
     }
     let(:valid_attributes) {
-      FactoryGirl.build(:post).attributes
+      FactoryBot.build(:post).attributes
     }
     let(:invalid_attributes) {
-      FactoryGirl.attributes_for(:post, :invalid)
+      FactoryBot.attributes_for(:post, :invalid)
     }
 
     # This should return the minimal set of values that should be in the session
@@ -113,7 +113,7 @@ RSpec.describe Admin::PostsController, type: :controller do
         expect(assigns(:selected_location)).to eq(post.location_id)
       end
       it "don't set selected_location" do
-        post = Post.create! FactoryGirl.attributes_for(:post, :missing_location)
+        post = Post.create! FactoryBot.attributes_for(:post, :missing_location)
         get :copy, params: {:id => post.to_param}, session: valid_session
         expect(assigns(:selected_location)).not_to eq(post.location_id)
         expect(assigns(:selected_location)).to eq('')
@@ -130,7 +130,7 @@ RSpec.describe Admin::PostsController, type: :controller do
     describe "PUT #update" do
       context "with valid params" do
         let(:new_attributes) {
-          FactoryGirl.attributes_for(:post, title: "new post title")
+          FactoryBot.attributes_for(:post, title: "new post title")
         }
 
         it "updates the requested post" do
@@ -191,12 +191,12 @@ RSpec.describe Admin::PostsController, type: :controller do
         expect(assigns(:post).status).to eq('Published')
       end
       it "change status to published" do
-        post = Post.create! FactoryGirl.attributes_for(:post, :published)
+        post = Post.create! FactoryBot.attributes_for(:post, :published)
         get :set_status, params: {:id => post.to_param}, session: valid_session, format: :js, xhr: true
         expect(assigns(:post).status).to eq('Draft')
       end
       it "render js" do
-        post = Post.create! FactoryGirl.attributes_for(:post, :published)
+        post = Post.create! FactoryBot.attributes_for(:post, :published)
         get :set_status, params: {:id => post.to_param}, session: valid_session, format: :js, xhr: true
         expect(response).to render_template("set_status")
       end
