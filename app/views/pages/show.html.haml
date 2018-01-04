@@ -17,7 +17,7 @@
                 %i.fi-pencil
         %div.panel
           %div.content
-            = c.text.html_safe
+            = sanitize c.text.html_safe
 
 
   .large-4.columns
@@ -31,7 +31,7 @@
                 %i.fi-pencil
         %div.panel
           %div.content
-            = c.text.html_safe
+          = sanitize c.text.html_safe
 
 
   .large-4.columns
@@ -45,5 +45,5 @@
                 %i.fi-pencil
         %div.panel
           %div.content
-            = c.text.html_safe
+            = sanitize c.text.html_safe
 

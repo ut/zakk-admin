@@ -35,4 +35,4 @@
   - if p.shortext.present?
     %p= p.shortext
   - elsif p.longtext.present?
-    %div= p.longtext.html_safe
+    %div= sanitize p.longtext.html_safe

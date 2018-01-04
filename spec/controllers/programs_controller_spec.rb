@@ -60,7 +60,7 @@ RSpec.describe ProgramsController, type: :controller do
       expect(response).to render_template("show")
     end
 
-    xit "renders the show template if current_user" do
+    it "renders the show template if current_user" do
       get :show, params: {id: "current"}, session: valid_session
       expect(response).to render_template("show")
     end

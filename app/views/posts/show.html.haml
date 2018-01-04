@@ -50,7 +50,7 @@
       - if @post.shortext.present?
         \|
         = @post.shortext
-    %p= @post.longtext.html_safe
+    %p= sanitize @post.longtext.html_safe
 
     %p
       - if !@post.link.blank?

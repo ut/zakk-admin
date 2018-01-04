@@ -51,6 +51,10 @@ RSpec.describe Admin::PostsController, type: :controller do
         get :new, params: {}, session: valid_session
         expect(assigns(:post)).to be_a_new(Post)
       end
+      it "assigns a new post as @post and preselects program and ptype" do
+        get :new, params: {:program => 1, :ptype => 0 }, session: valid_session
+        expect(assigns(:post)).to be_a_new(Post)
+      end
     end
 
     describe "GET #edit" do
@@ -58,6 +62,20 @@ RSpec.describe Admin::PostsController, type: :controller do
         post = Post.create! valid_attributes
         get :edit, params: {:id => post.to_param}, session: valid_session
         expect(assigns(:post)).to eq(post)
+      end
+      it "assigns the requested post as @post and checks if location is set" do
+        location = FactoryBot.create(:location)
+        post = FactoryBot.create(:post, :location => location)
+        get :edit, params: {:id => post.to_param}, session: valid_session
+        expect(assigns(:post)).to eq(post)
+        expect(assigns(:selected_location)).to eq(location.id)
+      end
+      it "assigns the requested post as @post and checks if location is not set" do
+        location = FactoryBot.create(:location)
+        post = FactoryBot.create(:post, :location => nil)
+        get :edit, params: {:id => post.to_param}, session: valid_session
+        expect(assigns(:post)).to eq(post)
+        expect(assigns(:selected_location)).to eq("")
       end
     end
 

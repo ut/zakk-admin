@@ -18,11 +18,7 @@ class Admin::PostsController < ApplicationController
   end
 
   def show
-    if @post
-      redirect_to post_path(@post)
-    else
-      redirect_to admin_posts_url, notice: 'Related post is not available :('
-    end
+    redirect_to post_path(@post)
   end
 
   def new
@@ -36,12 +32,10 @@ class Admin::PostsController < ApplicationController
     require 'uri'
 
     if params[:program]
-      puts params[:program]
       @selected_program = URI.unescape(params[:program])
     end
 
     if params[:ptype]
-      puts params[:ptype]
       @selected_ptype = params[:ptype].to_i
     end
 

@@ -1,11 +1,11 @@
 - if program
   - if program.backgroundimage && program.backgroundimage.small_thumb
-    - thumb = "#{program.backgroundimage.medium_thumb.url}"
+    - thumb = "#{sanitize program.backgroundimage.medium_thumb.url}"
   :css
-    body, main { background-color: #{program.backgroundcolor}}
+    body, main { background-color: #{sanitize program.backgroundcolor}}
       main { background-image: url(#{thumb}) }
     .panel h1,
     .panel h2,
     .panel h3,
-    .panel h4 { color: #{program.textcolor2}}
-    strong { color: #{program.textcolor1}}
+    .panel h4 { color: #{sanitize program.textcolor2}}
+    strong { color: #{sanitize program.textcolor1}}

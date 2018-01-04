@@ -32,7 +32,7 @@
           - @contents.each do |content|
             %tr
               %td= content.title
-              %td= content.text.html_safe
+              %td= sanitize content.text.html_safe
               %td
                 - if content.published
                   %i.fi-check
