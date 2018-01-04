@@ -218,8 +218,6 @@ RSpec.describe Admin::PostsController, type: :controller do
         get :set_status, params: {:id => post.to_param}, session: valid_session, format: :js, xhr: true
         expect(response).to render_template("set_status")
       end
-
-
     end
 
   end

@@ -103,17 +103,13 @@ class Admin::PostsController < ApplicationController
 
   def set_status
     @switch_id    = "post_switch_#{@post.id}"
-    if @post.nil?
-      @text = '<span class="badge badge-warning" title="Item not found!">E</span>'
-      format.js
+
+    if @post.status == 'Published'
+      @post.status = 'Draft'
     else
-      if @post.status == 'Published'
-        @post.status = 'Draft'
-      else
-        @post.status = 'Published'
-      end
-      @post.save!
+      @post.status = 'Published'
     end
+    @post.save!
 
     respond_to do |format|
       format.js
