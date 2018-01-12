@@ -30,7 +30,6 @@ RSpec.describe ProgramsController, type: :controller do
 
   describe "GET #index" do
     it "redirect to current_program" do
-      # puts subject.current_program.id
       get :index, params: {}, session: valid_session
       expect(response).to redirect_to(program_url(subject.current_program))
     end
@@ -40,6 +39,7 @@ RSpec.describe ProgramsController, type: :controller do
       get :index, params: {}, session: valid_session
       expect(response).to redirect_to(program_path(subject.current_program))
     end
+
   end
 
   describe "GET #show" do

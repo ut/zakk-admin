@@ -49,11 +49,6 @@ module ApplicationHelper
   	end
   end
 
-  def labeled_textfield( form, field, label)
-    "<p>#{form.label(field, label)}#{form.text_field field}</p>".html_safe
-  end
-
-
   def link_to_with_highlight(name, options = {}, html_options = {}) # same syntax as #link_to
     if current_page?(options)
       html_options.merge!({ :class => 'act' })

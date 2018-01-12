@@ -5,12 +5,21 @@ class PagesController < ApplicationController
   # GET /pages/1.json
   def show
 
+
+
     @col1_content = Content.where(:page =>@page.id).where(:col => "1")
     @col2_content = Content.where(:page =>@page.id).where(:col => "2")
     @col3_content = Content.where(:page =>@page.id).where(:col => "3")
 
     @pages = Page.where(published: true).where(in_menu: true)
 
+    if current_user || @page.published == true
+      respond_to do |format|
+        format.html { render :show }
+      end
+    else
+      redirect_to root_url, notice: 'Post is not publically available :('
+    end
   end
 
 

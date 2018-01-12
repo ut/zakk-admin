@@ -7,7 +7,6 @@ class HomeController < ApplicationController
     @posts_undsonst = Post.where(:ptype => '2').where("startdate > ?", ( DateTime.now - 1.day)).order(:startdate)
 
     @pages = Page.where(published: true).where(in_menu: true)
-
   end
 
 end

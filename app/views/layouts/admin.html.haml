@@ -13,7 +13,7 @@
     = javascript_include_tag 'vendor/modernizr'
 
     = csrf_meta_tags
-    = favicon_link_tag
+    = favicon_link_tag "#{current_program.backgroundimage.medium_thumb.url}"
     = yield :head
 
     = render partial: '/partials/custom_styles', locals: {program: current_program}

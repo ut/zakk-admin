@@ -21,8 +21,9 @@ describe ApplicationHelper do
 
   end
 
+
   describe "Menu generation with link and hightlight" do
-  
+
     it "should return 'act' class for link_to if current page is linked" do
       controller.params = {controller: "users", action: "index"}
       l = helper.link_to_with_highlight "Menu1", admin_users_path

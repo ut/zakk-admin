@@ -1,0 +1,6 @@
+- if @pages && @pages.count > 0
+  %p.text-right.nav{:role => 'navigation'}
+    - @pages.each do |p|
+      %span.ptext
+        = link_to page_path(p) do
+          #{p.title}

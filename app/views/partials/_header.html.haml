@@ -6,7 +6,7 @@
 
     .row
       .columns.large-7
-        .panel
+        .panel{:role => 'header'}
           %h1
             = link_to root_url do
               %strong zakk
@@ -22,9 +22,4 @@
       .columns.large-1
         &nbsp;
       .columns.large-4
-        %p.text-right
-          - if @pages
-            - @pages.each do |p|
-              %span.ptext
-                = link_to page_path(p) do
-                  #{p.title}
+        = render partial: "/partials/nav"
