@@ -206,7 +206,7 @@ GEM
     passenger (5.1.12)
       rack
       rake (>= 0.8.1)
-    pg (1.0.0)
+    pg (0.21.0)
     public_suffix (3.0.1)
     rack (2.0.3)
     rack-test (0.8.2)
@@ -380,7 +380,7 @@ DEPENDENCIES
   mini_magick
   paranoia
   passenger
-  pg
+  pg (~> 0.2)
   rails (= 5.1.4)
   rails-controller-testing
   rails-i18n (~> 5.0.0)
