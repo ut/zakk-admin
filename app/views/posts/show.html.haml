@@ -56,7 +56,7 @@
       - if !@post.link.blank?
         - if @post.link =~ /http[s]?:\/\//
           - linktext = @post.link.gsub(/https?:\/\//,"")
-          = link_to "#{linktext}",@post.link
+          = link_to "#{escape_once(linktext)}",@post.link
         - else
           = link_to "http://"+@post.link, "#{@post.link}"
     %hr
