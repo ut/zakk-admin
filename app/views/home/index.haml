@@ -85,7 +85,11 @@
         - if current_program.image_credit.present?
           %span.ptext
             Bild:
-            = current_program.image_credit
+            - if current_program.image_credit_link.present?
+              = link_to "#{current_program.image_credit_link}" do
+                = current_program.image_credit
+            - else
+              = current_program.image_credit
         - if current_program.backgroundimage_credit.present?
           %span.ptext
             - if current_program.image_credit.present? && current_program.backgroundimage_credit.present?

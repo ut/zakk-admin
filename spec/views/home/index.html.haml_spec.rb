@@ -48,8 +48,6 @@ RSpec.describe "home/index", type: :view do
       :startdate =>  DateTime.now + 2.day,
       :status => 'Published'
     )])
-
-
   end
 
   it "renders posts of three different types" do

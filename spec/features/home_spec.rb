@@ -17,6 +17,15 @@ describe 'visiting the homepage' do
       expect(page).to have_css("html.js")
     end
 
+    it "displays image credit if defined" do
+      Program.destroy_all
+      @program = FactoryBot.create(:program, :current => true,
+      :published => true)
+      save_and_open_page
+      expect(page).to have_content("Maxi (cc-by-sa)")
+      expect(page).to have_content("Mini (cc-by-sa)")
+    end
+
     it 'does not show a drafted post to guests' do
       @post = FactoryBot.create(:post, :title => "Drafted Post", :startdate => DateTime.now + 2.days)
       visit '/'
