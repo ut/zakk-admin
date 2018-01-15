@@ -2,9 +2,10 @@ require 'spec_helper'
 
 describe 'visiting the homepage' do
 
-  describe "Guests" do
+  describe "by guests:" do
 
     before do
+      Program.destroy_all
       Page.destroy_all
       visit '/'
     end
@@ -13,15 +14,14 @@ describe 'visiting the homepage' do
       expect(page).to have_css('body')
     end
 
-    it "receives a js enabled message (css class set by modernizr", :js => true do
+    it "receives a js enabled message (css class set by modernizr.js)", :js => true do
       expect(page).to have_css("html.js")
     end
 
     it "displays image credit if defined" do
-      Program.destroy_all
       @program = FactoryBot.create(:program, :current => true,
       :published => true)
-      save_and_open_page
+      visit '/'
       expect(page).to have_content("Maxi (cc-by-sa)")
       expect(page).to have_content("Mini (cc-by-sa)")
     end
@@ -65,7 +65,7 @@ describe 'visiting the homepage' do
 
   end
 
-  describe "Users" do
+  describe "by signed-in users:" do
     before do
       Post.destroy_all
       @user = FactoryBot.create(:user_with_user_role)
