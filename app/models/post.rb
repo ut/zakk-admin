@@ -12,6 +12,9 @@ class Post < ActiveRecord::Base
 
   validates :title, presence: true
 
+
+  scope :published, -> { where status: 'Published' }
+
   scope :with_status, lambda { |name|
     where('status = ?', name)
   }
