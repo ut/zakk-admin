@@ -1,0 +1,20 @@
+post1:
+  id: 1
+  title:
+  shortext:
+  longtext:
+  startdate:
+  enddate:
+  location_id:
+  link:
+  label:
+  organizer:
+  organizerlink:
+  created_at:
+  updated_at:
+  ptype:
+  image:
+  status:
+  program_id:
+  locationtext:
+

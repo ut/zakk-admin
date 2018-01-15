@@ -73,6 +73,14 @@
             sorted by startdate, only future dates (and today)
   .row
     .columns.large-4
+      %p.text-right
+        %span.ptext
+          %a{:href=>"/"}
+            %strong zakk
+        %span.ptext
+          %a{:href=>"/"}
+            klubraum
+    .columns.large-4
       #imagecredits
         - if current_program.image_credit.present?
           %span.ptext
@@ -89,15 +97,6 @@
                 = current_program.backgroundimage_credit
             - else
               = current_program.backgroundimage_credit
-      %p.text-right
-        %span.ptext
-          %a{:href=>"/"}
-            %strong zakk
-        %span.ptext
-          %a{:href=>"/"}
-            klubraum
-    .columns.large-4
-      &nbsp;
     .columns.large-4
       = render partial: "/partials/nav"
   .row

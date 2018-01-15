@@ -123,16 +123,16 @@ footer .row#footer .columns {
 footer a {
     color: #555;
 }
-footer div#footer .column:hover, footer a:hover {
+footer #footer .column:hover, footer a:hover {
   color: #ccc;
 }
 /*--------------------*/
-div#imagecredits {
-  transform: rotate(-90deg);
+#imagecredits {
+/*  transform: rotate(-90deg);
   width: 220px;
   margin-left: -100px;
+  margin-top: -100px;*/
   text-shadow: 1px 1px 2px white;
-  margin-top: -100px;
   span.ptext a {
     background-color: transparent;
     text-decoration: underline;
@@ -147,16 +147,25 @@ div#imagecredits {
 }
 
 /*--------------------*/
-div#flyer_wall {
+#flyer_wall {
     height: 400px;
     overflow: hidden;
     width: 100%;
 }
-div#flyer_wall div.flyer {
+#flyer_wall div.flyer {
     float: left;
     width: 10%;
+
+  display: block;
+  position: static;
+  top: auto;
+  height: auto;
+  width: 10%;
+  background: transparent;
+  z-index: 8999;
+  text-align: center;
 }
-div#flyer_wall div.flyer img {
+#flyer_wall div.flyer img {
     float: left;
     max-height: 300px;
     min-height: 300px;
@@ -164,13 +173,15 @@ div#flyer_wall div.flyer img {
     top: 100px;
     margin-top: 40px;
     position: relative;
-    /* transition: bottom 2s, transform 2s, opacity 2s; */
     opacity: 0.9;
     transform: scale(0.8);
     filter:  brightness(80%);
     transition: all 2s ease-in-out;
+    z-index: 9000;
 }
-div#flyer_wall div.flyer:hover img {
+/* #flyer_wall div.flyer:hover img,
+*/
+#flyer_wall .flyer.hover img {
     margin-top: -65px;
     opacity: 1;
     transform: scale(3);
@@ -178,11 +189,29 @@ div#flyer_wall div.flyer:hover img {
     transition: all 2s;
     cursor: pointer;
     transform: scale(1.2) rotate(0deg) !important;
+    z-index: 9001;
 }
 
-div#flyer_wall div.flyer img.medium_thumb.placeholder_thumb {
+#flyer_wall .flyer img.medium_thumb.placeholder_thumb {
     max-width: 600px;
 }
+
+#flyer_wall .flyer.overlay {
+/*  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(200, 0, 0, 0.75);
+  z-index: 9999;
+  text-align: center;*/
+
+  a {
+    img {
+
+    }
+  }
+}
+
 
 /* ---------------------- */
 h1,h2,h3,h4,h5 {

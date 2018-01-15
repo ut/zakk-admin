@@ -10,4 +10,30 @@ $(function() {
 
 
 
+  $('div.flyer a').hover(function(e) {
+    if( !$(this).parent().hasClass('overlay') ) {
+      $(this).parent().addClass('hover');
+    }
+  });
+
+  $('div.flyer a').mouseout(function(e) {
+    if( !$(this).parent().hasClass('overlay') ) {
+      $(this).parent().removeClass('hover');
+    }
+  });
+  $('div.flyer a').dblclick(function(e) {
+    e.preventDefault();
+  });
+  $('div.flyer a').click(function(e) {
+    e.preventDefault();
+    if( $(this).parent().hasClass('overlay') ) {
+      // $(this).parent().removeClass('overlay');
+      $(this).parent().removeClass('hover');
+    } else {
+      // $(this).parent().addClass('overlay');
+      $(this).parent().removeClass('hover');
+    }
+  });
+
+
 });
