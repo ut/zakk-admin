@@ -36,7 +36,7 @@ gem 'sass'
 gem 'sass-rails'
 gem 'simple_form'
 
-gem 'redactor-rails'
+# gem 'redactor-rails'
 gem "carrierwave"
 gem "mini_magick"
 

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :pages, only: [:show]
 
 
-  mount RedactorRails::Engine => '/redactor_rails'
+  # mount RedactorRails::Engine => '/redactor_rails'
 
   resources :locations, only: [:index, :show]
   resources :posts, only: [:index, :show]
