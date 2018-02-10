@@ -22,11 +22,13 @@ class Admin::ProgramsController < ApplicationController
   def new
     if current_program
       @program = current_program.dup
-      @program.title = ''
+      @program.title = @program.title+' (copy)'
       @program.current = false
+      flash[:notice] = 'Die Werte im Formular sind eine Kopie des aktuellen Programms. (Bilder können nicht mitkopiert werden.)'
     else
       @program = Program.new
     end
+    render :new
   end
 
   # GET /programs/1/edit
