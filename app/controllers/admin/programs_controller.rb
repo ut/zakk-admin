@@ -20,7 +20,13 @@ class Admin::ProgramsController < ApplicationController
 
   # GET /programs/new
   def new
-    @program = Program.new
+    if current_program
+      @program = current_program.dup
+      @program.title = ''
+      @program.current = false
+    else
+      @program = Program.new
+    end
   end
 
   # GET /programs/1/edit
