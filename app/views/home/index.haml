@@ -40,8 +40,12 @@
         %p.panel.hint
           sorted by startdate, only future dates (and today)
       - if current_program.present? && current_program.image.url
+        - image_url = "#{current_program.image.thumb.url}"
+      - else
+        - image_url = "#{image_url('zakk_pattern1.png')}"
         %div{:class=>"panel"}
-          %img{:src=>"#{current_program.image.thumb.url}"}
+          = link_to program_path("current") do
+            %img{:src=>"#{image_url}"}
           %p
             Aktuelles Monatsprogramm:
             = link_to program_path("current") do
