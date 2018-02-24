@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '5.1.4'
+gem 'rails', '5.1.5'
 
 gem 'activerecord-session_store'
 gem 'bcrypt', '~> 3.1.7'
@@ -15,7 +15,7 @@ gem 'iso_country_codes'
 gem 'jbuilder', '~> 2.0'
 gem 'paranoia'
 gem 'pg', '~> 0.2'
-gem 'rails-i18n', '~> 5.0.0'
+gem 'rails-i18n', '~> 5.1.0'
 gem 'settingslogic'
 gem 'uglifier', '>= 1.3.0'
 gem 'will_paginate'
