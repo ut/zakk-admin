@@ -18,6 +18,14 @@ describe 'visiting the homepage' do
       expect(page).to have_css("html.js")
     end
 
+    it "displays programm image if defined" do
+      @program = FactoryBot.create(:program, :current => true,
+      :published => true)
+      visit '/'
+      expect(page).to have_css('div.panel.program_image')
+      save_and_open_page
+    end
+
     it "displays image credit if defined" do
       @program = FactoryBot.create(:program, :current => true,
       :published => true)
