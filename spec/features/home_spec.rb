@@ -23,7 +23,6 @@ describe 'visiting the homepage' do
       :published => true)
       visit '/'
       expect(page).to have_css('div.panel.program_image')
-      save_and_open_page
     end
 
     it "displays image credit if defined" do

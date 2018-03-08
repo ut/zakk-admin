@@ -20,7 +20,7 @@ class Admin::ProgramsController < ApplicationController
 
   # GET /programs/new
   def new
-    if current_program
+    if current_program && current_program.title
       @program = current_program.dup
       if @program.title
         @program.title = @program.title+' (copy)'
@@ -79,7 +79,7 @@ class Admin::ProgramsController < ApplicationController
 
 
   def sendmail
-    @program = Program.find(params[:id])
+    @program = Program.find_by_id(params[:id])
     if @program
       ProgramsMailer.program_email(@program,current_user.email).deliver_now
       redirect_to admin_program_url(@program), notice: 'Programmvorschau wurde versendet'

@@ -6,8 +6,6 @@ class ProgramsController < ApplicationController
   def index
     if current_program && current_program.id
       redirect_to program_url(current_program.id)
-    else
-      redirect_to root_url
     end
   end
 
@@ -35,8 +33,4 @@ class ProgramsController < ApplicationController
       end
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def program_params
-      params.fetch(:program, {})
-    end
 end

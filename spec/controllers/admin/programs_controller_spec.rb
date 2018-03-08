@@ -4,8 +4,8 @@ RSpec.describe Admin::ProgramsController, type: :controller do
 
   describe "functionalities with logged in user with role 'admin'" do
     before do
-      user = FactoryBot.create(:user_with_admin_role)
-      sign_in user
+      @user = FactoryBot.create(:user_with_admin_role)
+      sign_in @user
     end
     # This should return the minimal set of attributes required to create a valid
     # Program. As you add validations to Program, be sure to
@@ -46,7 +46,17 @@ RSpec.describe Admin::ProgramsController, type: :controller do
       it "assigns a new program as @program" do
         get :new, params: {}, session: valid_session
         expect(assigns(:program)).to be_a_new(Program)
+        expect(assigns(:program).title).to be_nil
       end
+
+      it "assigns a new program as copy of current_program" do
+        @program = FactoryBot.create(:program, :current)
+        get :new, params: {}, session: valid_session
+        expect(assigns(:program)).to be_a_new(Program)
+        expect(assigns(:program).title).to eq("#{@program.title} (copy)")
+      end
+
+
     end
 
     describe "GET #edit" do
@@ -144,6 +154,23 @@ RSpec.describe Admin::ProgramsController, type: :controller do
         delete :destroy, params: {id: program.to_param}, session: valid_session
         expect(response).to redirect_to(admin_programs_url)
       end
+    end
+
+    describe "GET #sendmail" do
+
+      it "sends program to a the user's email" do
+        @program = Program.create! valid_attributes
+        get :sendmail, params: {id: program.to_param}, session: valid_session
+        delivery = double
+        expect(ProgramsMailer).to receive(:program_email).with(@program,@user.email).and_return(delivery)
+        ProgramsMailer.program_email(@program,@user.email)
+      end
+
+      it "redirects if no program is choosen" do
+        get :sendmail, params: {id: 99}, session: valid_session
+        expect(response).to redirect_to(root_url)
+      end
+
     end
   end
 end
