@@ -28,6 +28,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: '127.0.0.1:3000' }
 
+  config.action_mailer.perform_deliveries    = false
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
