@@ -3,29 +3,11 @@ require 'rails_helper'
 
 RSpec.describe ProgramsController, type: :controller do
 
-  # This should return the minimal set of attributes required to create a valid
-  # Program. As you add validations to Program, be sure to
-  # adjust the attributes here as well.
-  let(:program) {
-    FactoryBot.create(:program)
-  }
-  let(:current_program) {
-    FactoryBot.attributes_for(:program, :current)
-  }
+
   let(:valid_attributes) {
     FactoryBot.build(:program).attributes
   }
-  let(:valid_attributes_current) {
-    FactoryBot.build(:program, :current).attributes
-  }
 
-  let(:invalid_attributes) {
-    FactoryBot.attributes_for(:program, :invalid)
-  }
-
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # ProgramsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
   describe "GET #index" do

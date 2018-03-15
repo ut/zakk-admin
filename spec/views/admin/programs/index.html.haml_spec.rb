@@ -6,8 +6,7 @@ RSpec.describe "admin/programs/index", type: :view do
       Program.create!(
         :title => "Title1",
         :description => "MyText",
-        :published => false,
-        :
+        :published => false
       ),
       Program.create!(
         :title => "Title2",
