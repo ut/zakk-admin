@@ -19,6 +19,8 @@ RSpec.describe "admin/programs/edit", type: :view do
       assert_select "input#program_backgroundimage_credit[name=?]", "program[backgroundimage_credit]"
 
       assert_select "input#program_backgroundimage_credit_link[name=?]", "program[backgroundimage_credit_link]"
+
+      assert_select "select#program_backgroundimage_display[name=?]", "program[backgroundimage_display]"
     end
   end
 end

@@ -5,7 +5,7 @@
     - thumb = "#{image_url('zakk_pattern1.png', :class => "medium_thumb")}"
   :css
     body, main { background-color: #{escape_once(sanitize program.backgroundcolor)}}
-      main { background-image: url(#{escape_once(thumb)}) }
+      main { background-image: url(#{escape_once(thumb)}); background-size: #{program.backgroundimage_display} }
     .panel h1,
     .panel h2,
     .panel h3,

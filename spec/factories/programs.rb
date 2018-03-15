@@ -7,6 +7,7 @@ FactoryBot.define do
     image "File"
     backgroundimage_credit "Maxi (cc-by-sa)"
     backgroundimage_credit_link "http://maxi.domain.com"
+    backgroundimage_display "cover"
     image_credit "Mini (cc-by-sa)"
     image_credit_link "http://mini.domain.com"
     textcolor1 "#cc0000"

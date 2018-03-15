@@ -1,6 +1,6 @@
 .row
   .large-9.columns{:role => "content"}
-    %h1 programs
+    %h1 Programme
   .large-3.columns.right
     = link_to new_admin_program_path, :class => 'button' do
       %i.fi-plus
@@ -11,7 +11,8 @@
       %table.table.table-striped.table-bordered.table-hover
         %thead
           %tr
-            %th
+            %th Image
+            %th Backgroundimage
             %th Title
             %th Published?
             %th Events
@@ -35,16 +36,31 @@
                 - else
                   #{image_tag('zakk_pattern2.png', :class => "medium_thumb")}
               %td
-                %h4
+                - if program.backgroundimage.url
+                  - if program.backgroundimage_display == 'cover'
+                    - style = "background-image: url(#{program.backgroundimage.medium_thumb.url}); background-size: 100vw; background-position: -50vw -50vw;"
+                  - else
+                    - style = "background-image: url(#{program.backgroundimage.medium_thumb.url}); background-size: 50px;"
+                - elsif program.published
+                  - style = "background-image: url(#{image_url('zakk_pattern1.png')}); background-size: cover"
+                - else
+                  - style = "background-image: url(#{image_url('zakk_pattern2.png')}); background-size: cover"
+                %div.backgroundimage_preview{:style=>style}
+                  .panel
+                    %h3{:style=>"color: #{program.textcolor2}"}
+                      %strong{:style=>"color: #{program.textcolor1}"} zakk
+                      klubraum
+              %td{:width=>'400'}
+                %h1
                   = link_to admin_program_path(program) do
                     = program.title
                   - if program.current
                     %span.label
                       CURRENT
-
                 - if program.description.present?
                   %div
                     = program.description
+
               %td
                 - if program.published
                   %i.fi-check.fi-32

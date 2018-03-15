@@ -96,6 +96,6 @@ class Admin::ProgramsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def program_params
-      params.require(:program).permit(:title, :description, :published, :backgroundcolor, :textcolor1, :textcolor2, :image, :backgroundimage, :remove_backgroundimage, :remove_image, :backgroundimage_credit, :image_credit, :backgroundimage_credit_link, :image_credit_link, :current)
+      params.require(:program).permit(:title, :description, :published, :backgroundcolor, :textcolor1, :textcolor2, :backgroundimage, :remove_backgroundimage, :backgroundimage_credit, :backgroundimage_credit_link, :backgroundimage_display, :image, :remove_image, :image_credit, :image_credit_link, :current)
     end
 end
