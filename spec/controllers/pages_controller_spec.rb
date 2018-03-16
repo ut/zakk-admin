@@ -8,9 +8,6 @@ RSpec.describe PagesController, type: :controller do
   let(:valid_attributes) {
     FactoryBot.build(:page).attributes
   }
-  let(:invalid_attributes) {
-    FactoryBot.attributes_for(:page, :invalid)
-  }
 
   let(:valid_session) { {} }
 

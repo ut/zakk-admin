@@ -9,14 +9,8 @@ describe "functionalities with logged in user with role 'admin'" do
       sign_in user
     end
 
-    let(:event) {
-      FactoryBot.create(:event)
-    }
     let(:valid_attributes) {
       FactoryBot.build(:event).attributes
-    }
-    let(:invalid_attributes) {
-      FactoryBot.attributes_for(:event, :invalid)
     }
 
     # This should return the minimal set of values that should be in the session

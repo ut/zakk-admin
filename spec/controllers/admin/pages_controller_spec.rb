@@ -4,6 +4,7 @@ RSpec.describe Admin::PagesController, type: :controller do
 
 
 
+
   describe "functionalities with logged in user with role 'admin'" do
     before do
       user = FactoryBot.create(:user_with_admin_role)
@@ -25,6 +26,9 @@ RSpec.describe Admin::PagesController, type: :controller do
       }
       let(:valid_attributes) {
         FactoryBot.build(:page).attributes
+      }
+      let(:invalid_attributes) {
+        FactoryBot.attributes_for(:page, :invalid)
       }
 
       # This should return the minimal set of values that should be in the session
@@ -80,6 +84,17 @@ RSpec.describe Admin::PagesController, type: :controller do
           end
         end
 
+        context "with invalid params" do
+          it "assigns a newly created but unsaved page as @page" do
+            post  :create, params: {:page => invalid_attributes}, session: valid_session
+            expect(assigns(:page)).to be_a_new(Page)
+          end
+
+          it "re-renders the 'new' template" do
+            post :create, params: {:page => invalid_attributes}, session: valid_session
+            expect(response).to render_template("new")
+          end
+        end
       end
 
       describe "PUT #update" do
@@ -105,6 +120,19 @@ RSpec.describe Admin::PagesController, type: :controller do
           end
         end
 
+        context "with invalid params" do
+          it "assigns the page as @page" do
+            page = Page.create! valid_attributes
+            put :update, params: {:id => page.to_param, :page => invalid_attributes}, session: valid_session
+            expect(assigns(:page)).to eq(page)
+          end
+
+          it "re-renders the 'edit' template" do
+            page = Page.create! valid_attributes
+            put :update, params: {:id => page.to_param, :page => invalid_attributes}, session: valid_session
+            expect(response).to render_template("edit")
+          end
+        end
       end
 
       describe "DELETE #destroy" do
