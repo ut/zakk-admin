@@ -65,8 +65,8 @@ main .row#sub-footer .columns {
       min-width: 280px;
     }
 }
-// special for post > show view
-.panel#post {
+// special for event > show view
+.panel#event {
     padding: 1.6em 0.7rem 0.7em 0.7em;
     display: block;
     margin: 10px auto;
@@ -74,7 +74,7 @@ main .row#sub-footer .columns {
       width: 50%;
     }
 }
-.panel.post {
+.panel.event {
   min-width: 280px;
 }
 .panel.hint {
@@ -296,7 +296,7 @@ header a {
 
 
 /*--------------------*/
-a.post {
+a.event {
   display: block;
 }
 
@@ -307,23 +307,23 @@ tr.tr_draft td
  {
   background-image: url(<%= asset_path 'stripe.png' %>);
 }
-td.post_draft,
+td.event_draft,
 
-.post.post_draft {
+.Event.event_draft {
   background-image: url(<%= asset_path 'stripe.png' %>);
 }
 
 /*--------------------*/
-.post.post_published {
+.Event.event_published {
 }
 
-.post-status-anchor {
+.event-status-anchor {
   display: none;
 }
-.post-status-anchor-active {
+.event-status-anchor-active {
   display: block;
 }
-.post-status-published {
+.event-status-published {
   font-size: 11px;
   padding: 11px 20px 20px 10px;
   background-color: #999;
@@ -333,7 +333,7 @@ td.post_draft,
   }
 
 }
-.post-status-draft {
+.event-status-draft {
   font-size: 11px;
   padding: 11px 20px 20px 10px;
   i {
@@ -342,26 +342,26 @@ td.post_draft,
 
 }
 
-.post-status-publish:hover .fi-eye::before {
+.event-status-publish:hover .fi-eye::before {
   content: "";
 }
 
-.post-status-draft:hover .fi-eye::before {
+.event-status-draft:hover .fi-eye::before {
     content: "";
     }
 /*--------------------*/
-.post-switch {
+.event-switch {
     width: 100px;
 }
-td .post-switch {
-  a.post-edit {
+td .event-switch {
+  a.event-edit {
     display: none;
   }
 
 }
 
 /* in list/home view */
-div.panel .post-switch {
+div.panel .event-switch {
     display: inline;
     float: right;
     width: 60px;
@@ -383,17 +383,17 @@ div.panel .post-switch {
       color: #777;
       background-color: transparent;
     }
-    .post-status-text {
+    .event-status-text {
       display: none;
     }
-    .post-status-publish {
+    .event-status-publish {
       /*
         background-color: #008cba;
       */
       background-color: transparent;
       font-size: 34px;
     }
-    .post-status-draft {
+    .event-status-draft {
       /*
         background-color: #008cba;
       */
@@ -406,7 +406,7 @@ div.panel .post-switch {
 
 /*--------------------*/
 
-.post .metas {
+.event .metas {
   position: absolute;
   right: 0;
   margin-right: -45px;
@@ -501,7 +501,7 @@ div.input.hidden {
     padding: 0;
     display: none;
 }
-div.input.file.post_image {
+div.input.file.event_image {
     min-height: 276px;
 }
 label {

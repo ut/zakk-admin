@@ -8,7 +8,7 @@ describe 'visiting a page show view' do
       @page = FactoryBot.create(:page, :title => "Drafted Page")
       visit "/pages/#{@page.id}"
       expect(page).to have_current_path "/"
-      expect(page).to have_content "Post is not publically available"
+      expect(page).to have_content "Event is not publically available"
     end
 
     it 'shows a published page to guests' do

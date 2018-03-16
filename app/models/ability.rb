@@ -7,7 +7,7 @@ class Ability
     if user.admin?
       can :manage, :all
     elsif user.has_role?("user")
-      can :manage, Post
+      can :manage, Event
       can :manage, Location
       can :manage, Program
       can :manage, Content

@@ -1,0 +1,19 @@
+- content_for :title, "Events"
+
+.row
+  .large-9.columns{:role => "content"}
+    %h1 Event
+  .large-3.columns.right
+    = link_to new_admin_event_path, :class => 'button' do
+      %i.fi-plus
+      Neuen Event anlegen
+
+.row
+  .large-12.columns
+    = datagrid_form_for @grid, :method => :get, :url => events_path
+.row
+  .large-12.columns
+    = will_paginate(@grid.assets)
+.row
+  .large-12.columns{:role => "content"}
+    = datagrid_table @grid

@@ -6,7 +6,7 @@ class Program < ActiveRecord::Base
 	mount_uploader :image, ImageUploader
 	mount_uploader :backgroundimage, ImageUploader
 
-  has_many :posts
+  has_many :events
 
   validates :title, presence: true,
                     uniqueness: { case_sensitive: false }

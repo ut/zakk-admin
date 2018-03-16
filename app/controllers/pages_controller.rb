@@ -18,7 +18,7 @@ class PagesController < ApplicationController
         format.html { render :show }
       end
     else
-      redirect_to root_url, notice: 'Post is not publically available :('
+      redirect_to root_url, notice: 'Event is not publically available :('
     end
   end
 

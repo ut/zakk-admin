@@ -1,7 +1,7 @@
 class ProgramsMailer < ActionMailer::Base
 
 
-  add_template_helper(PostsHelper)
+  add_template_helper(EventsHelper)
   default from: "#{Settings.contact_email}"
 
   def program_email(program,email )

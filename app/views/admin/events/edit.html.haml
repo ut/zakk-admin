@@ -1,0 +1,18 @@
+- content_for :title, "Edit #{@event.title}"
+
+
+.row
+  .large-8.columns
+    %h1 Edit Event
+  .large-4.columns.right
+    = link_to admin_events_path, :class => 'button' do
+      %i.fi-list-thumbnails
+      Index
+    = link_to @event, :class => 'button' do
+      %i.fi-eye
+      Anzeigen
+.row
+  .large-8.columns
+    = render 'form'
+  .large-4.columns
+    &nbsp;

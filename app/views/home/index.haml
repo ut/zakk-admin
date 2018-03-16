@@ -1,7 +1,7 @@
 = render partial: '/partials/custom_styles', locals: {program: current_program}
 
 
-- if ( can? :create, Post ) && ( can? :create, Location )
+- if ( can? :create, Event ) && ( can? :create, Location )
   .row.hide
     .columns.large-2
       %p
@@ -10,9 +10,9 @@
         #{Program.all.count} Programs
     .columns.large-2
       %p
-        = link_to "Posts", posts_url, :class=>"button"
+        = link_to "Events", events_url, :class=>"button"
         %br
-        #{Post.all.count} Posts
+        #{Event.all.count} Events
     .columns.large-2
       %p
         = link_to "Locations", locations_url, :class=>"button"
@@ -31,12 +31,12 @@
         %h3
           zakk
           %strong Programm
-      - @posts_programm.each do  |p|
-        - if ( p.status == 'Published' ) || ( can? :manage, Post )
-          = render partial: "post", locals: { p: p }
+      - @events_programm.each do  |p|
+        - if ( p.status == 'Published' ) || ( can? :manage, Event )
+          = render partial: "event", locals: { p: p }
 
 
-      - if ( can? :create, Post )
+      - if ( can? :create, Event )
         %p.panel.hint
           sorted by startdate, only future dates (and today)
       - if current_program.present? && current_program.image.url
@@ -55,24 +55,24 @@
         %h3
           Neues im
           %strong zakk
-      - @posts_neues.each do  |p|
-        - if ( p.status == 'Published' ) || ( can? :manage, Post )
-          = render partial: "post", locals: { p: p }
-      - if ( can? :create, Post )
+      - @events_neues.each do  |p|
+        - if ( p.status == 'Published' ) || ( can? :manage, Event )
+          = render partial: "event", locals: { p: p }
+      - if ( can? :create, Event )
         %p.panel.hint
-          sorted by startdate, all posts
+          sorted by startdate, all events
 
     .columns.large-4
-      - if @posts_undsonst.count > 0
+      - if @events_undsonst.count > 0
         .panel
           %h3
             Und
             %strong sonst
             ?
-        - @posts_undsonst.each do  |p|
-          - if ( p.status == 'Published' ) || ( can? :manage, Post )
-            = render partial: "post", locals: { p: p }
-        - if ( can? :create, Post )
+        - @events_undsonst.each do  |p|
+          - if ( p.status == 'Published' ) || ( can? :manage, Event )
+            = render partial: "event", locals: { p: p }
+        - if ( can? :create, Event )
           %p.panel.hint
             sorted by startdate, only future dates (and today)
   .row

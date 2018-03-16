@@ -13,12 +13,12 @@ RSpec.describe Ability, type: :model do
         it{ should be_able_to(:read, User.new) }
 
         it{ should_not be_able_to(:create, Program.new) }
-        it{ should_not be_able_to(:create, Post.new) }
+        it{ should_not be_able_to(:create, Event.new) }
         it{ should_not be_able_to(:create, Location.new) }
         it{ should_not be_able_to(:create, Content.new) }
 
         it{ should_not be_able_to(:destroy, Program.new) }
-        it{ should_not be_able_to(:destroy, Post.new) }
+        it{ should_not be_able_to(:destroy, Event.new) }
         it{ should_not be_able_to(:destroy, Location.new) }
         it{ should_not be_able_to(:destroy, Content.new) }
       end
@@ -28,7 +28,7 @@ RSpec.describe Ability, type: :model do
 
         it{ should_not be_able_to(:manage, User.new) }
         it{ should be_able_to(:manage, Program.new) }
-        it{ should be_able_to(:manage, Post.new) }
+        it{ should be_able_to(:manage, Event.new) }
         it{ should be_able_to(:manage, Location.new) }
         it{ should be_able_to(:manage, Content.new) }
       end
@@ -38,7 +38,7 @@ RSpec.describe Ability, type: :model do
 
         it{ should be_able_to(:manage, User.new) }
         it{ should be_able_to(:manage, Program.new) }
-        it{ should be_able_to(:manage, Post.new) }
+        it{ should be_able_to(:manage, Event.new) }
         it{ should be_able_to(:manage, Location.new) }
         it{ should be_able_to(:manage, Content.new) }
       end

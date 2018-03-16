@@ -33,18 +33,18 @@ describe 'visiting the homepage' do
       expect(page).to have_content("Mini (cc-by-sa)")
     end
 
-    it 'does not show a drafted post to guests' do
-      @post = FactoryBot.create(:post, :title => "Drafted Post", :startdate => DateTime.now + 2.days)
+    it 'does not show a drafted event to guests' do
+      @event = FactoryBot.create(:event, :title => "Drafted Event", :startdate => DateTime.now + 2.days)
       visit '/'
-      expect(page).not_to have_css('div.post_draft')
-      expect(page).not_to have_content('Drafted Post')
+      expect(page).not_to have_css('div.event_draft')
+      expect(page).not_to have_content('Drafted Event')
     end
 
-    it 'shows a published, future post (event) to guests' do
-      @post = FactoryBot.create(:post, :title => "Published Post", :status => "Published", :startdate => DateTime.now + 2.days)
+    it 'shows a published, future event (event) to guests' do
+      @event = FactoryBot.create(:event, :title => "Published Event", :status => "Published", :startdate => DateTime.now + 2.days)
       visit '/'
-      expect(page).to have_css('div.post_published')
-      expect(page).to have_content('Published Post')
+      expect(page).to have_css('div.event_published')
+      expect(page).to have_content('Published Event')
     end
 
 
@@ -74,7 +74,7 @@ describe 'visiting the homepage' do
 
   describe "by signed-in users:" do
     before do
-      Post.destroy_all
+      Event.destroy_all
       @user = FactoryBot.create(:user_with_user_role)
       visit "/users/sign_in"
       fill_in 'user_login', :with => @user.login
@@ -83,22 +83,22 @@ describe 'visiting the homepage' do
     end
 
 
-    it 'shows a published, future post (event) to users also' do
-      @post = FactoryBot.create(:post, :title => "Published Post", :status => "Published", :startdate => DateTime.now + 2.days)
+    it 'shows a published, future event (event) to users also' do
+      @event = FactoryBot.create(:event, :title => "Published Event", :status => "Published", :startdate => DateTime.now + 2.days)
       visit '/'
-      expect(page).to have_css('div.post_published')
-      expect(page).to have_content('Published Post')
+      expect(page).to have_css('div.event_published')
+      expect(page).to have_content('Published Event')
     end
 
 
-    it 'does show a drafted post to users only (with edit button)' do
-      @post = FactoryBot.create(:post, :title => "Drafted Post",:startdate => DateTime.now + 2.days, :ptype => '1')
+    it 'does show a drafted event to users only (with edit button)' do
+      @event = FactoryBot.create(:event, :title => "Drafted Event",:startdate => DateTime.now + 2.days, :ptype => '1')
       visit '/'
-      expect(page).to have_css('div.post_draft')
-      expect(page).to have_content('Drafted Post')
-      within('div.post_draft') {
-        expect(page).to have_css('div.post-switch')
-        expect(page).to have_css('div.post-switch a.post-edit')
+      expect(page).to have_css('div.event_draft')
+      expect(page).to have_content('Drafted Event')
+      within('div.event_draft') {
+        expect(page).to have_css('div.event-switch')
+        expect(page).to have_css('div.event-switch a.event-edit')
       }
     end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180315194052) do
+ActiveRecord::Schema.define(version: 20180316165253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,27 @@ ActiveRecord::Schema.define(version: 20180315194052) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["page_id"], name: "index_contents_on_page_id"
+  end
+
+  create_table "events", id: :serial, force: :cascade do |t|
+    t.string "title"
+    t.text "shortext"
+    t.text "longtext"
+    t.datetime "startdate"
+    t.datetime "enddate"
+    t.integer "location_id"
+    t.string "link"
+    t.string "label"
+    t.string "organizer"
+    t.string "organizerlink"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string "ptype"
+    t.string "image"
+    t.string "status"
+    t.integer "program_id"
+    t.string "locationtext"
+    t.index ["title"], name: "index_events_on_title"
   end
 
   create_table "flyers", id: :serial, force: :cascade do |t|
@@ -57,26 +78,6 @@ ActiveRecord::Schema.define(version: 20180315194052) do
     t.boolean "in_menu"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "posts", id: :serial, force: :cascade do |t|
-    t.string "title"
-    t.text "shortext"
-    t.text "longtext"
-    t.datetime "startdate"
-    t.datetime "enddate"
-    t.integer "location_id"
-    t.string "link"
-    t.string "label"
-    t.string "organizer"
-    t.string "organizerlink"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string "ptype"
-    t.string "image"
-    t.string "status"
-    t.integer "program_id"
-    t.string "locationtext"
   end
 
   create_table "programs", id: :serial, force: :cascade do |t|

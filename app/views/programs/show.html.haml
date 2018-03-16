@@ -2,7 +2,7 @@
 - content_for :head do
   = render partial: '/partials/custom_styles', locals: {program: @program}
 
-- if ( can? :create, Post )
+- if ( can? :create, Event )
   .row
     .large-9.columns
       &nbsp;
@@ -26,19 +26,19 @@
       das zakk
       %strong Programm
     %ol
-      - @program.posts.with_ptype('0').order(:startdate).each do |post|
+      - @program.events.with_ptype('0').order(:startdate).each do |event|
         %li
-          = render partial: '/posts/show_mini', locals: {post: post, public: true}
+          = render partial: '/events/show_mini', locals: {event: event, public: true}
     %h3.panel
       Und
       %strong sonst
       ?
     %ol
-      - @program.posts.with_ptype('2').order(:startdate).each do |post|
+      - @program.events.with_ptype('2').order(:startdate).each do |event|
         %li
-          = render partial: '/posts/show_mini', locals: {post: post, public: true}
+          = render partial: '/events/show_mini', locals: {event: event, public: true}
 
-    - if ( can? :create, Post )
+    - if ( can? :create, Event )
       %hr
         .row
           .large-12.columns

@@ -10,15 +10,15 @@ xml.program do
 
     xml.part_title "das zakk programm"
 
-    for post in @program.posts.with_ptype('0').order(:startdate)
-      xml.post do
-        xml.post_title post.title
-        if post.shortext
-          xml.post_text post.shortext
+    for event in @program.events.with_ptype('0').order(:startdate)
+      xml.event do
+        xml.event_title Event.title
+        if Event.shortext
+          xml.event_text Event.shortext
         end
-        if post.startdate
-          xml.post_starttime post.starttime
-          xml.post_startdate post.startday + " " + post.startweekday
+        if Event.startdate
+          xml.event_starttime Event.starttime
+          xml.event_startdate Event.startday + " " + Event.startweekday
         end
       end
     end
@@ -28,19 +28,19 @@ xml.program do
 
     xml.part_title "und sonst?"
 
-    for post in @program.posts.with_ptype('2').order(:startdate)
-      xml.post do
-        xml.post_title post.title
-        if post.shortext
-          xml.post_text post.shortext
+    for event in @program.events.with_ptype('2').order(:startdate)
+      xml.event do
+        xml.event_title Event.title
+        if Event.shortext
+          xml.event_text Event.shortext
         end
-        if post.startdate
-          xml.post_starttime post.starttime
-          xml.post_startdate post.startday + " " + post.startweekday
+        if Event.startdate
+          xml.event_starttime Event.starttime
+          xml.event_startdate Event.startday + " " + Event.startweekday
         end
 
-        if post.location
-          xml.post_location post.location.title
+        if Event.location
+          xml.event_location Event.location.title
         end
       end
     end

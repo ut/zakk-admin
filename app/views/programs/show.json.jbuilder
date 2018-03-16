@@ -4,20 +4,20 @@ json.publisher "zakk klubraum, Bremen"
 json.language "de-DE"
 json.identifier "http://zakk.klubraum.org"
 
-json.posts do
-  json.array! @program.posts.with_ptype('0').order(:startdate) do |post|
-    json.title post.title
+json.events do
+  json.array! @program.events.with_ptype('0').order(:startdate) do |event|
+    json.title Event.title
     json.type "Event"
     json.location "zakk klubraum, Sielpfad 11, D 28203 Bremen"
-    if post.shortext
-      json.description post.shortext
+    if Event.shortext
+      json.description Event.shortext
     end
-    if post.startdate
-      json.date post.startdate
-      json.date_hr smart_date_display(post.startdate,post.enddate)
+    if Event.startdate
+      json.date Event.startdate
+      json.date_hr smart_date_display(Event.startdate,Event.enddate)
     end
-    if post.location
-      json.location post.location.title
+    if Event.location
+      json.location Event.location.title
     end
   end
 end

@@ -4,28 +4,28 @@
 <hr />
 <h3>das zakk <strong>programm</strong></h3>
 <ul>
-<% @program.posts.with_ptype('0').order(:startdate).each do |post| %>
+<% @program.events.with_ptype('0').order(:startdate).each do |event| %>
   <li>
     <p>
-      <% if post.startdate %>
-        <%= smart_date_display(post.startdate,post.enddate) %>
+      <% if event.startdate %>
+        <%= smart_date_display(event.startdate,event.enddate) %>
       <% end %>
-      <% if post.location %>
+      <% if event.location %>
         |
-        <%= post.location.title %>
+        <%= event.location.title %>
       <% end %>
     </p>
     <h4>
-      <%= link_to "#{post.title}", post  %>
+      <%= link_to "#{event.title}", event  %>
     </h4>
-    <% if post.shortext.present? %>
+    <% if event.shortext.present? %>
         <div>
-          <%= post.shortext  %>
+          <%= event.shortext  %>
         </div>
     <% end %>
-    <% if post.longtext.present? %>
+    <% if event.longtext.present? %>
         <div>
-          <%= post.longtext  %>
+          <%= event.longtext  %>
         </div>
     <% end %>
   </li>
@@ -34,28 +34,28 @@
 <hr />
 <h3>und <strong>sonst</strong>?</h3>
 <ul>
-<% @program.posts.with_ptype('2').order(:startdate).each do |post|  %>
+<% @program.events.with_ptype('2').order(:startdate).each do |event|  %>
   <li>
     <p>
-      <% if post.startdate %>
-        <%= smart_date_display(post.startdate,post.enddate) %>
+      <% if event.startdate %>
+        <%= smart_date_display(event.startdate,event.enddate) %>
       <% end %>
-      <% if post.location %>
+      <% if event.location %>
         \|
-        <%= post.location.title %>
+        <%= event.location.title %>
       <% end %>
     </p>
     <h4>
-      <%= link_to "#{post.title}", post %>
+      <%= link_to "#{event.title}", event %>
     </h4>
-    <% if post.shortext.present? %>
+    <% if event.shortext.present? %>
         <div>
-          <%= post.shortext %>
+          <%= event.shortext %>
         </div>
     <% end %>
-    <% if post.longtext.present? %>
+    <% if event.longtext.present? %>
         <div>
-          <%= post.longtext  %>
+          <%= event.longtext  %>
         </div>
     <% end %>
   </li>

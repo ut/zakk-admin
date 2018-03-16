@@ -4,7 +4,7 @@ RSpec.describe "home/index", type: :view do
   before(:each) do
 
     view.extend ApplicationHelper
-    view.extend PostsHelper
+    view.extend EventsHelper
 
     @pages = assign(:page,[
       Page.create!(
@@ -30,31 +30,31 @@ RSpec.describe "home/index", type: :view do
       :published => true
     ))
     current_program = @program
-    @posts_programm = assign(:post, [Post.create!(
-      :title => 'Post1',
+    @events_programm = assign(:event, [Event.create!(
+      :title => 'Event1',
       :ptype => '0',
       :startdate =>  DateTime.now + 2.day,
       :status => 'Published'
     )])
-    @posts_neues = assign(:post, [Post.create!(
-      :title => 'Post2',
+    @events_neues = assign(:event, [Event.create!(
+      :title => 'Event2',
       :ptype => '1',
       :startdate =>  DateTime.now + 2.day,
       :status => 'Published'
     )])
-    @posts_undsonst = assign(:post, [Post.create!(
-      :title => 'Post3',
+    @events_undsonst = assign(:event, [Event.create!(
+      :title => 'Event3',
       :ptype => '2',
       :startdate =>  DateTime.now + 2.day,
       :status => 'Published'
     )])
   end
 
-  it "renders posts of three different types" do
+  it "renders events of three different types" do
     render
-    expect(rendered).to match(/Post1/)
-    expect(rendered).to match(/Post2/)
-    expect(rendered).to match(/Post3/)
+    expect(rendered).to match(/Event1/)
+    expect(rendered).to match(/Event2/)
+    expect(rendered).to match(/Event3/)
   end
   it "renders page titles as menu" do
     render

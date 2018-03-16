@@ -1,0 +1,124 @@
+- content_for :title, @event.title
+= render partial: '/partials/custom_styles', locals: {program: @event.program}
+
+- if ( can? :create, Event )
+  .row
+    .large-9.columns{:role => "content"}
+      &nbsp;
+    .large-3.columns.right
+      = link_to admin_events_path, :class => 'button tiny' do
+        %i.fi-list-thumbnails
+        Index
+      = link_to new_admin_event_path, :class => 'button tiny' do
+        %i.fi-plus
+        Event anlegen
+      = link_to edit_admin_event_path(@event), :class => 'button tiny' do
+        %i.fi-pencil
+        Bearbeiten
+
+= render partial: "/partials/header"
+
+- if @event.status == 'Published'
+  - klass = "event event_published"
+- else
+  - klass = "event event_draft"
+
+
+.row.panel#event{:class=>"#{klass}"}
+  .large-12.text-left.columns{:role => "content"}
+    %p
+
+
+    - if @event.image.url
+      %p
+        %img{:src=>"#{@event.image.url}"}
+    %p
+      - if @event.startdate
+        %i.fi-calendar
+        = smart_date_display(@event.startdate,@event.enddate)
+        - if @event.location
+          &nbsp;|&nbsp;
+          %i.fi-home
+          - if @event.location.web.present?
+            = link_to @event.location.web do
+              = @event.location.title
+          - else
+            = @event.location.title
+    %h2
+      %strong
+        = @event.title
+      - if @event.shortext.present?
+        \|
+        = @event.shortext
+    %p= sanitize @event.longtext.html_safe
+
+    %p
+      - if !@event.link.blank?
+        - if @event.link =~ /http[s]?:\/\//
+          - linktext = @event.link.gsub(/https?:\/\//,"")
+          = link_to "#{escape_once(linktext)}", escape_once(@event.link)
+        - else
+          = link_to "http://"+escape_once(@event.link), "#{@event.link}"
+    %hr
+    %p
+      - if !@event.label.blank?
+        %dt Label:
+        %dd= @event.label
+      - if !@event.organizer.blank?
+        - if @event.organizerlink.present?
+          = link_to @event.organizerlink do
+            = @event.organizer
+        - else
+          = @event.organizer
+
+    .row
+      .large-12.columns
+        - if ( can? :create, Event )
+          %span.label
+            = @event.status
+          \/
+        %span.label
+          = ptypes[@event.ptype.to_i]
+        \:
+        %small
+          - if @event.program
+            - if ( can? :create, Event )
+              = link_to "#{@event.program.title}", admin_program_url(@event.program)
+            - else
+              = link_to "#{@event.program.title}", program_url(@event.program)
+    - if @event.location.present?
+      %hr
+      %p.location
+        %h4=@event.location.title
+        %p
+          #{@event.location.address}, #{@event.location.zipcode}, #{@event.location.city}
+          %br
+          - if @event.location.web
+            %i.fi-web.fi-21
+            = link_to @event.location.web do
+              = @event.location.web
+
+          - if @event.location.email
+            &nbsp;&nbsp;|&nbsp;
+            %i.fi-mail.fi-21
+            = link_to @event.location.email do
+              = @event.location.email
+          - if @event.location.twitter.present?
+            &nbsp;&nbsp;|&nbsp;
+            %i.fi-social-twitter.fi-21
+            = link_to @event.location.twitter_link do
+              = @event.location.twitter
+          %br
+          %i.fi-info.fi-21
+          = @event.location.shortext
+    - elsif @event.locationtext.present?
+      %hr
+      %p.location
+        - if @event.link.present?
+          = link_to @event.link do
+            %h4=@event.locationtext
+
+        - else
+          %h4=@event.locationtext
+}
+

@@ -1,0 +1,44 @@
+- public = public || false
+
+- klass = "panel event event_mini"
+- if Event.status == 'Published'
+  - klass += " event_published"
+- else
+  - klass += " event_draft"
+
+
+
+%div{:class=>"#{klass}"}
+  - if ( can? :create, Event )
+    .metas
+      .metas_label
+        - if Event.status == 'Published'
+          %span.label.label_status.label_status_published
+            = Event.status
+        - else
+          %span.label.label_status.label_status_draft
+            = Event.status
+      .metas_label
+        %span.label.label_ptype
+          = ptypes[Event.ptype.to_i]
+  %p
+    - if Event.startdate
+      = smart_date_display(Event.startdate,Event.enddate)
+    - if Event.location
+      \|
+      = Event.location.title
+  %p
+    - if Event.image.url
+      %img{:src=>"#{Event.image.small_thumb.url}"}
+  %h4
+    = link_to "#{Event.title}", event
+    - if (can? :edit, Event) && (public != true)
+      = link_to edit_admin_event_path(event), :class=>"tiny" do
+        %i.fi-pencil
+      - if Event.status != 'published'
+        = link_to edit_admin_event_path(event), :class=>"tiny" do
+          %i.fi-eye
+
+  - if Event.shortext.present?
+    %div
+      = Event.shortext

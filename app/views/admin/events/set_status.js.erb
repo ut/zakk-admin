@@ -1,0 +1,19 @@
+<% if @text %>
+  $("#<%= @switch_id %>").find('.event-switch-message').removeClass("hide");
+  $("#<%= @switch_id %>").find('.event-switch-message').text("<%= @text %>");
+<% else %>
+  $("#<%= @switch_id %>").find('.event-switch-message').addClass("hide");
+  <% if @event.status == 'Published' %>
+    $("#<%= @switch_id %>").parents('tr').find('td').removeClass("event_draft").addClass("event_published");
+    $("#<%= @switch_id %>").parents('div.panel').removeClass("event_draft").addClass("event_published");
+    $("#<%= @switch_id %>").removeClass("event_draft").addClass("event_published");
+    $("#<%= @switch_id %>").find('.event-status-draft').removeClass("event-status-anchor-active").addClass("event-status-anchor");
+    $("#<%= @switch_id %>").find('.event-status-published').removeClass("event-status-anchor").addClass("event-status-anchor-active");
+  <% else %>
+    $("#<%= @switch_id %>").parents('tr').find('td').removeClass("event_published").addClass("event_draft");
+    $("#<%= @switch_id %>").parents('div.panel').removeClass("event_published").addClass("event_draft");
+    $("#<%= @switch_id %>").removeClass("event_published").addClass("event_draft");
+    $("#<%= @switch_id %>").find('.event-status-published').removeClass("event-status-anchor-active").addClass("event-status-anchor");
+    $("#<%= @switch_id %>").find('.event-status-draft').removeClass("event-status-anchor").addClass("event-status-anchor-active");
+  <% end %>
+<% end %>

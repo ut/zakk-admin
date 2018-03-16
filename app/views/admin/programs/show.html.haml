@@ -28,25 +28,25 @@
       das zakk
       %strong Programm
     %ol
-      - @program.posts.with_ptype('0').order(:startdate).each do |post|
+      - @program.events.with_ptype('0').order(:startdate).each do |event|
         %li
-          = render partial: '/posts/show_mini', locals: {post: post}
+          = render partial: '/events/show_mini', locals: {event: event}
       %li
-        = link_to new_admin_post_path(:ptype => '0',:program => @program.id), :class => 'button tiny' do
+        = link_to new_admin_event_path(:ptype => '0',:program => @program.id), :class => 'button tiny' do
           %i.fi-plus
-          Post anlegen
+          Event anlegen
     %h3.panel
       Und
       %strong sonst
       ?
     %ol
-      - @program.posts.with_ptype('2').order(:startdate).each do |post|
+      - @program.events.with_ptype('2').order(:startdate).each do |event|
         %li
-          = render partial: '/posts/show_mini', locals: {post: post}
+          = render partial: '/events/show_mini', locals: {event: event}
       %li
-        = link_to new_admin_post_path(:ptype => '2',:program => @program.id), :class => 'button tiny' do
+        = link_to new_admin_event_path(:ptype => '2',:program => @program.id), :class => 'button tiny' do
           %i.fi-plus
-          Post anlegen
+          Event anlegen
 
     .row
       .large-12.columns.text-center

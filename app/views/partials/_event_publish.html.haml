@@ -1,0 +1,22 @@
+%div{:class=>"event-switch", :id=>"event_switch_#{p.id}"}
+  = link_to edit_admin_event_path(p), :class=>"button event-edit", :title => "Bearbeiten" do
+    %i.fi-pencil
+  %span.hide.event-switch-message
+    &nbsp;
+  - if p.status == 'Published'
+    - klass_published = 'event-status-published event-status-anchor-active'
+    - klass_draft = 'event-status-draft event-status-anchor'
+  - else
+    - klass_published = 'event-status-published event-status-anchor'
+    - klass_draft = 'event-status-draft event-status-anchor-active'
+
+  = link_to set_status_admin_event_path(p), :id=>"event_status_to_draft_#{p.id}", :class=>"button #{klass_published}", :title => "Eintrag verstecken (Draft)", remote: true do
+    %i.fi-prohibited
+    %span.event-status-text
+      %br
+      Draft!
+  = link_to set_status_admin_event_path(p), :id=>"event_status_to_publish_#{p.id}", :class=>"button #{klass_draft}", :title => "Eintrag veröffentlichen", remote: true do
+    %i.fi-eye
+    %span.event-status-text
+      %br
+      Publish!

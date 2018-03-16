@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # mount RedactorRails::Engine => '/redactor_rails'
 
   resources :locations, only: [:index, :show]
-  resources :posts, only: [:index, :show]
+  resources :events, only: [:index, :show]
   resources :programs, only: [:index, :show]
 
   devise_for :users
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :programs do
       get :sendmail, on: :member
     end
-    resources :posts do
+    resources :events do
       get :copy, on: :member
       get :set_status, on: :member
     end
