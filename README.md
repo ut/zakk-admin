@@ -11,7 +11,7 @@ Based on Ruby on Rails 5, Postgres, jQuery and Foundation 5
 
 ## Dependencies
 
-Rails 5 & Ruby 2.3, Rspec
+Rails 5 & Ruby 2.4, Rspec
 
 Qt for the [compiling of capybara-webkit](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
 
@@ -47,11 +47,10 @@ Run seeds
 
 [Encrypt config files for safe usage in Travis](https://docs.travis-ci.com/user/encrypting-files/), without publishing it to Github
 
-Before: [Install Travis CLI](https://docs.travis-ci.com/user/encrypting-files/) with Ruby 2.1 (with Ruby 2.3 it is not working yet)
+Before: [Install Travis CLI](https://docs.travis-ci.com/user/encrypting-files/) with Ruby 2.4
 
 
 ```
-$ rm use ruby-2.1.8
 $ gem install travis
 
 ```
