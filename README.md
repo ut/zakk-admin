@@ -5,7 +5,7 @@
 
 # zakk-admin
 
-Website and admin interface for zakk (a cultural center in Bremen, GER)
+Website and admin interface for [zakk](https://zakk.klubraum.org) (a cultural center in Bremen, GER)
 
 Based on Ruby on Rails 5, Postgres, jQuery and Foundation 5
 
