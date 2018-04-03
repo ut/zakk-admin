@@ -20,7 +20,7 @@ gem 'settingslogic'
 gem 'uglifier', '>= 1.3.0'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', group: :doc
 
 
 gem 'turbolinks'
@@ -28,7 +28,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-minicolors-rails', '~> 2.2'
 gem 'jquery-turbolinks'
-gem 'foundation-rails', '~> 5.5.1.0'
+gem 'foundation-rails', '= 5.5.1.0'
 gem 'foundation-icons-sass-rails'
 gem 'foundation-datetimepicker-rails'
 gem 'font-awesome-rails'
@@ -36,13 +36,12 @@ gem 'sass'
 gem 'sass-rails'
 gem 'simple_form'
 
-# gem 'redactor-rails'
 gem "carrierwave"
 gem "mini_magick"
 
 gem 'datagrid'
 
-gem 'coveralls', require: false
+gem 'coveralls_reborn', '~> 0.11.0', require: false
 
 group :development do
   gem 'rails_layout'
