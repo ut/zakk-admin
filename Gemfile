@@ -22,6 +22,7 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'sdoc', group: :doc
 
+gem 'rack-attack'
 
 gem 'turbolinks'
 gem 'jquery-rails'

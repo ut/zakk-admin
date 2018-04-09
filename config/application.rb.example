@@ -22,6 +22,8 @@ module ZakkAdmin
 
     config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
 
+    config.middleware.use Rack::Attack
+
     if %w( staging production ).include?(Rails.env)
       config.middleware.use ExceptionNotification::Rack,
 		:email => {
