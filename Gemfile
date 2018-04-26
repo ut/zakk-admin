@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '5.1.6'
+gem 'rails', '5.2.0'
 
 gem 'activerecord-session_store'
 gem 'bcrypt', '~> 3.1.7'
@@ -67,6 +67,7 @@ group :test, :development do
   gem 'launchy'
   gem 'unicorn'
   gem 'unicorn-rails'
+  gem 'puma'
 end
 
 group :development do
