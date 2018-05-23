@@ -7,6 +7,7 @@ class HomeController < ApplicationController
     @events_undsonst = Event.where(:ptype => '2').where("startdate > ?", ( DateTime.now - 1.day)).order(:startdate)
 
     @pages = Page.where(published: true).where(in_menu: true)
+    @footer_pages = Page.where(published: true).where(in_footer: true)
   end
 
 end

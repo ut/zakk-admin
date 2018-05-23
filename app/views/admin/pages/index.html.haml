@@ -19,6 +19,7 @@
             %th Description
             %th Published
             %th In menu
+            %th In footer
             %th
             %th
             %th
@@ -38,6 +39,11 @@
                   %i.fi-x
               %td
                 - if page.in_menu
+                  %i.fi-check
+                - else
+                  %i.fi-x
+              %td
+                - if page.in_footer
                   %i.fi-check
                 - else
                   %i.fi-x

@@ -4,6 +4,7 @@ FactoryBot.define do
     description "MyString"
     published false
     in_menu false
+    in_footer false
     trait :invalid do
       title nil
     end
