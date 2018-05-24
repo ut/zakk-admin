@@ -3,9 +3,16 @@ class ApplicationController < ActionController::Base
   helper :all
   protect_from_forgery with: :exception
 
+  before_action :skip_session
+
+  def skip_session
+    unless controller_name == 'sessions'
+      request.session_options[:skip] = true
+    end
+  end
 
   def after_sign_in_path(resource)
-    root_to_path
+    admin_pages_path
   end
 
 

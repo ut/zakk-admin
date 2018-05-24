@@ -1,4 +1,4 @@
-class Admin::FlyersController < ApplicationController
+class Admin::FlyersController < Admin::AdminController
   before_action :set_flyer, only: [:edit, :update, :destroy]
 
   layout 'admin'

@@ -1,6 +1,8 @@
 class PreferencesController < ApplicationController
 
+  skip_before_action :skip_session
   before_action :authenticate_user!
+
 
   def edit
     @user = current_user

@@ -20,7 +20,8 @@ RSpec.describe "Admin::Events" do
     context "change status of a event (with XHR)" do
 
       it "... from draft to published", :js => true do
-        visit "/admin/events"
+        visit "/users/sign_in"
+        save_and_open_page
         fill_in 'user_login', :with => @user.login
         fill_in 'user_password', :with => @user.password
         click_button I18n.t('devise.sessions.new.sign_in')
