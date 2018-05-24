@@ -5,7 +5,6 @@ class Admin::ContentsController < Admin::AdminController
 
   before_action :authenticate_user!
 
-  # load_and_authorize_resource
 
   # GET /contents
   # GET /contents.json

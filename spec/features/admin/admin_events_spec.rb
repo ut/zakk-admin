@@ -27,7 +27,8 @@ RSpec.describe "Admin::Events" do
         click_button I18n.t('devise.sessions.new.sign_in')
 
         expect(page).to have_content I18n.t('devise.sessions.signed_in')
-        expect(page).to have_current_path "/admin/events"
+        expect(page).to have_current_path "/"
+        visit "/admin/events"
 
         click_link("event_status_to_publish_"+@event.id.to_s)
         wait_for_ajax
