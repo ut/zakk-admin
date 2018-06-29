@@ -8,16 +8,23 @@ RSpec.describe "pages/show", type: :view do
     ))
     @pages = assign(:pages, [
       Page.create!(
-        :title => "Title",
+        :title => "Background",
         :description => "Description",
         :published => false,
         :in_menu => false
       ),
       Page.create!(
-        :title => "Title",
+        :title => "Info",
         :description => "Description",
-        :published => false,
-        :in_menu => false
+        :published => true,
+        :in_menu => true
+      ),
+      Page.create!(
+        :title => "Privacy",
+        :description => "Description",
+        :published => true,
+        :in_menu => false,
+        :in_footer => true
       )
     ])
   end
@@ -25,5 +32,15 @@ RSpec.describe "pages/show", type: :view do
   it "renders attributes in <p>" do
     render
     expect(rendered).to match(/Title/)
+  end
+
+  it "renders info page in menu" do
+    render
+    expect(rendered).to match(/Info/)
+  end
+
+  it "renders privacy page link in footermenu" do
+    render
+    expect(rendered).to match(/Privacy/)
   end
 end

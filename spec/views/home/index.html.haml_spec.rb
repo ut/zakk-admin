@@ -12,6 +12,13 @@ RSpec.describe "home/index", type: :view do
       ),
       Page.create!(
       :title => "Page2"
+      ),
+      Page.create!(
+        :title => "Privacy",
+        :description => "Description",
+        :published => true,
+        :in_menu => false,
+        :in_footer => true
       )
     ])
 
@@ -65,5 +72,10 @@ RSpec.describe "home/index", type: :view do
     render
     expect(rendered).to match(/Max \(cc-by-sa\)/)
     expect(rendered).to match(/http\:\/\/www.domain.de/)
+  end
+
+  it "renders privacy page link in footermenu" do
+    render
+    expect(rendered).to match(/Privacy/)
   end
 end
