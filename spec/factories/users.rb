@@ -11,7 +11,7 @@ FactoryBot.define do
     u.login     {generate :login}
     u.last_sign_in_at     { 1.week.ago }
     u.current_sign_in_at  { 1.week.ago }
-    u.password  'abcdefg'
+    u.password { 'abcdefg' }
     u.password_confirmation {|x| x.password}
   end
 

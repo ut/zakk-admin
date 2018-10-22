@@ -13,7 +13,7 @@ describe Admin::UsersController do
 
     it "create" do
       get :create, params: {user: FactoryBot.build(:user).attributes}
-      expect(response).to be_success
+      expect(response).to be_successful
 
     end
 
@@ -26,26 +26,26 @@ describe Admin::UsersController do
 
     it "edit" do
       get :edit, params: { id: User.first.id }
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it "index" do
       get :index
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it "new" do
       get :new
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it "should create new user and redirect to index" do
       user = FactoryBot.build(:user)
       count = User.count
       post :create, params: { user: { login: 'testuser', password: 'monkey', password_confirmation: 'monkey', email: "a@cdb.de" }}
-      User.count.should == count + 1
+      expect(User.count).to match(count + 1)
       expect(response).to redirect_to(admin_users_path)
-      flash[:notice].should match "Benutzer angelegt"
+      expect(flash[:notice]).to match("Benutzer angelegt")
     end
 
     it "should undelete" do
@@ -55,7 +55,6 @@ describe Admin::UsersController do
 
     it "should update" do
       put :update, params: {id: User.first.id, user: FactoryBot.build(:user).attributes }
-      # response.should be_successful
       expect(response).to redirect_to(admin_users_url)
     end
 

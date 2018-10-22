@@ -4,7 +4,7 @@ describe HomeController do
 
   it "should show homepage" do
     get :index
-    expect(response).to be_success
+    expect(response).to be_successful
   end
 
 end

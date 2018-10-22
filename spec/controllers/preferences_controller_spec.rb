@@ -21,17 +21,17 @@ describe PreferencesController, type: :controller  do
 
     it "edit response should be success" do
       get :edit, params: { id: User.first.id }
-      response.should be_success
+      response.should be_successful
     end
 
     it "edit should handle params" do
       get :edit, params: { id: User.first.id }
-      response.should be_success
+      response.should be_successful
     end
 
     it "edit response should be success" do
       get :edit, params: { user: FactoryBot.build(:user).attributes }
-      response.should be_success
+      response.should be_successful
     end
 
     it "should update" do
