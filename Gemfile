@@ -48,6 +48,7 @@ group :development do
   gem 'rails_layout'
   gem 'haml-rails'
   gem 'bootstrap-generators'
+  gem "letter_opener"
 end
 
 group :test do
