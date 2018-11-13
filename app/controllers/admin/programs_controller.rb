@@ -8,7 +8,7 @@ class Admin::ProgramsController < Admin::AdminController
   # GET /programs
   # GET /programs.json
   def index
-    @programs = Program.all.order( 'updated_at DESC' )
+    @programs = Program.all.order( 'id DESC' )
   end
 
   # GET /programs/1
