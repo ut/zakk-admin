@@ -16,8 +16,12 @@ module EventsHelper
   end
 
   def program_for_select
-    Program.all.order(:title).map do |p|
-      [p.title, p.id]
+    Program.all.order( 'id DESC' ).map do |p|
+      if p.current
+        ["#{p.title} (current)", p.id]
+      else
+        ["#{p.title}", p.id]
+      end
     end
   end
 

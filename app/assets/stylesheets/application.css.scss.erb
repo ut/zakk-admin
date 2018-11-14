@@ -46,6 +46,14 @@ main {
  }
 
 /* ---------------------- */
+#main_content {
+
+    margin-top: 15px;
+    @media only screen and (min-width: 40.063em) {
+      margin-top: 0;
+    }
+}
+/* ---------------------- */
 main .row#sub-footer {
   padding: 0;
 }
@@ -138,11 +146,12 @@ footer #footer .column:hover, footer a:hover {
 }
 /*--------------------*/
 #imagecredits {
-/*  transform: rotate(-90deg);
-  width: 220px;
-  margin-left: -100px;
-  margin-top: -100px;*/
   text-shadow: 1px 1px 2px white;
+
+  margin: 10px 0 20px;
+  @media only screen and (min-width: 40.063em) {
+    margin: 5px 0;
+  }
   span.ptext a {
     background-color: transparent;
     text-decoration: underline;
