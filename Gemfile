@@ -42,7 +42,7 @@ gem "mini_magick"
 
 gem 'datagrid'
 
-gem 'coveralls_reborn', '~> 0.11.0', require: false
+gem 'coveralls_reborn', '~> 0.12.0', require: false
 
 group :development do
   gem 'rails_layout'
