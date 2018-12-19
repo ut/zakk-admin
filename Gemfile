@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '5.2.1.1'
+gem 'rails', '5.2.2'
 
 gem 'activerecord-session_store'
 gem 'bcrypt', '~> 3.1.7'
