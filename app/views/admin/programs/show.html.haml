@@ -92,6 +92,6 @@
           Export to XML (InDesign)
       .large-4.columns
         = link_to sendmail_admin_program_path(:id => @program.id, :user => current_user), :class=>"button" do
-          Send program via E-Mail
+          Send as E-Mail to #{current_user.email}
   .large-4.columns
     &nbsp;
