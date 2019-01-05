@@ -1,4 +1,5 @@
-= render partial: '/partials/custom_styles', locals: {program: current_program}
+- if current_program.present?
+  = render partial: '/partials/custom_styles', locals: {program: current_program}
 
 
 - if ( can? :create, Event ) && ( can? :create, Location )

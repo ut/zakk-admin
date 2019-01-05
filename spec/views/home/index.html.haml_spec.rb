@@ -78,4 +78,16 @@ RSpec.describe "home/index", type: :view do
     render
     expect(rendered).to match(/Privacy/)
   end
+
+  it "renders something even if there is no current_program" do
+    current_program = nil
+    @program.current = false
+    @program.save!
+    render
+    # part of @program
+    expect(rendered).not_to match(/Max \(cc-by-sa\)/)
+    # on any rendering
+    expect(rendered).to match(/Privacy/)
+
+  end
 end

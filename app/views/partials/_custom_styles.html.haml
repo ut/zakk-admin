@@ -3,6 +3,7 @@
     - thumb = "#{escape_once(sanitize program.backgroundimage.medium_thumb.url)}"
   - else
     - thumb = "#{image_url('zakk_pattern1.png', :class => "medium_thumb")}"
+  - puts 'custom_styles'
   :css
     body, main { background-color: #{escape_once(sanitize program.backgroundcolor)}}
       main { background-image: url(#{escape_once(thumb)}); background-size: #{escape_once(program.backgroundimage_display)} }
