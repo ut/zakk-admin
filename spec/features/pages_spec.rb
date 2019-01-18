@@ -7,7 +7,6 @@ describe 'visiting a page show view' do
     it 'does not show a drafted page to guests' do
       @page = FactoryBot.create(:page, :title => "Drafted Page")
       visit "/pages/#{@page.id}"
-      save_and_open_page
       expect(page).to have_current_path "/"
       # expect(page).to have_content "Event is not publically available"
     end

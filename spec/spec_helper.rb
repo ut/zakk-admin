@@ -43,7 +43,6 @@ RSpec.configure do |config|
   config.color = true
 
   config.include Capybara::DSL
-  # Capybara.javascript_driver = :webkit
   Capybara.javascript_driver = :headless_chrome
 
   # rspec-expectations config goes here. You can use an alternate
