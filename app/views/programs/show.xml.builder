@@ -12,13 +12,13 @@ xml.program do
 
     for event in @program.events.with_ptype('0').order(:startdate)
       xml.event do
-        xml.event_title Event.title
-        if Event.shortext
-          xml.event_text Event.shortext
+        xml.event_title event.title
+        if event.shortext
+          xml.event_text event.shortext
         end
-        if Event.startdate
-          xml.event_starttime Event.starttime
-          xml.event_startdate Event.startday + " " + Event.startweekday
+        if event.startdate
+          xml.event_starttime event.starttime
+          xml.event_startdate event.startday + " " + event.startweekday
         end
       end
     end
@@ -30,17 +30,17 @@ xml.program do
 
     for event in @program.events.with_ptype('2').order(:startdate)
       xml.event do
-        xml.event_title Event.title
-        if Event.shortext
-          xml.event_text Event.shortext
+        xml.event_title event.title
+        if event.shortext
+          xml.event_text event.shortext
         end
-        if Event.startdate
-          xml.event_starttime Event.starttime
-          xml.event_startdate Event.startday + " " + Event.startweekday
+        if event.startdate
+          xml.event_starttime event.starttime
+          xml.event_startdate event.startday + " " + event.startweekday
         end
 
-        if Event.location
-          xml.event_location Event.location.title
+        if event.location
+          xml.event_location event.location.title
         end
       end
     end

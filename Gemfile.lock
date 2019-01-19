@@ -412,6 +412,3 @@ DEPENDENCIES
   unicorn-rails
   will_paginate
   will_paginate-bootstrap
-
-BUNDLED WITH
-   1.17.3
