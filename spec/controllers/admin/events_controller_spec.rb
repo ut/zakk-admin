@@ -4,7 +4,6 @@ RSpec.describe Admin::EventsController, type: :controller do
 
  describe "functionalities with logged in user with role 'admin'" do
     before do
-      @request.env['devise.mapping'] = Devise.mappings[:user]
       user = FactoryBot.create(:user_with_admin_role)
       sign_in user
     end
@@ -13,7 +12,8 @@ RSpec.describe Admin::EventsController, type: :controller do
       FactoryBot.create(:event)
     }
     let(:valid_attributes) {
-      FactoryBot.build(:event).attributes
+      location = FactoryBot.create(:location)
+      FactoryBot.build(:event, :location => location).attributes
     }
     let(:invalid_attributes) {
       FactoryBot.attributes_for(:event, :invalid)

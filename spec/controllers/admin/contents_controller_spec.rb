@@ -15,7 +15,8 @@ RSpec.describe Admin::ContentsController, type: :controller do
       FactoryBot.create(:content)
     }
     let(:valid_attributes) {
-      FactoryBot.build(:content).attributes
+      page = FactoryBot.create(:page)
+      FactoryBot.build(:content, :page => page).attributes
     }
     let(:invalid_attributes) {
       FactoryBot.attributes_for(:content, :invalid)
