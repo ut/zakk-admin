@@ -28,7 +28,7 @@ RSpec.describe Admin::ContentsController, type: :controller do
 
     describe "GET #index" do
       it "assigns all contents as @contents" do
-        content = Content.create! valid_attributes
+        content = FactoryBot.create(:content)
         get :index, params: {}, session: valid_session
         expect(assigns(:contents)).to eq([content])
       end
@@ -36,7 +36,7 @@ RSpec.describe Admin::ContentsController, type: :controller do
 
     describe "GET #show" do
       it "assigns the requested content as @content" do
-        content = Content.create! valid_attributes
+        content = FactoryBot.create(:content)
         get :show, params: {id: content.to_param}, session: valid_session
         expect(assigns(:content)).to eq(content)
       end
@@ -51,7 +51,7 @@ RSpec.describe Admin::ContentsController, type: :controller do
 
     describe "GET #edit" do
       it "assigns the requested content as @content" do
-        content = Content.create! valid_attributes
+        content = FactoryBot.create(:content)
         get :edit, params: {id: content.to_param}, session: valid_session
         expect(assigns(:content)).to eq(content)
       end
@@ -98,20 +98,20 @@ RSpec.describe Admin::ContentsController, type: :controller do
         }
 
         it "updates the requested content " do
-          content = Content.create! valid_attributes
+          content = FactoryBot.create(:content)
           put :update, params: {id: content.to_param, content:new_attributes}, session: valid_session
           content.reload
           expect(content.title).to eq "new content title"
         end
 
         it "assigns the requested content as @content" do
-          content = Content.create! valid_attributes
+          content = FactoryBot.create(:content)
           put :update, params: {id: content.to_param, content:valid_attributes}, session: valid_session
           expect(assigns(:content)).to eq(content)
         end
 
         it "redirects to the content " do
-          content = Content.create! valid_attributes
+          content = FactoryBot.create(:content)
           put :update, params: {id: content.to_param, content:valid_attributes}, session: valid_session
           expect(response).to redirect_to([:admin,content])
         end
@@ -119,13 +119,13 @@ RSpec.describe Admin::ContentsController, type: :controller do
 
       context "with invalid params" do
         it "assigns the content as @content" do
-          content = Content.create! valid_attributes
+          content = FactoryBot.create(:content)
           put :update, params: {id: content.to_param, content:invalid_attributes}, session: valid_session
           expect(assigns(:content)).to eq(content)
         end
 
         it "re-renders the 'edit' template" do
-          content = Content.create! valid_attributes
+          content = FactoryBot.create(:content)
           put :update, params: {id: content.to_param, content:invalid_attributes}, session: valid_session
           expect(response).to render_template("edit")
         end
@@ -134,14 +134,14 @@ RSpec.describe Admin::ContentsController, type: :controller do
 
     describe "DELETE #destroy" do
       it "destroys the requested content" do
-        content = Content.create! valid_attributes
+        content = FactoryBot.create(:content)
         expect {
           delete :destroy, params: {id: content.to_param}, session: valid_session
         }.to change(Content, :count).by(-1)
       end
 
       it "redirects to the contents list" do
-        content = Content.create! valid_attributes
+        content = FactoryBot.create(:content)
         delete :destroy, params: {id: content.to_param}, session: valid_session
         expect(response).to redirect_to(admin_contents_url)
       end
