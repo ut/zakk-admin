@@ -136,7 +136,7 @@ GEM
       railties (>= 4.2.0)
     faker (2.7.0)
       i18n (>= 1.6, < 1.8)
-    ffi (1.11.1)
+    ffi (1.11.2)
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
     foundation-datetimepicker-rails (0.2.4)
