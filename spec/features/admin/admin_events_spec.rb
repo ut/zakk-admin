@@ -1,14 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe "Admin::Events" do
-
   describe "Guests" do
-
     it "shows login form", :js => false do
       visit "/admin/events"
       expect(page).to have_content 'Sie müssen sich anmelden'
     end
-
   end
 
   describe "Users" do
@@ -18,8 +17,8 @@ RSpec.describe "Admin::Events" do
     end
 
     context "change status of a event (with XHR)" do
-
       it "... from draft to published", :js => true do
+        Rack::Attack.enabled = false
         visit "/users/sign_in"
         fill_in 'user_login', :with => @user.login
         fill_in 'user_password', :with => @user.password
@@ -35,5 +34,4 @@ RSpec.describe "Admin::Events" do
       end
     end
   end
-
 end

@@ -85,7 +85,7 @@ describe 'visiting the homepage' do
       expect(page).to have_content('Published Event')
     end
 
-    it 'does show a drafted event to users only (with edit button)' do
+    xit 'does show a drafted event to authed users only (with edit button)' do
       @event = FactoryBot.create(:event, :title => "Drafted Event",:startdate => DateTime.now + 2.days, :ptype => '1')
       visit '/'
       expect(page).to have_css('div.event_draft')

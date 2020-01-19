@@ -52,7 +52,7 @@
           = link_to program_path("current") do
             %strong #{current_program.title}
     .columns.large-4
-      - if @events_neues_published.count > 0
+      - if @events_neues_published.count > 0 || ( can? :manage, Event )
         .panel
           %h3
             Neues im

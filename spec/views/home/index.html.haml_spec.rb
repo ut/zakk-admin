@@ -1,8 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "home/index", type: :view do
+RSpec.describe 'home/index', type: :view do
   before(:each) do
-
     view.extend ApplicationHelper
     view.extend EventsHelper
 
@@ -40,6 +39,12 @@ RSpec.describe "home/index", type: :view do
     @events_programm = assign(:event, [Event.create!(
       :title => 'Event1',
       :ptype => '0',
+      :startdate =>  DateTime.now + 2.day,
+      :status => 'Published'
+    )])
+    @events_neues_published = assign(:event, [Event.create!(
+      :title => 'Event2',
+      :ptype => '1',
       :startdate =>  DateTime.now + 2.day,
       :status => 'Published'
     )])
@@ -88,6 +93,5 @@ RSpec.describe "home/index", type: :view do
     expect(rendered).not_to match(/Max \(cc-by-sa\)/)
     # on any rendering
     expect(rendered).to match(/Privacy/)
-
   end
 end
