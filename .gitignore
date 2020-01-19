@@ -10,6 +10,7 @@ public/system
 public/system
 public/uploads
 public/assets
+spec/support/uploads/program
 
 config/environment.rb
 config/application.rb
