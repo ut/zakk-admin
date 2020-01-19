@@ -4,7 +4,8 @@ FactoryBot.define do
     description { "Description" }
     backgroundcolor { "#ee0000" }
     backgroundimage { "File" }
-    image { "File" }
+    # image { "File" }
+    image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'support', 'flyer.jpg'), 'image/jpg') }
     backgroundimage_credit { "Maxi (cc-by-sa)" }
     backgroundimage_credit_link { "http://maxi.domain.com" }
     backgroundimage_display { "cover" }

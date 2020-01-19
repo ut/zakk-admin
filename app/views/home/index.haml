@@ -40,6 +40,19 @@
       - if ( can? :create, Event )
         %p.panel.hint
           sorted by startdate, only future dates (and today)
+
+    .columns.large-4
+      - if @events_neues.count > 0
+        .panel
+          %h3
+            Neues im
+            %strong zakk
+        - @events_neues.each do  |p|
+          - if ( p.status == 'Published' ) || ( can? :manage, Event )
+            = render partial: "event", locals: { p: p }
+        - if ( can? :create, Event )
+          %p.panel.hint
+            sorted by startdate, all events
       - if current_program.present? && current_program.image.url
         - image_url = "#{current_program.image.thumb.url}"
       - else
@@ -51,18 +64,6 @@
           Aktuelles Monatsprogramm:
           = link_to program_path("current") do
             %strong #{current_program.title}
-    .columns.large-4
-      .panel
-        %h3
-          Neues im
-          %strong zakk
-      - @events_neues.each do  |p|
-        - if ( p.status == 'Published' ) || ( can? :manage, Event )
-          = render partial: "event", locals: { p: p }
-      - if ( can? :create, Event )
-        %p.panel.hint
-          sorted by startdate, all events
-
     .columns.large-4
       - if @events_undsonst.count > 0
         .panel
@@ -87,7 +88,7 @@
             klubraum
     .columns.large-4
       #imagecredits
-        - if current_program.image_credit.present?
+        - if current_program.image_credit.present? && current_program.image.url
           %span.ptext
             Bild:
             - if current_program.image_credit_link.present?
