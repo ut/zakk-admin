@@ -40,7 +40,17 @@
       - if ( can? :create, Event )
         %p.panel.hint
           sorted by startdate, only future dates (and today)
-
+      - if current_program.present? && current_program.image.url
+        - image_url = "#{current_program.image.thumb.url}"
+      - else
+        - image_url = "#{image_url('zakk_pattern1.png')}"
+      %div{:class=>"panel program_image"}
+        = link_to program_path("current") do
+          %img{:src=>"#{image_url}"}
+        %p
+          Aktuelles Monatsprogramm:
+          = link_to program_path("current") do
+            %strong #{current_program.title}
     .columns.large-4
       - if @events_neues_published.count > 0
         .panel
@@ -53,17 +63,7 @@
         - if ( can? :create, Event )
           %p.panel.hint
             sorted by startdate, all events
-      - if current_program.present? && current_program.image.url
-        - image_url = "#{current_program.image.thumb.url}"
-      - else
-        - image_url = "#{image_url('zakk_pattern1.png')}"
-      %div{:class=>"panel program_image"}
-        = link_to program_path("current") do
-          %img{:src=>"#{image_url}"}
-        %p
-          Aktuelles Monatsprogramm:
-          = link_to program_path("current") do
-            %strong #{current_program.title}
+
     .columns.large-4
       - if @events_undsonst.count > 0
         .panel
