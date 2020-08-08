@@ -4,11 +4,10 @@ rvm:
   - 2.4.3
 services:
   - postgresql
-sudo: required
 addons:
   chrome: stable
 before_script:
-- gem install bundler
+- gem install bundler:2.1.4
 - "sudo chown root /opt/google/chrome/chrome-sandbox"
 - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
 - cp config/database.yml.travis config/database.yml
