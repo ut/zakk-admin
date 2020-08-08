@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '5.2.4.2'
+gem 'rails', '5.2.4.3'
 
 gem 'activerecord-session_store'
 gem 'bcrypt', '~> 3.1.7'
@@ -22,6 +22,7 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'sdoc', group: :doc
 
+gem 'sprockets', '~> 3'
 gem 'rack-attack'
 
 gem 'turbolinks'
