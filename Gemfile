@@ -64,8 +64,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'rails-controller-testing'
   # gem 'capybara-webkit'
-  gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
+  gem 'webdrivers', '~> 4.0', require: false
   gem 'launchy'
   gem 'unicorn'
   gem 'unicorn-rails'
