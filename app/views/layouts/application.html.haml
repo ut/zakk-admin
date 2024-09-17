@@ -6,10 +6,10 @@
     %title= content_for?(:title) ? "#{yield(:title)} // #{Rails.application.config_for(:settings).app_name}" : "#{Rails.application.config_for(:settings).app_name}"
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : ''}"}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    - if File.exists?('vendor/assets/stylesheets/zakk-admin-assets')
+    - if File.exist?('vendor/assets/stylesheets/zakk-admin-assets')
       = stylesheet_link_tag 'zakk-admin-assets/stylesheets/application', media: 'all', 'data-turbolinks-track' => true
 
-    -# Modernizr is required for Zurb Foundation
+    - # Modernizr is required for Zurb Foundation
     = javascript_include_tag 'vendor/modernizr'
 
     = csrf_meta_tags

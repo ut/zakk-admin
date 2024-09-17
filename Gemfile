@@ -28,7 +28,7 @@ gem 'psych', '~> 3'
 
 
 
-gem 'sprockets'
+gem 'sprockets', '~> 3'
 gem 'rack-attack'
 
 gem 'turbolinks'
@@ -36,7 +36,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-minicolors-rails'
 gem 'jquery-turbolinks'
-gem 'foundation-rails'
+gem 'foundation-rails', '5.5.1.2'
 gem 'foundation-icons-sass-rails'
 gem 'foundation-datetimepicker-rails'
 gem 'font-awesome-rails'

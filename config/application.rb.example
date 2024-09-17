@@ -26,12 +26,11 @@ module ZakkAdmin
 
     if %w( staging production ).include?(Rails.env)
       config.middleware.use ExceptionNotification::Rack,
-		:email => {
-		  email_prefix: "[ZakkAdmin - #{::Rails.env}] ",
-		  sender_address: %(no_reply@xxxxxx.xx),
-		  exception_recipients: %w( user@xxxxxx.xx )
-		}
-	end
-
+      :email => {
+        email_prefix: "[ZakkAdmin - #{::Rails.env}] ",
+        sender_address: %(no_reply@xxxxxx.xx),
+        exception_recipients: %w( user@xxxxxx.xx )
+      }
+	  end
   end
 end
