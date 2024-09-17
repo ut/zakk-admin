@@ -5,9 +5,9 @@
     %ul.menu{:role => 'navigation'}
       %li
         = link_to "/" do
-          = Settings.app_name
+          = Rails.application.config_for(:settings).app_name
         - if current_user
-          = Settings.app_version
+          = Rails.application.config_for(:settings).app_version
           (#{Rails.env})
       - if @footer_pages && @footer_pages.count > 0
         - @footer_pages.each do |p|

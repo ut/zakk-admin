@@ -3,7 +3,7 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-    %title= content_for?(:title) ? "#{yield(:title)} // #{Settings.app_name}" : "#{Settings.app_name}"
+    %title= content_for?(:title) ? "#{yield(:title)} // #{Rails.application.config_for(:settings).app_name}" : "#{Rails.application.config_for(:settings).app_name}"
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : ''}"}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     - if File.exists?('vendor/assets/stylesheets/zakk-admin-assets')

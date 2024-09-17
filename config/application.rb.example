@@ -35,5 +35,3 @@ module ZakkAdmin
 
   end
 end
-
-require 'settings'

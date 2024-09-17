@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
 
-
-
   resources :pages, only: [:show]
-
-
-  # mount RedactorRails::Engine => '/redactor_rails'
-
   resources :locations, only: [:index, :show]
   resources :events, only: [:index, :show]
   resources :programs, only: [:index, :show]
