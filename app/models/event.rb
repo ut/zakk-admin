@@ -22,7 +22,9 @@ class Event < ActiveRecord::Base
   # ["Programm","Neues im zakk","Und sonst?"]
   scope :with_ptype, lambda { |name|
     where('ptype = ?', name)
+    .where('startdate >= ?', 2.week.ago)
   }
+
 
 
   def set_defaults
