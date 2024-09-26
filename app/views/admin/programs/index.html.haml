@@ -38,7 +38,7 @@
               %td
                 - if program.backgroundimage.url
                   - if program.backgroundimage_display == 'cover'
-                    - style = "background-image: url(#{program.backgroundimage.medium_thumb.url}); background-size: 100vw; background-position: -50vw -50vw;"
+                    - style = "background-image: url(#{program.backgroundimage.cover.url}); background-size: 100vw; background-position: -50vw -50vw;"
                   - else
                     - style = "background-image: url(#{program.backgroundimage.medium_thumb.url}); background-size: 50px;"
                 - elsif program.published

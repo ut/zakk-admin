@@ -34,7 +34,8 @@
           %strong Programm
       - @events_programm.each do  |p|
         - if ( p.status == 'Published' ) || ( can? :manage, Event )
-          = render partial: "event", locals: { p: p }
+          .panel
+            = render partial: "event", locals: { p: p }
 
 
       - if ( can? :create, Event )
@@ -44,13 +45,17 @@
         - image_url = "#{current_program.image.thumb.url}"
       - else
         - image_url = "#{image_url('zakk_pattern1.png')}"
-      %div{:class=>"panel program_image"}
-        = link_to program_path("current") do
-          %img{:src=>"#{image_url}"}
-        %p
-          Aktuelles Monatsprogramm:
-          = link_to program_path("current") do
-            %strong #{current_program.title}
+      %div.panel.program_image
+        .text
+          .image
+            = link_to program_path("current") do
+              %img{:src=>"#{image_url}"}
+      %div.panel             
+        %div.text
+          %p
+            Aktuelles Monatsprogramm:
+            = link_to program_path("current") do
+              %strong #{current_program.title}
     .columns.medium-6.large-8
       - if @events_neues_published.count > 0 || ( can? :manage, Event )
         .panel

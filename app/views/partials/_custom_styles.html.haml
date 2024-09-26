@@ -1,6 +1,6 @@
 - if program
-  - if program.backgroundimage && program.backgroundimage.medium_thumb.present?
-    - thumb = "#{escape_once(sanitize program.backgroundimage.medium_thumb.url)}"
+  - if program.backgroundimage && program.backgroundimage.cover.present?
+    - thumb = "#{escape_once(sanitize program.backgroundimage.cover.url)}"
   - else
     - thumb = "#{escape_once(sanitize image_url('zakk_pattern1.png', :class => "medium_thumb"))}"
   :css
