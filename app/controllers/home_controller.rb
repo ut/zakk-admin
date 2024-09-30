@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def index
-    @events_programm = Event.where(:ptype => '0').where("startdate > ?", ( DateTime.now - 1.day)).order(:startdate)
+    @events_programm = Event.where(:ptype => '0').where("startdate > ?", ( DateTime.now - 31.day)).order(:startdate)
     #  p.startdate.day - DateTime.now.midnight.day
     @events_neues = Event.where(:ptype => '1').order(:startdate)
     @events_neues_published = Event.where(:ptype => '1').where(:status => 'Published').order(:startdate)

@@ -27,8 +27,8 @@
 
 #main_content
   .row
-    .columns.medium-6.large-4
-      .panel
+    .columns.medium-6.large-6
+      .panel.hide
         %h3
           zakk
           %strong Programm
@@ -41,27 +41,31 @@
       - if ( can? :create, Event )
         %p.panel.hint
           sorted by startdate, only future dates (and today)
+    .columns.medium-6.large-6
       - if current_program.present? && current_program.image.url
         - image_url = "#{current_program.image.thumb.url}"
       - else
         - image_url = "#{image_url('zakk_pattern1.png')}"
-      %div.panel.program_image
+      .panel.program_image
         .text
           .image
             = link_to program_path("current") do
               %img{:src=>"#{image_url}"}
-      %div.panel             
-        %div.text
+
+      .panel             
+        .text
           %p
             Aktuelles Monatsprogramm:
+            %br
             = link_to program_path("current") do
               %strong #{current_program.title}
-    .columns.medium-6.large-8
+
       - if @events_neues_published.count > 0 || ( can? :manage, Event )
-        .panel
+        .panel.hide
           %h3
             Neues im
             %strong zakk
+      
         .panel
           - @events_neues.each do  |p|
             - if ( p.status == 'Published' ) || ( can? :manage, Event )
