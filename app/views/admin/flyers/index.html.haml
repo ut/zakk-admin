@@ -29,6 +29,7 @@
                 - else
                   "#{image_tag('zakk_pattern3.png', :class => "medium_thumb placeholder_thumb", :with => '150', :height => '150')}".html_safe
               %td= flyer.title
+              %td= flyer.updated_at.strftime("%d.%m.%y")
               %td
                 = link_to edit_admin_flyer_path(flyer), :class=>"button tiny" do
                   %i.fi-pencil.fi-21
