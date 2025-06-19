@@ -7,11 +7,11 @@
 
 Website and admin interface for [zakk](https://zakk.klubraum.org) (a cultural center in Bremen, GER)
 
-Based on Ruby on Rails 5, Postgres, jQuery and Foundation 5
+Based on Ruby on Rails 6.1, Postgres, jQuery and Foundation 5
 
 ## Dependencies
 
-Rails 5.2 & Ruby 2.4, Rspec
+Rails 6.1 & Ruby 3, Rspec
 
 Qt for the [compiling of capybara-webkit](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
 
